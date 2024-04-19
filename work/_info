@@ -9,7 +9,7 @@ z2
 cModel Technology
 dC:/intelFPGA_lite/18.1
 Ealu
-Z0 w1713491519
+Z0 w1713570931
 Z1 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
 Z2 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
 Z3 dC:/Users/mahmo/OneDrive/Desktop/architecture
@@ -21,9 +21,9 @@ V7M5oh@jcoZAJIR0SRo8B42
 !s100 cUo<Nm07S2S;76RF6fP`^3
 Z6 OV;C;10.5b;63
 32
-Z7 !s110 1713491526
+Z7 !s110 1713570979
 !i10b 1
-Z8 !s108 1713491526.000000
+Z8 !s108 1713570978.000000
 Z9 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:\Users\mahmo\OneDrive\Desktop\architecture\ALU.vhd|
 Z10 !s107 C:\Users\mahmo\OneDrive\Desktop\architecture\ALU.vhd|
 !i113 1
@@ -35,8 +35,8 @@ R2
 Z13 DEx4 work 3 alu 0 22 7M5oh@jcoZAJIR0SRo8B42
 l38
 L18
-VjK2gJeKh@I;YlB^ldXmni0
-!s100 zZ0HZ[afR[=TRUZIhD3g?1
+Z14 V:H>0kSFmmkDXTMZD:>69Z2
+Z15 !s100 nQE]no^0LR;H`m=;>V@S`1
 R6
 32
 R7
@@ -48,80 +48,80 @@ R10
 R11
 R12
 Emux_generic
-Z14 w1713377562
+Z16 w1713377562
 R1
 R2
 R3
-Z15 8C:\Users\mahmo\OneDrive\Desktop\architecture\MUX.vhd
-Z16 FC:\Users\mahmo\OneDrive\Desktop\architecture\MUX.vhd
+Z17 8C:\Users\mahmo\OneDrive\Desktop\architecture\MUX.vhd
+Z18 FC:\Users\mahmo\OneDrive\Desktop\architecture\MUX.vhd
 l0
 L5
 VLmcodRc1G_Z@;<dEgNfY=0
 !s100 k;@CCHGGlk7=lU87Vd=fg3
 R6
 32
-Z17 !s110 1713389444
+Z19 !s110 1713389444
 !i10b 1
-Z18 !s108 1713389444.000000
-Z19 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:\Users\mahmo\OneDrive\Desktop\architecture\MUX.vhd|
-Z20 !s107 C:\Users\mahmo\OneDrive\Desktop\architecture\MUX.vhd|
+Z20 !s108 1713389444.000000
+Z21 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:\Users\mahmo\OneDrive\Desktop\architecture\MUX.vhd|
+Z22 !s107 C:\Users\mahmo\OneDrive\Desktop\architecture\MUX.vhd|
 !i113 1
 R11
 R12
 Awith_select_mux
 R1
 R2
-Z21 DEx4 work 11 mux_generic 0 22 LmcodRc1G_Z@;<dEgNfY=0
+Z23 DEx4 work 11 mux_generic 0 22 LmcodRc1G_Z@;<dEgNfY=0
 l24
 L23
 VG>MhzTmn`BO9WFkI?[>0Z0
 !s100 lcThz1<f4Dcga]8f_b@RZ0
 R6
 32
-R17
-!i10b 1
-R18
 R19
+!i10b 1
 R20
+R21
+R22
 !i113 1
 R11
 R12
 Awhen_else_mux
 R1
 R2
-R21
+R23
 l14
 L13
 VgXDfm4RZiN9fHb@a@Bh`R2
 !s100 HdL0;GXHfJddX;OIjf2Bc2
 R6
 32
-R17
-!i10b 1
-R18
 R19
+!i10b 1
 R20
+R21
+R22
 !i113 1
 R11
 R12
 Emy_adder
-Z22 w1713383654
+Z24 w1713383654
 R1
 R2
 R3
-Z23 8C:\Users\mahmo\OneDrive\Desktop\architecture\my_adder.vhd
-Z24 FC:\Users\mahmo\OneDrive\Desktop\architecture\my_adder.vhd
+Z25 8C:\Users\mahmo\OneDrive\Desktop\architecture\my_adder.vhd
+Z26 FC:\Users\mahmo\OneDrive\Desktop\architecture\my_adder.vhd
 l0
 L5
 VD_zAZ>HDHY9l0F=SGW4VD1
 !s100 8zjHUkD;?cBUU>`ld:TQ^3
 R6
 32
-Z25 !s110 1713389445
+Z27 !s110 1713389445
 !i10b 1
-Z26 !s108 1713389445.000000
-Z27 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:\Users\mahmo\OneDrive\Desktop\architecture\my_adder.vhd|
-Z28 !s107 C:\Users\mahmo\OneDrive\Desktop\architecture\my_adder.vhd|
+Z28 !s108 1713389445.000000
+Z29 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:\Users\mahmo\OneDrive\Desktop\architecture\my_adder.vhd|
+Z30 !s107 C:\Users\mahmo\OneDrive\Desktop\architecture\my_adder.vhd|
 !i113 1
 R11
 R12
@@ -135,32 +135,32 @@ Vz[n@zXdBAd[HRDThaOEYP1
 !s100 9RSh>8;SbJfNDaReeNCP13
 R6
 32
-R25
-!i10b 1
-R26
 R27
+!i10b 1
 R28
+R29
+R30
 !i113 1
 R11
 R12
 Emy_dff
-Z29 w1713377569
+Z31 w1713377569
 R1
 R2
 R3
-Z30 8C:/Users/mahmo/OneDrive/Desktop/architecture/my_Dff.vhd
-Z31 FC:/Users/mahmo/OneDrive/Desktop/architecture/my_Dff.vhd
+Z32 8C:/Users/mahmo/OneDrive/Desktop/architecture/my_Dff.vhd
+Z33 FC:/Users/mahmo/OneDrive/Desktop/architecture/my_Dff.vhd
 l0
 L6
 VfaAS02_SFZX?j2ZOc=5XL2
 !s100 =fz;BKM_k7KfMB;NC[Oaz1
 R6
 32
-R17
+R19
 !i10b 1
-R18
-Z32 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/mahmo/OneDrive/Desktop/architecture/my_Dff.vhd|
-Z33 !s107 C:/Users/mahmo/OneDrive/Desktop/architecture/my_Dff.vhd|
+R20
+Z34 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/mahmo/OneDrive/Desktop/architecture/my_Dff.vhd|
+Z35 !s107 C:/Users/mahmo/OneDrive/Desktop/architecture/my_Dff.vhd|
 !i113 1
 R11
 R12
@@ -174,32 +174,32 @@ V7=8amSfZ^1UjOdO]LR_g80
 !s100 2U3MneJaX`YnD@?CoCANd1
 R6
 32
-R17
+R19
 !i10b 1
-R18
-R32
-R33
+R20
+R34
+R35
 !i113 1
 R11
 R12
 Emy_nadder
-Z34 w1713377862
+Z36 w1713377862
 R1
 R2
 R3
-Z35 8C:/Users/mahmo/OneDrive/Desktop/architecture/my_nadder.vhd
-Z36 FC:/Users/mahmo/OneDrive/Desktop/architecture/my_nadder.vhd
+Z37 8C:/Users/mahmo/OneDrive/Desktop/architecture/my_nadder.vhd
+Z38 FC:/Users/mahmo/OneDrive/Desktop/architecture/my_nadder.vhd
 l0
 L6
 VHONcB5o9dSIXBUbnXBHJi1
 !s100 ^4;hSW9l>KY2O?kB4A]jU2
 R6
 32
-R17
+R19
 !i10b 1
-R18
-Z37 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/mahmo/OneDrive/Desktop/architecture/my_nadder.vhd|
-Z38 !s107 C:/Users/mahmo/OneDrive/Desktop/architecture/my_nadder.vhd|
+R20
+Z39 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/mahmo/OneDrive/Desktop/architecture/my_nadder.vhd|
+Z40 !s107 C:/Users/mahmo/OneDrive/Desktop/architecture/my_nadder.vhd|
 !i113 1
 R11
 R12
@@ -213,32 +213,32 @@ V3bPP1bNRT^3PPiA7AKG;h2
 !s100 ;2PQUcd?EA4`lCSMAXQh12
 R6
 32
-R17
+R19
 !i10b 1
-R18
-R37
-R38
+R20
+R39
+R40
 !i113 1
 R11
 R12
 Emy_ndff
-Z39 w1713377867
+Z41 w1713377867
 R1
 R2
 R3
-Z40 8C:/Users/mahmo/OneDrive/Desktop/architecture/my_nDff.vhd
-Z41 FC:/Users/mahmo/OneDrive/Desktop/architecture/my_nDff.vhd
+Z42 8C:/Users/mahmo/OneDrive/Desktop/architecture/my_nDff.vhd
+Z43 FC:/Users/mahmo/OneDrive/Desktop/architecture/my_nDff.vhd
 l0
 L5
 V`Q8dP?clFjPS^:nIPC38_0
 !s100 ?nZ9oMbSQDGQ1d@PP4dJg1
 R6
 32
-R25
+R27
 !i10b 1
-R18
-Z42 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/mahmo/OneDrive/Desktop/architecture/my_nDff.vhd|
-Z43 !s107 C:/Users/mahmo/OneDrive/Desktop/architecture/my_nDff.vhd|
+R20
+Z44 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/mahmo/OneDrive/Desktop/architecture/my_nDff.vhd|
+Z45 !s107 C:/Users/mahmo/OneDrive/Desktop/architecture/my_nDff.vhd|
 !i113 1
 R11
 R12
@@ -252,32 +252,32 @@ VKX7[oK>2KJN4RCbU`LG]Z3
 !s100 1bmU<Y[a86gNPlBI27b6a0
 R6
 32
-R25
+R27
 !i10b 1
-R18
-R42
-R43
+R20
+R44
+R45
 !i113 1
 R11
 R12
 Eselect_adder
-Z44 w1713377642
+Z46 w1713377642
 R1
 R2
 R3
-Z45 8C:/Users/mahmo/OneDrive/Desktop/architecture/select_adder.vhd
-Z46 FC:/Users/mahmo/OneDrive/Desktop/architecture/select_adder.vhd
+Z47 8C:/Users/mahmo/OneDrive/Desktop/architecture/select_adder.vhd
+Z48 FC:/Users/mahmo/OneDrive/Desktop/architecture/select_adder.vhd
 l0
 L6
 V8`J^ZJlGW26gz2?XGcFU`1
 !s100 mPRlc[2>NBdYX9DjM_Y042
 R6
 32
-R25
+R27
 !i10b 1
-R26
-Z47 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/mahmo/OneDrive/Desktop/architecture/select_adder.vhd|
-Z48 !s107 C:/Users/mahmo/OneDrive/Desktop/architecture/select_adder.vhd|
+R28
+Z49 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/mahmo/OneDrive/Desktop/architecture/select_adder.vhd|
+Z50 !s107 C:/Users/mahmo/OneDrive/Desktop/architecture/select_adder.vhd|
 !i113 1
 R11
 R12
@@ -291,11 +291,11 @@ VYVU]D84_nW=;b<I?Bd0bL1
 !s100 mffTld9eJLjSV_f]TTVYF0
 R6
 32
-R25
+R27
 !i10b 1
-R26
-R47
-R48
+R28
+R49
+R50
 !i113 1
 R11
 R12

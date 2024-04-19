@@ -80,10 +80,9 @@ begin
         cinc_out when opcode_in = "00011" else
         cadd_out when opcode_in = "01001" else
         cadd_out when opcode_in = "01111" else
-        csub_out when opcode_in = "01010" else
-        csub_out when opcode_in = "01110" else
-        csub_out when opcode_in = "10000" else
-        '0';
+        '1' when ((opcode_in = "01010" or opcode_in = "10000") and reg1_in(n-1) = '0' and reg2_in(n-1) = '0' and signal_dataout(n-1)='1') or ((opcode_in = "01010" or opcode_in = "10000") and reg1_in(n-1) = '1' and reg2_in(n-1) = '1' and signal_dataout(n-1)='0') 
+        else '0';
+       
 
     -- Overflow flag logic for addition
     -- Overflow flag logic
