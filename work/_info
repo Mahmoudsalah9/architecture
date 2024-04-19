@@ -9,7 +9,7 @@ z2
 cModel Technology
 dC:/intelFPGA_lite/18.1
 Ealu
-Z0 w1713389518
+Z0 w1713491519
 Z1 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
 Z2 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
 Z3 dC:/Users/mahmo/OneDrive/Desktop/architecture
@@ -17,13 +17,13 @@ Z4 8C:\Users\mahmo\OneDrive\Desktop\architecture\ALU.vhd
 Z5 FC:\Users\mahmo\OneDrive\Desktop\architecture\ALU.vhd
 l0
 L4
-V@2Uo6f8O]:KKO>[JCHdO42
-!s100 TT?zF@Ji_N;e=Wc:hcd`a3
+V7M5oh@jcoZAJIR0SRo8B42
+!s100 cUo<Nm07S2S;76RF6fP`^3
 Z6 OV;C;10.5b;63
 32
-Z7 !s110 1713389537
+Z7 !s110 1713491526
 !i10b 1
-Z8 !s108 1713389537.000000
+Z8 !s108 1713491526.000000
 Z9 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:\Users\mahmo\OneDrive\Desktop\architecture\ALU.vhd|
 Z10 !s107 C:\Users\mahmo\OneDrive\Desktop\architecture\ALU.vhd|
 !i113 1
@@ -32,11 +32,11 @@ Z12 tExplicit 1 CvgOpt 0
 Amymodel
 R1
 R2
-Z13 DEx4 work 3 alu 0 22 @2Uo6f8O]:KKO>[JCHdO42
-l37
+Z13 DEx4 work 3 alu 0 22 7M5oh@jcoZAJIR0SRo8B42
+l38
 L18
-VS0U3QHR6>QPoKaKaEG:X11
-!s100 OL_=e`d3Tn;gT=YJE8R;M1
+VjK2gJeKh@I;YlB^ldXmni0
+!s100 zZ0HZ[afR[=TRUZIhD3g?1
 R6
 32
 R7
