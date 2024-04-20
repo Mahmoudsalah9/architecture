@@ -1,4 +1,12 @@
-C:/Users/mahmo/OneDrive/Desktop/architecture/my_adder.vhd {1 {vcom -work work -2002 -explicit -stats=none {C:\Users\mahmo\OneDrive\Desktop\architecture\my_adder.vhd}
+C:/Users/mahmo/OneDrive/Desktop/architecture/my_Dff.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/mahmo/OneDrive/Desktop/architecture/my_Dff.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity my_DFF
+-- Compiling architecture a_my_DFF of my_DFF
+
+} {} {}} C:/Users/mahmo/OneDrive/Desktop/architecture/my_adder.vhd {1 {vcom -work work -2002 -explicit -stats=none {C:\Users\mahmo\OneDrive\Desktop\architecture\my_adder.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -6,13 +14,13 @@ Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  
 -- Compiling entity my_adder
 -- Compiling architecture a_my_adder of my_adder
 
-} {} {}} C:/Users/mahmo/OneDrive/Desktop/architecture/my_Dff.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/mahmo/OneDrive/Desktop/architecture/my_Dff.vhd
+} {} {}} C:/Users/mahmo/OneDrive/Desktop/architecture/ALU.vhd {1 {vcom -work work -2002 -explicit -stats=none {C:\Users\mahmo\OneDrive\Desktop\architecture\ALU.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
--- Compiling entity my_DFF
--- Compiling architecture a_my_DFF of my_DFF
+-- Compiling entity ALU
+-- Compiling architecture myModel of ALU
 
 } {} {}} C:/Users/mahmo/OneDrive/Desktop/architecture/MUX.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/mahmo/OneDrive/Desktop/architecture/MUX.vhd
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
@@ -24,13 +32,13 @@ Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  
 -- Compiling architecture with_select_mux of mux_generic
 -- Loading entity mux_generic
 
-} {} {}} C:/Users/mahmo/OneDrive/Desktop/architecture/select_adder.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/mahmo/OneDrive/Desktop/architecture/select_adder.vhd
+} {} {}} C:/Users/mahmo/OneDrive/Desktop/architecture/my_nadder.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/mahmo/OneDrive/Desktop/architecture/my_nadder.vhd
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
--- Compiling entity select_adder
--- Compiling architecture a_my_adder of select_adder
+-- Compiling entity my_nadder
+-- Compiling architecture a_my_adder of my_nadder
 
 } {} {}} C:/Users/mahmo/OneDrive/Desktop/architecture/my_nDff.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/mahmo/OneDrive/Desktop/architecture/my_nDff.vhd
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
@@ -40,12 +48,12 @@ Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  
 -- Compiling entity my_nDFF
 -- Compiling architecture b_my_nDFF of my_nDFF
 
-} {} {}} C:/Users/mahmo/OneDrive/Desktop/architecture/my_nadder.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/mahmo/OneDrive/Desktop/architecture/my_nadder.vhd
+} {} {}} C:/Users/mahmo/OneDrive/Desktop/architecture/select_adder.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/mahmo/OneDrive/Desktop/architecture/select_adder.vhd
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
--- Compiling entity my_nadder
--- Compiling architecture a_my_adder of my_nadder
+-- Compiling entity select_adder
+-- Compiling architecture a_my_adder of select_adder
 
 } {} {}}
