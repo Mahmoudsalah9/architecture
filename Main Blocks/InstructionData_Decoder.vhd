@@ -19,4 +19,4 @@ BEGIN
     Data <= Data_or_Instruction WHEN Data_After = '1' ELSE
         x"0000";
 
-END ARCHITECTURE
+END ARCHITECTURE;
