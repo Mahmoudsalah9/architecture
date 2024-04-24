@@ -18,6 +18,24 @@ ARCHITECTURE Processor_Integration_Design OF Processor_Integration IS
 
     --------------------------------------------------------------------------  Components  --------------------------------------------------------------------------------
 
+    COMPONENT Mux2x1 IS
+        GENERIC (n : INTEGER := 32);
+        PORT (
+            in0, in1 : IN STD_LOGIC_VECTOR (n - 1 DOWNTO 0);
+            sel : IN STD_LOGIC;
+            MUX_Out : OUT STD_LOGIC_VECTOR (n - 1 DOWNTO 0)
+        );
+    END COMPONENT;
+
+    COMPONENT Mux4x1 IS
+        GENERIC (n : INTEGER := 32);
+        PORT (
+            in0, in1, in2, in3 : IN STD_LOGIC_VECTOR (n - 1 DOWNTO 0);
+            sel : IN STD_LOGIC_VECTOR (1 DOWNTO 0);
+            MUX_Out : OUT STD_LOGIC_VECTOR (n - 1 DOWNTO 0)
+        );
+    END COMPONENT;
+
     COMPONENT Instruction_Memory IS
         PORT (
             CLK : IN STD_LOGIC;
@@ -99,9 +117,79 @@ ARCHITECTURE Processor_Integration_Design OF Processor_Integration IS
         );
     END COMPONENT;
 
+    COMPONENT registerfile IS
+        PORT (
+            clk, rst : IN STD_LOGIC;
+            wrten1, wrten2 : IN STD_LOGIC; -- Two write enables
+            writeport1, writeport2 : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+            readport1, readport2 : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+            WriteAdd1, WriteAdd2 : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+            ReadAdd1, ReadAdd2 : IN STD_LOGIC_VECTOR(31 DOWNTO 0)
+        );
+    END COMPONENT;
+
     ----------------------------------------------------------------------------  Signals  -------------------------------------------------------------------------------
 
-    SIGNAL
+    -- Fetch Stage:
+    SIGNAL Data_From_Instruction_Memory : STD_LOGIC_VECTOR(15 DOWNTO 0);
+    SIGNAL Instruction_Fetch : STD_LOGIC_VECTOR(15 DOWNTO 0);
+    SIGNAL Data_Fetch : STD_LOGIC_VECTOR(15 DOWNTO 0);
+
+    -- Decode Stage:
+    SIGNAL Instruction_Decode : STD_LOGIC_VECTOR(15 DOWNTO 0);
+    SIGNAL Data_Fetch_Decode : STD_LOGIC_VECTOR(15 DOWNTO 0);
+    SIGNAL Extended_Data_Decode_Execute : STD_LOGIC_VECTOR(15 DOWNTO 0);
+
+    SIGNAL OPCODE : STD_LOGIC_VECTOR(4 DOWNTO 0);
+
+    --Control signals generation:
+    SIGNAL ALU_OP_Decode STD_LOGIC_VECTOR(4 DOWNTO 0);
+    SIGNAL Write_Enable_Decode STD_LOGIC;
+    SIGNAL Mem_Write_Decode STD_LOGIC;
+    SIGNAL Mem_Read_Decode STD_LOGIC;
+    SIGNAL InPort_Enable_Decode STD_LOGIC;
+    SIGNAL OutPort_Enable_Decode STD_LOGIC;
+    SIGNAL Swap_Enable STD_LOGIC;
+    SIGNAL Memory_Add_Selec_Decode STD_LOGIC_VECTOR(1 DOWNTO 0);
+    SIGNAL Data_After_Decode STD_LOGIC;
+    SIGNAL ALU_SRC_Decode STD_LOGIC;
+    SIGNAL WB_Selector_Decode STD_LOGIC_VECTOR(1 DOWNTO 0)
+    SIGNAL Extend_Sign_Decode STD_LOGIC;
+
+    SIGNAL R_Source1 : STD_LOGIC_VECTOR(2 DOWNTO 0);
+    SIGNAL R_Source2 : STD_LOGIC_VECTOR(2 DOWNTO 0);
+    SIGNAL Write_Add1 : STD_LOGIC_VECTOR(2 DOWNTO 0);
+
+    SIGNAL Write_Add2 : STD_LOGIC_VECTOR(2 DOWNTO 0);
+    SIGNAL Read_Port1_Decode : STD_LOGIC_VECTOR(31 DOWNTO 0);
+    SIGNAL Read_Port2_Decode : STD_LOGIC_VECTOR(31 DOWNTO 0);
+
+    -- Execute Stage:
+
+    -- Memory Stage:
+
+    -- WB Stage:
 
 BEGIN
+
+    -- Fetch Stage:
+
+    Instruction_Memory_Instance : Instruction_Memory PORT MAP(Clk, "address", Data_From_Instruction_Memory, Data_After_Decode);
+
+    InstructionData_Decoder_Instance : InstructionData_Decoder PORT MAP(Data_From_Instruction_Memory, Data_Fetch, Instruction_Fetch, Data_After);
+
+    --Deocde Stage:
+
+    OPCODE <= Instruction_Decode(15 DOWNTO 11);
+    R_Source1 <= Instruction_Decode(10 DOWNTO 8);
+    R_Source2 <= Instruction_Decode(7 DOWNTO 15);
+    Write_Add1 <= Instruction_Decode(4 DOWNTO 2);
+    Write_Add2 <= Instruction_Decode(7 DOWNTO 15);
+
+    Control_Unit_Instance : Control_Unit PORT MAP(OPCODE, ALU_OP_Decode, Write_Enable_Decode, Mem_Write_Decode, Mem_Read_Decode, InPort_Enable_Decode, OutPort_Enable_Decode, Swap_Enable, Memory_Add_Selec_Decode, Data_After_Decode, ALU_SRC_Decode, WB_Selector_Decode, Extend_Sign_Decode);
+
+    Sign_Extend_Instance : Sign_Extend PORT MAP(Extend_Sign_Decode, Data_Fetch_Decode, Extended_Data_Decode_Execute);
+
+    registerfile_Instance : registerfile PORT MAP(Clk, Rst, "write enable1", "swap enable", "write data1", "write data2", Read_Port1_Decode, Read_Port2_Decode, "write add1", "write add2", R_Source1, R_Source2);
+
 END ARCHITECTURE;
