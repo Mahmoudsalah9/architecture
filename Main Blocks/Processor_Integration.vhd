@@ -218,7 +218,7 @@ BEGIN
 
     Program_Counter_Instance : Program_Counter PORT MAP(Clk, Rst, '1', PC_Address);
 
-    Instruction_Memory_Instance : Instruction_Memory PORT MAP(Clk, PC_Address, Data_From_Instruction_Memory, Data_After_Decode);
+    Instruction_Memory_Instance : Instruction_Memory PORT MAP(Clk, PC_Address, Data_From_Instruction_Memory);
 
     InstructionData_Decoder_Instance : InstructionData_Decoder PORT MAP(Data_From_Instruction_Memory, Data_Fetch, Instruction_Fetch, Data_After);
 
