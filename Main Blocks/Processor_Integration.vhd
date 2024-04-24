@@ -117,20 +117,32 @@ ARCHITECTURE Processor_Integration_Design OF Processor_Integration IS
         );
     END COMPONENT;
 
-    COMPONENT registerfile IS
+    COMPONENT RegisterFile IS
         PORT (
             clk, rst : IN STD_LOGIC;
-            wrten1, wrten2 : IN STD_LOGIC; -- Two write enables
-            writeport1, writeport2 : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
-            readport1, readport2 : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
-            WriteAdd1, WriteAdd2 : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
-            ReadAdd1, ReadAdd2 : IN STD_LOGIC_VECTOR(31 DOWNTO 0)
+            read1_addr, read2_addr : IN unsigned(2 DOWNTO 0);
+            write1_addr, write2_addr : IN unsigned(2 DOWNTO 0);
+            write1_data, write2_data : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+            read1_data, read2_data : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+            enable1, enable2 : IN STD_LOGIC
+            enable : IN STD_LOGIC
+        );
+    END COMPONENT RegisterFile;
+
+    COMPONENT Program_Counter IS
+        PORT (
+            clk : IN STD_LOGIC;
+            rst : IN STD_LOGIC;
+            enable : IN STD_LOGIC;
+            address : OUT STD_LOGIC_VECTOR(11 DOWNTO 0)
         );
     END COMPONENT;
 
     ----------------------------------------------------------------------------  Signals  -------------------------------------------------------------------------------
 
     -- Fetch Stage:
+
+    SIGNAL PC_Address : STD_LOGIC_VECTOR(11 DOWNTO 0);
     SIGNAL Data_From_Instruction_Memory : STD_LOGIC_VECTOR(15 DOWNTO 0);
     SIGNAL Instruction_Fetch : STD_LOGIC_VECTOR(15 DOWNTO 0);
     SIGNAL Data_Fetch : STD_LOGIC_VECTOR(15 DOWNTO 0);
@@ -142,7 +154,7 @@ ARCHITECTURE Processor_Integration_Design OF Processor_Integration IS
 
     SIGNAL OPCODE : STD_LOGIC_VECTOR(4 DOWNTO 0);
 
-    --Control signals generation:
+    --Control signals generation
     SIGNAL ALU_OP_Decode STD_LOGIC_VECTOR(4 DOWNTO 0);
     SIGNAL Write_Enable_Decode STD_LOGIC;
     SIGNAL Mem_Write_Decode STD_LOGIC;
@@ -166,6 +178,33 @@ ARCHITECTURE Processor_Integration_Design OF Processor_Integration IS
 
     -- Execute Stage:
 
+    SIGNAL Immdite_Data_Execute : STD_LOGIC_VECTOR(15 DOWNTO 0);
+    SIGNAL Read_Port1_Execute : STD_LOGIC_VECTOR(31 DOWNTO 0);
+    SIGNAL Read_Port2_Execute : STD_LOGIC_VECTOR(31 DOWNTO 0);
+    SIGNAL Write_Add1_Execute : STD_LOGIC_VECTOR(2 DOWNTO 0);
+
+    --Control signals Execute
+    SIGNAL ALU_OP_Execute STD_LOGIC_VECTOR(4 DOWNTO 0);
+    SIGNAL Write_Enable_Execute STD_LOGIC;
+    SIGNAL Mem_Write_Execute STD_LOGIC;
+    SIGNAL Mem_Read_Execute STD_LOGIC;
+    SIGNAL InPort_Enable_Execute STD_LOGIC;
+    SIGNAL OutPort_Enable_Execute STD_LOGIC;
+    SIGNAL Swap_Execute STD_LOGIC;
+    SIGNAL Memory_Add_Selec_Execute STD_LOGIC_VECTOR(1 DOWNTO 0);
+    SIGNAL Data_After_Execute STD_LOGIC;
+    SIGNAL ALU_SRC_Execute STD_LOGIC;
+    SIGNAL WB_Selector_Execute STD_LOGIC_VECTOR(1 DOWNTO 0)
+    SIGNAL Extend_Sign_Execute STD_LOGIC;
+
+    --ALU signals
+    SIGNAL Oprand1 : STD_LOGIC_VECTOR(31 DOWNTO 0);
+    SIGNAL Oprand2 : STD_LOGIC_VECTOR(31 DOWNTO 0);
+    SIGNAL ALU_Result_Execute : STD_LOGIC_VECTOR(31 DOWNTO 0);
+    SIGNAL ALU_Write_Data2 : STD_LOGIC_VECTOR(31 DOWNTO 0);
+    SIGNAL Flags : STD_LOGIC_VECTOR(3 DOWNTO 0);
+
+    SIGNAL Final_Result_Execute : STD_LOGIC_VECTOR(31 DOWNTO 0);
     -- Memory Stage:
 
     -- WB Stage:
@@ -174,7 +213,9 @@ BEGIN
 
     -- Fetch Stage:
 
-    Instruction_Memory_Instance : Instruction_Memory PORT MAP(Clk, "address", Data_From_Instruction_Memory, Data_After_Decode);
+    Program_Counter_Instance : Program_Counter PORT MAP(Clk, Rst, '1', PC_Address);
+
+    Instruction_Memory_Instance : Instruction_Memory PORT MAP(Clk, PC_Address, Data_From_Instruction_Memory, Data_After_Decode);
 
     InstructionData_Decoder_Instance : InstructionData_Decoder PORT MAP(Data_From_Instruction_Memory, Data_Fetch, Instruction_Fetch, Data_After);
 
@@ -190,6 +231,14 @@ BEGIN
 
     Sign_Extend_Instance : Sign_Extend PORT MAP(Extend_Sign_Decode, Data_Fetch_Decode, Extended_Data_Decode_Execute);
 
-    registerfile_Instance : registerfile PORT MAP(Clk, Rst, "write enable1", "swap enable", "write data1", "write data2", Read_Port1_Decode, Read_Port2_Decode, "write add1", "write add2", R_Source1, R_Source2);
+    registerfile_Instance : registerfile PORT MAP(Clk, Rst,);
+
+    --Execute Stage:
+
+    Mux2x1_ALU_Source : Mux2x1 GENERIC MAP(32) PORT MAP(Read_Port2_Execute, Extended_Data_Decode_Execute, ALU_SRC_Execute, Oprand2); -- mux for choosing oprand 2 for Alu
+
+    ALU_Instance : ALU GENERIC MAP(32) PORT MAP(Read_Port1_Execute, Oprand2, ALU_OP_Execute, Flags, ALU_Result_Execute, ALU_Write_Data2);
+
+    Mux2x1_INPUTPORT : Mux2x1 GENERIC MAP(32) PORT MAP(ALU_Result_Execute, In_Port, InPort_Enable_Execute, Final_Result_Execute);
 
 END ARCHITECTURE;
