@@ -12,10 +12,10 @@ ENTITY Control_Unit IS
         InPort_Enable : OUT STD_LOGIC;
         OutPort_Enable : OUT STD_LOGIC;
         Swap_Enable : OUT STD_LOGIC;
-        Memory_Add_Selec : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
+        Memory_Add_Selec : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);      -- 00 ALU Result,  01 Readport2 Data,   10 SP
         Data_After : OUT STD_LOGIC;
         ALU_SRC : OUT STD_LOGIC;
-        WB_Selector : OUT STD_LOGIC_VECTOR(3 DOWNTO 0)
+        WB_Selector : OUT STD_LOGIC_VECTOR(1 DOWNTO 0)            -- 00 ALU Result,  01 Mem Result,   10 Imm Data, 11 Readport2 Data 
         
     );
 END ENTITY;
@@ -684,4 +684,4 @@ BEGIN
         ELSE
         '0' WHEN Instruction_OPCODE = "11100"; -- RTI
 
-END ARCHITECTURE
+END ARCHITECTURE;
