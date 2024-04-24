@@ -1,0 +1,20 @@
+LIBRARY IEEE;
+USE IEEE.std_logic_1164.ALL;
+
+ENTITY Mux2x1 IS
+	GENERIC (n : INTEGER := 32);
+	PORT (
+		in0, in1 : IN STD_LOGIC_VECTOR (n - 1 DOWNTO 0);
+		sel : IN STD_LOGIC;
+		MUX_Out : OUT STD_LOGIC_VECTOR (n - 1 DOWNTO 0)
+	);
+END ENTITY;
+
+ARCHITECTURE when_else_mux OF mux_gesneric IS
+BEGIN
+
+	MUX_Out <= in0 WHEN sel = '0'
+		ELSE
+		in1 WHEN sel = "1";
+
+END ARCHITECTURE;

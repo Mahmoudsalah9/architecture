@@ -28,4 +28,4 @@ BEGIN
 		END IF;
 	END PROCESS;
 	dataout <= ram(to_integer(unsigned(address)));
-END Instruction_Memory_Design;
+END architecture;
