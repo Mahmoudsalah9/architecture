@@ -8,7 +8,6 @@ ENTITY Control_Unit IS
         ALU_OP : OUT STD_LOGIC_VECTOR(4 DOWNTO 0);
         Write_Enable : OUT STD_LOGIC;
         Mem_Write : OUT STD_LOGIC;
-        Mem_Read : OUT STD_LOGIC;
         InPort_Enable : OUT STD_LOGIC;
         OutPort_Enable : OUT STD_LOGIC;
         Swap_Enable : OUT STD_LOGIC;
@@ -205,65 +204,8 @@ BEGIN
         ELSE
         '0' WHEN Instruction_OPCODE = "11100"; -- RTI
 
-    -- Mem_Read Signal 
 
-    Mem_Read <= '0' WHEN Instruction_OPCODE = "00000" -- NOP
-        ELSE
-        '0' WHEN Instruction_OPCODE = "00001" -- NOT
-        ELSE
-        '0' WHEN Instruction_OPCODE = "00010" -- NEG
-        ELSE
-        '0' WHEN Instruction_OPCODE = "00011" -- INC
-        ELSE
-        '0' WHEN Instruction_OPCODE = "00100" -- DEC
-        ELSE
-        '0' WHEN Instruction_OPCODE = "00100" -- OUT
-        ELSE
-        '0' WHEN Instruction_OPCODE = "00110" -- IN
-        ELSE
-        '0' WHEN Instruction_OPCODE = "00111" -- MOV
-        ELSE
-        '0' WHEN Instruction_OPCODE = "01000" -- SWAP
-        ELSE
-        '0' WHEN Instruction_OPCODE = "01001" -- ADD
-        ELSE
-        '0' WHEN Instruction_OPCODE = "01010" -- SUB
-        ELSE
-        '0' WHEN Instruction_OPCODE = "01011" -- AND
-        ELSE
-        '0' WHEN Instruction_OPCODE = "01100" -- OR
-        ELSE
-        '0' WHEN Instruction_OPCODE = "01101" -- XOR
-        ELSE
-        '0' WHEN Instruction_OPCODE = "01110" -- CMP
-        ELSE
-        '0' WHEN Instruction_OPCODE = "01111" -- ADDI
-        ELSE
-        '0' WHEN Instruction_OPCODE = "10000" -- SUBI
-        ELSE
-        '0' WHEN Instruction_OPCODE = "10001" -- LDM
-        ELSE
-        '0' WHEN Instruction_OPCODE = "10010" -- PUSH
-        ELSE
-        '1' WHEN Instruction_OPCODE = "10011" -- POP
-        ELSE
-        '1' WHEN Instruction_OPCODE = "10100" -- LDD
-        ELSE
-        '0' WHEN Instruction_OPCODE = "10101" -- STD
-        ELSE
-        '0' WHEN Instruction_OPCODE = "10110" -- PROTECT
-        ELSE
-        '0' WHEN Instruction_OPCODE = "10111" -- FREE
-        ELSE
-        '0' WHEN Instruction_OPCODE = "11000" -- JZ
-        ELSE
-        '0' WHEN Instruction_OPCODE = "11001" -- JMP
-        ELSE
-        '0' WHEN Instruction_OPCODE = "11010" -- CALL
-        ELSE
-        '0' WHEN Instruction_OPCODE = "11011" -- RET
-        ELSE
-        '0' WHEN Instruction_OPCODE = "11100"; -- RTI
+    
 
     -- Mem InPort_Enable Signal
 

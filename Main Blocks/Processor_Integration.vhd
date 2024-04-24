@@ -84,7 +84,6 @@ ARCHITECTURE Processor_Integration_Design OF Processor_Integration IS
             ALU_OP : OUT STD_LOGIC_VECTOR(4 DOWNTO 0);
             Write_Enable : OUT STD_LOGIC;
             Mem_Write : OUT STD_LOGIC;
-            Mem_Read : OUT STD_LOGIC;
             InPort_Enable : OUT STD_LOGIC;
             OutPort_Enable : OUT STD_LOGIC;
             Swap_Enable : OUT STD_LOGIC;
@@ -163,7 +162,6 @@ ARCHITECTURE Processor_Integration_Design OF Processor_Integration IS
     SIGNAL ALU_OP_Decode STD_LOGIC_VECTOR(4 DOWNTO 0); --- D/E 
     SIGNAL Write_Enable_Decode STD_LOGIC; --- D/E 
     SIGNAL Mem_Write_Decode STD_LOGIC; --- D/E 
-    SIGNAL Mem_Read_Decode STD_LOGIC; --- D/E 
     SIGNAL InPort_Enable_Decode STD_LOGIC; --- D/E 
     SIGNAL OutPort_Enable_Decode STD_LOGIC; --- D/E 
     SIGNAL Swap_Enable STD_LOGIC; --- D/E 
@@ -193,7 +191,6 @@ ARCHITECTURE Processor_Integration_Design OF Processor_Integration IS
     SIGNAL ALU_OP_Execute STD_LOGIC_VECTOR(4 DOWNTO 0);
     SIGNAL Write_Enable_Execute STD_LOGIC; --- E/M
     SIGNAL Mem_Write_Execute STD_LOGIC; --- E/M
-    SIGNAL Mem_Read_Execute STD_LOGIC; --- E/M
     SIGNAL InPort_Enable_Execute STD_LOGIC;
     SIGNAL OutPort_Enable_Execute STD_LOGIC; --- E/M
     SIGNAL Swap_Execute STD_LOGIC; --- E/M
@@ -233,7 +230,7 @@ BEGIN
     Write_Add1 <= Instruction_Decode(4 DOWNTO 2);
     Write_Add2 <= Instruction_Decode(7 DOWNTO 15);
 
-    Control_Unit_Instance : Control_Unit PORT MAP(OPCODE, ALU_OP_Decode, Write_Enable_Decode, Mem_Write_Decode, Mem_Read_Decode, InPort_Enable_Decode, OutPort_Enable_Decode, Swap_Enable, Memory_Add_Selec_Decode, Data_After_Decode, ALU_SRC_Decode, WB_Selector_Decode, Extend_Sign_Decode);
+    Control_Unit_Instance : Control_Unit PORT MAP(OPCODE, ALU_OP_Decode, Write_Enable_Decode, Mem_Write_Decode, InPort_Enable_Decode, OutPort_Enable_Decode, Swap_Enable, Memory_Add_Selec_Decode, Data_After_Decode, ALU_SRC_Decode, WB_Selector_Decode, Extend_Sign_Decode);
 
     Sign_Extend_Instance : Sign_Extend PORT MAP(Extend_Sign_Decode, Data_Fetch_Decode, Extended_Data_Decode_Execute);
 
@@ -248,5 +245,8 @@ BEGIN
     CCR_Reg_Instance : CCR_Reg PORT MAP(Clk, Rst, Flags, "???????");
 
     Mux2x1_INPUTPORT : Mux2x1 GENERIC MAP(32) PORT MAP(ALU_Result_Execute, In_Port, InPort_Enable_Execute, Final_Result_Execute);
+
+    --Memory Stage:
+
 
 END ARCHITECTURE;
