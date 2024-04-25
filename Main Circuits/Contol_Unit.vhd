@@ -202,7 +202,7 @@ BEGIN
         ELSE
         '0' WHEN Instruction_OPCODE = "11001" -- JMP
         ELSE
-        '0' WHEN Instruction_OPCODE = "11010" -- CALL
+        '1' WHEN Instruction_OPCODE = "11010" -- CALL
         ELSE
         '0' WHEN Instruction_OPCODE = "11011" -- RET
         ELSE
@@ -383,9 +383,9 @@ BEGIN
         ELSE
         '0' WHEN Instruction_OPCODE = "10111" -- FREE
         ELSE
-        '1' WHEN Instruction_OPCODE = "11000" -- JZ
+        '0' WHEN Instruction_OPCODE = "11000" -- JZ
         ELSE
-        '1' WHEN Instruction_OPCODE = "11001" -- JMP
+        '0' WHEN Instruction_OPCODE = "11001" -- JMP
         ELSE
         '0' WHEN Instruction_OPCODE = "11010" -- CALL
         ELSE
