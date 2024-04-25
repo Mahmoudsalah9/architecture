@@ -14,8 +14,8 @@ ENTITY Control_Unit IS
         Memory_Add_Selec : OUT STD_LOGIC_VECTOR(1 DOWNTO 0); -- 00 ALU Result,  01 Readport2 Data,   10 SP
         Data_After : OUT STD_LOGIC;
         ALU_SRC : OUT STD_LOGIC;
-        WB_Selector : OUT STD_LOGIC_VECTOR(1 DOWNTO 0) -- 00 ALU Result,  01 Mem Result,   10 Imm Data, 11 Readport2 Data
-        Extend_Sign : OUT STD_LOGIC;
+        WB_Selector : OUT STD_LOGIC_VECTOR(1 DOWNTO 0); -- 00 ALU Result,  01 Mem Result,   10 Imm Data, 11 Readport2 Data
+        Extend_Sign : OUT STD_LOGIC
 
     );
 END ENTITY;
