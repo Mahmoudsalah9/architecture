@@ -8,13 +8,13 @@ ENTITY memory_stage IS
         InPort_Enable_in,OutPort_Enable_in,Swap_Enable_in,Write_Enable_in,Mem_Write_enable  : IN std_logic;
         Read_port2_data_in,Immediate_data_in,Write_Data2_in: IN  std_logic_vector(31 DOWNTO 0);
         Alu_result_in,PC_value: IN  std_logic_vector(11 DOWNTO 0);
-		Write_Add_1_in,Write_Add_2_in  : IN std_logic;
+		Write_Add_1_in,Write_Add_2_in  : IN std_logic_vector(2 DOWNTO 0);
         WB_Selector_in,Call_enable,Mem_Add_selector:IN  std_logic_vector(1 DOWNTO 0);
         CCR:IN  std_logic_vector(3 DOWNTO 0); 
         InPort_Enable_out,OutPort_Enable_out,Swap_Enable_out,Write_Enable_out  : OUT std_logic;
         Read_port2_data_out,Immediate_data_out,Write_Data2_out:OUT  std_logic_vector(31 DOWNTO 0);
         Alu_result_out: OUT std_logic_vector(11 DOWNTO 0);
-		Write_Add_1_out,Write_Add_2_out  : OUT std_logic;
+		Write_Add_1_out,Write_Add_2_out  : OUT std_logic_vector(2 DOWNTO 0);
         WB_Selector_out:OUT  std_logic_vector(1 DOWNTO 0);
 		Result_Mem:OUT  std_logic_vector(31 DOWNTO 0)
 
