@@ -34,7 +34,8 @@ ENTITY Decode IS
         Read_Port1 : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
         Read_Port2 : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
 
-        IMData_out : OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
+        IMData_out : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+        CCR_Enable : OUT STD_LOGIC
 
     );
 END ENTITY;
@@ -55,7 +56,8 @@ ARCHITECTURE Decode_Design OF Decode IS
             Data_After : OUT STD_LOGIC;
             ALU_SRC : OUT STD_LOGIC;
             WB_Selector : OUT STD_LOGIC_VECTOR(1 DOWNTO 0); -- 00 ALU Result,  01 Mem Result,   10 Imm Data, 11 Readport2 Data
-            Extend_Sign : OUT STD_LOGIC
+            Extend_Sign : OUT STD_LOGIC;
+            CCR_Enable : OUT STD_LOGIC
 
         );
     END COMPONENT;
@@ -78,8 +80,6 @@ ARCHITECTURE Decode_Design OF Decode IS
     END COMPONENT;
 
     ----------------------------------------------------------------------------  Signals  -------------------------------------------------------------------------------
-
-
     --Instruction Break Down
     SIGNAL OPCODE : STD_LOGIC_VECTOR(4 DOWNTO 0);
     SIGNAL R_Source1 : STD_LOGIC_VECTOR(2 DOWNTO 0);
@@ -95,7 +95,7 @@ BEGIN
     Write_Add1_Ex <= Instruction(4 DOWNTO 2);
     Write_Add2_EX <= Instruction(7 DOWNTO 5);
 
-    Control_Unit_Instance : Control_Unit PORT MAP(OPCODE, ALU_OP, Write_Enable, Mem_Write, InPort_Enable, OutPort_Enable, Swap_Enable, Memory_Add_Selec, Data_After, ALU_SRC, WB_Selector, Extend_Sign);
+    Control_Unit_Instance : Control_Unit PORT MAP(OPCODE, ALU_OP, Write_Enable, Mem_Write, InPort_Enable, OutPort_Enable, Swap_Enable, Memory_Add_Selec, Data_After, ALU_SRC, WB_Selector, Extend_Sign, CCR_Enable);
 
     Register_File_Instance : Register_File PORT MAP(Clk, Rst, R_Source1, R_Source2, Read_Port1, Read_Port2, Write_Add1_WB, Write_Add2_WB, Write_Data1, Write_Data2, Write_Enable1, Write_Enable2);
 
