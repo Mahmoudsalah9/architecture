@@ -706,7 +706,7 @@ BEGIN
         ELSE
         '0';
 
-        CCR_Enable <= '0000' WHEN Instruction_OPCODE = "00000" --NOP
+        CCR_Enable <= '0000' WHEN Instruction_OPCODE = "0000" --NOP
         ELSE
         '0011' WHEN Instruction_OPCODE = "00001" -- NOT
         ELSE
