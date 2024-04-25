@@ -1,7 +1,7 @@
 LIBRARY IEEE;
 USE IEEE.std_logic_1164.ALL;
 
-ENTITY Decode IS
+ENTITY Decode_Stage IS
     PORT (
 
         Clk : IN STD_LOGIC;
@@ -40,7 +40,7 @@ ENTITY Decode IS
     );
 END ENTITY;
 
-ARCHITECTURE Decode_Design OF Decode IS
+ARCHITECTURE Decode_Stage_Design OF Decode_Stage IS
 
     COMPONENT Control_Unit IS
         PORT (

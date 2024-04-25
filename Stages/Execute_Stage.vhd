@@ -1,7 +1,7 @@
 LIBRARY IEEE;
 USE IEEE.std_logic_1164.ALL;
 
-ENTITY Execute IS
+ENTITY Execute_Stage IS
     PORT (
 
         Clk : IN STD_LOGIC;
@@ -48,7 +48,7 @@ ENTITY Execute IS
     );
 END ENTITY;
 
-ARCHITECTURE Execute_Design OF Execute IS
+ARCHITECTURE Execute_Stage_Design OF Execute_Stage IS
 
     COMPONENT ALU IS
         GENERIC (

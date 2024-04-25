@@ -3,7 +3,7 @@ LIBRARY IEEE;
 USE IEEE.std_logic_1164.ALL;
 USE IEEE.numeric_std.ALL;
 
-ENTITY WB_Stage IS
+ENTITY Memory_WriteBack IS
     PORT (
         clk : IN STD_LOGIC;
         reset : IN STD_LOGIC;
@@ -34,9 +34,9 @@ ENTITY WB_Stage IS
         swap_enable_memory_Out : OUT STD_LOGIC
 
     );
-END WB_Stage;
+END ENTITY;
 
-ARCHITECTURE Behavioral OF WB_Stage IS
+ARCHITECTURE Memory_WriteBack_Design OF Memory_WriteBack IS
 BEGIN
     PROCESS (clk, reset)
     BEGIN
@@ -52,7 +52,7 @@ BEGIN
             write_enable_memory_Out <= '0';
             out_enable_memory_Out <= '0';
             swap_enable_memory_Out <= '0';
-            
+
         ELSIF rising_edge(clk) THEN
             result_mem_out <= result_mem;
             read_port2_memory_out <= read_port2_memory;
@@ -68,4 +68,4 @@ BEGIN
 
         END IF;
     END PROCESS;
-END Behavioral;
+END ARCHITECTURE;

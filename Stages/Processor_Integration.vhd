@@ -1,7 +1,7 @@
 LIBRARY IEEE;
 USE IEEE.std_logic_1164.ALL;
 
-ENTITY Integration IS
+ENTITY Processor_Integration IS
     PORT (
 
         Clk : IN STD_LOGIC;
@@ -12,7 +12,7 @@ ENTITY Integration IS
     );
 END ENTITY;
 
-ARCHITECTURE Integration_Design OF Integration IS
+ARCHITECTURE Processor_Integration_Design OF Processor_Integration IS
 
     COMPONENT Fetch IS
         PORT (

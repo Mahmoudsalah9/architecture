@@ -1,7 +1,7 @@
 LIBRARY IEEE;
 USE IEEE.std_logic_1164.ALL;
 
-ENTITY Fetch IS
+ENTITY Fetch_Stage IS
     PORT (
 
         Clk : IN STD_LOGIC;
@@ -13,7 +13,7 @@ ENTITY Fetch IS
     );
 END ENTITY;
 
-ARCHITECTURE Fetch_Design OF Fetch IS
+ARCHITECTURE Fetch_Stage_Design OF Fetch_Stage IS
 
     --------------------------------------------------------------------------  Components  --------------------------------------------------------------------------------
 

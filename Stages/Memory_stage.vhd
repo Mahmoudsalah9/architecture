@@ -2,7 +2,7 @@ LIBRARY IEEE;
 USE IEEE.STD_LOGIC_1164.ALL;
 USE IEEE.numeric_std.ALL;
 
-ENTITY memory_stage IS
+ENTITY Memory_Stage IS
     PORT (
         CLK, RST : IN STD_LOGIC;
         OutPort_Enable_in, Swap_Enable_in, Write_Enable_in, Mem_Write_enable : IN STD_LOGIC;
@@ -10,7 +10,7 @@ ENTITY memory_stage IS
         Alu_result_in : IN STD_LOGIC_VECTOR(11 DOWNTO 0);
         Write_Add_1_in, Write_Add_2_in : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
         WB_Selector_in, Mem_Add_selector : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
-        
+
         OutPort_Enable_out, Swap_Enable_out, Write_Enable_out : OUT STD_LOGIC;
         Read_port2_data_out, Immediate_data_out, Write_Data2_out : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
         Alu_result_out : OUT STD_LOGIC_VECTOR(11 DOWNTO 0);
@@ -20,9 +20,9 @@ ENTITY memory_stage IS
 
     );
 
-END ENTITY memory_stage;
+END ENTITY;
 
-ARCHITECTURE sync_Memory OF memory_stage IS
+ARCHITECTURE Memory_Stage_Deisgn OF Memory_Stage IS
 
     COMPONENT Memory IS
         PORT (
@@ -57,4 +57,4 @@ BEGIN
     Write_Add_2_out <= Write_Add_2_in;
     WB_Selector_out <= WB_Selector_in;
 
-END sync_Memory;
+END ARCHITECTURE;

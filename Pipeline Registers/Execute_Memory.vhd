@@ -2,7 +2,7 @@ LIBRARY IEEE;
 USE IEEE.std_logic_1164.ALL;
 USE IEEE.numeric_std.ALL;
 
-ENTITY E_M_Stage IS
+ENTITY Execute_Memory IS
     PORT (
         clk : IN STD_LOGIC;
         reset : IN STD_LOGIC;
@@ -33,9 +33,9 @@ ENTITY E_M_Stage IS
 
     );
 
-END E_M_Stage;
+END ENTITY;
 
-ARCHITECTURE Behavioral OF E_M_Stage IS
+ARCHITECTURE Execute_Memory_Design OF Execute_Memory IS
 BEGIN
     PROCESS (clk, reset)
     BEGIN
@@ -66,4 +66,4 @@ BEGIN
 
         END IF;
     END PROCESS;
-END Behavioral;
+END ARCHITECTURE;

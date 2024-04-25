@@ -3,7 +3,7 @@ LIBRARY IEEE;
 USE IEEE.std_logic_1164.ALL;
 USE IEEE.numeric_std.ALL;
 
-ENTITY F_D_Stage IS
+ENTITY Fetch_Decode IS
     PORT (
         clk : IN STD_LOGIC;
         reset : IN STD_LOGIC;
@@ -14,9 +14,9 @@ ENTITY F_D_Stage IS
         instruction_fetch_out : OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
 
     );
-END F_D_Stage;
+END ENTITY;
 
-ARCHITECTURE Behavioral OF F_D_Stage IS
+ARCHITECTURE Fetch_Decode_Design OF Fetch_Decode IS
 BEGIN
     PROCESS (clk, reset)
     BEGIN
@@ -28,4 +28,4 @@ BEGIN
             instruction_fetch_out <= instruction_in;
         END IF;
     END PROCESS;
-END Behavioral;
+END ARCHITECTURE;

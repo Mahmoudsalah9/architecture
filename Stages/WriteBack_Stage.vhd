@@ -2,7 +2,7 @@ LIBRARY IEEE;
 USE IEEE.STD_LOGIC_1164.ALL;
 USE IEEE.numeric_std.ALL;
 
-ENTITY Write_Back IS
+ENTITY WriteBack_Stage IS
     PORT (
 
         OutPort_Enable, Swap_Enable_in, Write_Enable_in : IN STD_LOGIC;
@@ -19,9 +19,10 @@ ENTITY Write_Back IS
 
     );
 
-END ENTITY Write_Back;
+END ENTITY;
 
-ARCHITECTURE my_Write_Back OF Write_Back IS
+ARCHITECTURE WriteBack_Stage_Design OF WriteBack_Stage IS
+
     COMPONENT Mux4x1 IS
         GENERIC (n : INTEGER := 32);
         PORT (
@@ -30,6 +31,7 @@ ARCHITECTURE my_Write_Back OF Write_Back IS
             MUX_Out : OUT STD_LOGIC_VECTOR (n - 1 DOWNTO 0)
         );
     END COMPONENT;
+
 BEGIN
     Mux4x1_Write_Data : Mux4x1 GENERIC MAP(32) PORT MAP(Alu_result, Result_Mem, Immediate_data, Read_port2_data, WB_Selector, Wtite_Back_Data);
 
@@ -40,4 +42,5 @@ BEGIN
     Write_Data2_out <= Write_Data2_in;
     Write_Add_1_out <= Write_Add_1_in;
     Write_Add_2_out <= Write_Add_2_in;
-END my_Write_Back;
+
+END ARCHITECTURE;

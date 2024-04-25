@@ -2,7 +2,7 @@ LIBRARY IEEE;
 USE IEEE.STD_LOGIC_1164.ALL;
 USE IEEE.NUMERIC_STD.ALL;
 
-ENTITY D_E_Stage IS
+ENTITY Decode_Execute IS
     PORT (
         clk : IN STD_LOGIC;
         rst : IN STD_LOGIC;
@@ -41,9 +41,9 @@ ENTITY D_E_Stage IS
         Extend_Sign_Out : OUT STD_LOGIC;
         CCR_Arithmetic_Out : OUT STD_LOGIC
     );
-END ENTITY D_E_Stage;
+END ENTITY;
 
-ARCHITECTURE Behavioral OF D_E_Stage IS
+ARCHITECTURE Decode_Execute_Design OF Decode_Execute IS
 BEGIN
     PROCESS (clk, rst)
     BEGIN
@@ -84,4 +84,4 @@ BEGIN
             Swap_Enable_Out <= Swap_Enable;
         END IF;
     END PROCESS;
-END Behavioral;
+END ARCHITECTURE;
