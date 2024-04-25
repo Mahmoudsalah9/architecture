@@ -3,8 +3,8 @@ USE IEEE.STD_LOGIC_1164.ALL;
 
 ENTITY CCR_Reg IS
 	PORT (
-		Clk, Rst,CCR_Enable : IN STD_LOGIC;
-		CCR : IN STD_LOGIC_VECTOR(3 DOWNTO 0); --CCR<0>:=zero flag,CCR<1>:=negative flag,CCR<2>:=carry flag,CCR<3>:=overflow flag
+		Clk, Rst : IN STD_LOGIC;
+		CCR,CCR_Enable : IN STD_LOGIC_VECTOR(3 DOWNTO 0); --CCR<0>:=zero flag,CCR<1>:=negative flag,CCR<2>:=carry flag,CCR<3>:=overflow flag
 		q : OUT STD_LOGIC_VECTOR(3 DOWNTO 0));
 END CCR_Reg;
 
@@ -25,8 +25,10 @@ END COMPONENT;
 Signal Q:STD_LOGIC_VECTOR (3 DOWNTO 0);
 Signal Q1:STD_LOGIC_VECTOR (3 DOWNTO 0);
 BEGIN
-   My_Mux2x1:Mux2x1 GENERIC MAP(4) PORT MAP(Q,CCR,CCR_Enable,Q1);
-  
+   My_Mux2x10:Mux2x1 GENERIC MAP(2) PORT MAP(Q(0),CCR(0),CCR_Enable(0),Q1(0));
+   My_Mux2x1_1:Mux2x1 GENERIC MAP(2) PORT MAP(Q(1),CCR(1),CCR_Enable(1),Q1(1));
+   My_Mux2x1_2:Mux2x1 GENERIC MAP(2) PORT MAP(Q(2),CCR(2),CCR_Enable(2),Q1(2));
+   My_Mux2x1_3:Mux2x1 GENERIC MAP(2) PORT MAP(Q(3),CCR(3),CCR_Enable(3),Q1(3));
 	loop1 : FOR i IN 0 TO 3 GENERATE
 		fx : myDFF PORT MAP(Q1(i), Clk, Rst, Q(i));
 	END GENERATE;
