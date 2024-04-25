@@ -1,0 +1,14 @@
+# Compile of Mux2x1.vhd was successful.
+# Compile of Mux4x1.vhd was successful.
+# Compile of Decode.vhd was successful.
+# Compile of Execute.vhd was successful.
+# Compile of Fetch.vhd was successful.
+# Compile of Integration.vhd failed with 15 errors.
+# Compile of Memory_stage.vhd was successful.
+# Compile of Write_Back.vhd was successful.
+# Compile of Decode_Execute_Reg.vhd was successful.
+# Compile of Execute_Memory_Reg.vhd was successful.
+# Compile of Fetch_Reg.vhd was successful.
+# Compile of Processor_Integration.vhd failed with 3 errors.
+# Compile of WriteBack_Reg.vhd was successful.
+# 13 compiles, 2 failed with 18 errors.

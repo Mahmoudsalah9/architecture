@@ -1,0 +1,518 @@
+m255
+K4
+z2
+!s11e vcom 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/Users/Y.A/Desktop/My Arch Project Stuff
+Ed_e_stage
+Z0 w1714078337
+Z1 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z3 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 8
+Z4 dC:/Users/Y.A/Desktop/Arch Project/architecture
+Z5 8C:/Users/Y.A/Desktop/Arch Project/architecture/Pipeline Registers/Decode_Execute_Reg.vhd
+Z6 FC:/Users/Y.A/Desktop/Arch Project/architecture/Pipeline Registers/Decode_Execute_Reg.vhd
+l0
+L5 1
+V4D[YNm?jbg^coPHF5WiLP0
+!s100 THO>3il:HkbaJ8aZWDLeJ3
+Z7 OV;C;2020.1;71
+32
+Z8 !s110 1714078804
+!i10b 1
+Z9 !s108 1714078804.000000
+Z10 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Y.A/Desktop/Arch Project/architecture/Pipeline Registers/Decode_Execute_Reg.vhd|
+Z11 !s107 C:/Users/Y.A/Desktop/Arch Project/architecture/Pipeline Registers/Decode_Execute_Reg.vhd|
+!i113 1
+Z12 o-work work -2002 -explicit
+Z13 tExplicit 1 CvgOpt 0
+Abehavioral
+R1
+R2
+R3
+DEx4 work 9 d_e_stage 0 22 4D[YNm?jbg^coPHF5WiLP0
+!i122 8
+l47
+L46 42
+Vfn[i8eZYYP9Xg9nY5=45g2
+!s100 G<TS=X@D4_KLDZ2LiC<E70
+R7
+32
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 1
+R12
+R13
+Edecode
+R0
+R2
+R3
+!i122 2
+R4
+Z14 8C:/Users/Y.A/Desktop/Arch Project/architecture/Stages/Decode.vhd
+Z15 FC:/Users/Y.A/Desktop/Arch Project/architecture/Stages/Decode.vhd
+l0
+L4 1
+VNk2[DO;Y>H[bMoecgz]X`3
+!s100 ob@EF@[nIHiHWb?<M>4?_3
+R7
+32
+R8
+!i10b 1
+R9
+Z16 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Y.A/Desktop/Arch Project/architecture/Stages/Decode.vhd|
+Z17 !s107 C:/Users/Y.A/Desktop/Arch Project/architecture/Stages/Decode.vhd|
+!i113 1
+R12
+R13
+Adecode_design
+R2
+R3
+DEx4 work 6 decode 0 22 Nk2[DO;Y>H[bMoecgz]X`3
+!i122 2
+l88
+L43 60
+V4=G:fjjLR0Fh7bA0^bFYH1
+!s100 _6]@NFTdV2CL@iMXVJoEC3
+R7
+32
+R8
+!i10b 1
+R9
+R16
+R17
+!i113 1
+R12
+R13
+Ee_m_stage
+R0
+R1
+R2
+R3
+!i122 9
+R4
+Z18 8C:/Users/Y.A/Desktop/Arch Project/architecture/Pipeline Registers/Execute_Memory_Reg.vhd
+Z19 FC:/Users/Y.A/Desktop/Arch Project/architecture/Pipeline Registers/Execute_Memory_Reg.vhd
+l0
+L5 1
+V[AH]B=NeQWzcgAoU0iEAV1
+!s100 mj77[5HDSe;dk1>Fha;743
+R7
+32
+Z20 !s110 1714078805
+!i10b 1
+Z21 !s108 1714078805.000000
+Z22 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Y.A/Desktop/Arch Project/architecture/Pipeline Registers/Execute_Memory_Reg.vhd|
+Z23 !s107 C:/Users/Y.A/Desktop/Arch Project/architecture/Pipeline Registers/Execute_Memory_Reg.vhd|
+!i113 1
+R12
+R13
+Abehavioral
+R1
+R2
+R3
+DEx4 work 9 e_m_stage 0 22 [AH]B=NeQWzcgAoU0iEAV1
+!i122 9
+l39
+L38 32
+V:=8MkC;?h9Q_Z`RdT>doH1
+!s100 dUllJREmS^;g88_@<10Yh0
+R7
+32
+R20
+!i10b 1
+R21
+R22
+R23
+!i113 1
+R12
+R13
+Eexecute
+R0
+R2
+R3
+!i122 3
+R4
+Z24 8C:/Users/Y.A/Desktop/Arch Project/architecture/Stages/Execute.vhd
+Z25 FC:/Users/Y.A/Desktop/Arch Project/architecture/Stages/Execute.vhd
+l0
+L4 1
+V[4]m@RDb8A[GFFXR_^@2H3
+!s100 f;iXFT]In6U1M[NdN9WoX1
+R7
+32
+R8
+!i10b 1
+R9
+Z26 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Y.A/Desktop/Arch Project/architecture/Stages/Execute.vhd|
+Z27 !s107 C:/Users/Y.A/Desktop/Arch Project/architecture/Stages/Execute.vhd|
+!i113 1
+R12
+R13
+Aexecute_design
+R2
+R3
+DEx4 work 7 execute 0 22 [4]m@RDb8A[GFFXR_^@2H3
+!i122 3
+l111
+L51 86
+VD`UAk[k>T_B8QiG=KWzTR3
+!s100 kG@3b@AQZPX79QVVN0a;O3
+R7
+32
+R8
+!i10b 1
+R9
+R26
+R27
+!i113 1
+R12
+R13
+Ef_d_stage
+R0
+R1
+R2
+R3
+!i122 10
+R4
+Z28 8C:/Users/Y.A/Desktop/Arch Project/architecture/Pipeline Registers/Fetch_Reg.vhd
+Z29 FC:/Users/Y.A/Desktop/Arch Project/architecture/Pipeline Registers/Fetch_Reg.vhd
+l0
+L6 1
+VJ_2d4I7mbF1SAeJYSTDzR0
+!s100 KHCX]ha;=ZgO>5lJ:JKbS2
+R7
+32
+R20
+!i10b 1
+R21
+Z30 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Y.A/Desktop/Arch Project/architecture/Pipeline Registers/Fetch_Reg.vhd|
+Z31 !s107 C:/Users/Y.A/Desktop/Arch Project/architecture/Pipeline Registers/Fetch_Reg.vhd|
+!i113 1
+R12
+R13
+Abehavioral
+R1
+R2
+R3
+DEx4 work 9 f_d_stage 0 22 J_2d4I7mbF1SAeJYSTDzR0
+!i122 10
+l20
+L19 13
+V8ICR<8EBZ1bzAlYPZ?X>Y0
+!s100 ZzAaQT@mC`76:9`BBeEif0
+R7
+32
+R20
+!i10b 1
+R21
+R30
+R31
+!i113 1
+R12
+R13
+Efetch
+R0
+R2
+R3
+!i122 4
+R4
+Z32 8C:/Users/Y.A/Desktop/Arch Project/architecture/Stages/Fetch.vhd
+Z33 FC:/Users/Y.A/Desktop/Arch Project/architecture/Stages/Fetch.vhd
+l0
+L4 1
+VWNLhUQW<A8[kj?TP5n7a51
+!s100 Xfj<jla8R@_?X0hbhKF;P3
+R7
+32
+R8
+!i10b 1
+R9
+Z34 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Y.A/Desktop/Arch Project/architecture/Stages/Fetch.vhd|
+Z35 !s107 C:/Users/Y.A/Desktop/Arch Project/architecture/Stages/Fetch.vhd|
+!i113 1
+R12
+R13
+Afetch_design
+R2
+R3
+DEx4 work 5 fetch 0 22 WNLhUQW<A8[kj?TP5n7a51
+!i122 4
+l69
+L16 62
+V>9L9Ua6]1ZFI76[5`CYad0
+!s100 fIdK6f5=jj03P0gXK=eH]3
+R7
+32
+R8
+!i10b 1
+R9
+R34
+R35
+!i113 1
+R12
+R13
+Eintegration
+R0
+R2
+R3
+!i122 5
+R4
+8C:/Users/Y.A/Desktop/Arch Project/architecture/Stages/Integration.vhd
+FC:/Users/Y.A/Desktop/Arch Project/architecture/Stages/Integration.vhd
+l0
+L4 1
+VR<_2LGc]NQh7aNa@@gFAN1
+!s100 ElTjJE3?BH3TZG0MdbO`m2
+R7
+32
+R8
+!i10b 1
+R9
+!s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Y.A/Desktop/Arch Project/architecture/Stages/Integration.vhd|
+!s107 C:/Users/Y.A/Desktop/Arch Project/architecture/Stages/Integration.vhd|
+!i113 1
+R12
+R13
+Ememory_stage
+R0
+R1
+R2
+R3
+!i122 6
+R4
+Z36 8C:/Users/Y.A/Desktop/Arch Project/architecture/Stages/Memory_stage.vhd
+Z37 FC:/Users/Y.A/Desktop/Arch Project/architecture/Stages/Memory_stage.vhd
+l0
+L5 1
+V<ZN;J5U2L=<ab60_o@@`U0
+!s100 _NVFB[GJ1z=5=RQ:HHI7V1
+R7
+32
+R8
+!i10b 1
+R9
+Z38 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Y.A/Desktop/Arch Project/architecture/Stages/Memory_stage.vhd|
+Z39 !s107 C:/Users/Y.A/Desktop/Arch Project/architecture/Stages/Memory_stage.vhd|
+!i113 1
+R12
+R13
+Async_memory
+R1
+R2
+R3
+DEx4 work 12 memory_stage 0 22 <ZN;J5U2L=<ab60_o@@`U0
+!i122 6
+l45
+L25 36
+VHAk1_N_9:aKC9_ZPmCKIY1
+!s100 T=@COhIFY[f_N:c9L4ziM1
+R7
+32
+R8
+!i10b 1
+R9
+R38
+R39
+!i113 1
+R12
+R13
+Emux2x1
+R0
+R2
+R3
+!i122 0
+R4
+Z40 8C:/Users/Y.A/Desktop/Arch Project/architecture/Muxes/Mux2x1.vhd
+Z41 FC:/Users/Y.A/Desktop/Arch Project/architecture/Muxes/Mux2x1.vhd
+l0
+L4 1
+Voo[f;W^BhOzR587F1mfSb2
+!s100 a`iV5SjgFc0fT5J`jQgJ82
+R7
+32
+Z42 !s110 1714078803
+!i10b 1
+Z43 !s108 1714078803.000000
+Z44 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Y.A/Desktop/Arch Project/architecture/Muxes/Mux2x1.vhd|
+Z45 !s107 C:/Users/Y.A/Desktop/Arch Project/architecture/Muxes/Mux2x1.vhd|
+!i113 1
+R12
+R13
+Amux2x1_design
+R2
+R3
+DEx4 work 6 mux2x1 0 22 oo[f;W^BhOzR587F1mfSb2
+!i122 0
+l14
+L13 8
+VHNnI3hCDlRe5ejGl?f9]H3
+!s100 iE]PiThYG]IL4[`7a_U=70
+R7
+32
+R42
+!i10b 1
+R43
+R44
+R45
+!i113 1
+R12
+R13
+Emux4x1
+R0
+R2
+R3
+!i122 1
+R4
+Z46 8C:/Users/Y.A/Desktop/Arch Project/architecture/Muxes/Mux4x1.vhd
+Z47 FC:/Users/Y.A/Desktop/Arch Project/architecture/Muxes/Mux4x1.vhd
+l0
+L4 1
+VB]O@QU<Q_CM`Y6oW32XLS3
+!s100 l7Ij33V=iVhK<ZhV_hOgR3
+R7
+32
+R8
+!i10b 1
+R9
+Z48 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Y.A/Desktop/Arch Project/architecture/Muxes/Mux4x1.vhd|
+Z49 !s107 C:/Users/Y.A/Desktop/Arch Project/architecture/Muxes/Mux4x1.vhd|
+!i113 1
+R12
+R13
+Amux4x1_design
+R2
+R3
+DEx4 work 6 mux4x1 0 22 B]O@QU<Q_CM`Y6oW32XLS3
+!i122 1
+l14
+L13 12
+VDKdhlEOze@hlh@7HODlc[2
+!s100 LiU20V:nkY88T7nYLBPdU0
+R7
+32
+R8
+!i10b 1
+R9
+R48
+R49
+!i113 1
+R12
+R13
+Eprocessor_integration
+R0
+R2
+R3
+!i122 11
+R4
+8C:/Users/Y.A/Desktop/Arch Project/architecture/Pipeline Registers/Processor_Integration.vhd
+FC:/Users/Y.A/Desktop/Arch Project/architecture/Pipeline Registers/Processor_Integration.vhd
+l0
+L4 1
+V6ha6ekBW<=CUi9?P6TLTN2
+!s100 4:Y<LYaUBFn[Ai?Rhc`S83
+R7
+32
+R20
+!i10b 1
+R21
+!s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Y.A/Desktop/Arch Project/architecture/Pipeline Registers/Processor_Integration.vhd|
+!s107 C:/Users/Y.A/Desktop/Arch Project/architecture/Pipeline Registers/Processor_Integration.vhd|
+!i113 1
+R12
+R13
+Ewb_stage
+R0
+R1
+R2
+R3
+!i122 12
+R4
+Z50 8C:/Users/Y.A/Desktop/Arch Project/architecture/Pipeline Registers/WriteBack_Reg.vhd
+Z51 FC:/Users/Y.A/Desktop/Arch Project/architecture/Pipeline Registers/WriteBack_Reg.vhd
+l0
+L6 1
+VD?6;^QDi:Im1J<@:Ud^Gm0
+!s100 j[Im15kb>DFTI3GJSn1=a3
+R7
+32
+R20
+!i10b 1
+R21
+Z52 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Y.A/Desktop/Arch Project/architecture/Pipeline Registers/WriteBack_Reg.vhd|
+!s107 C:/Users/Y.A/Desktop/Arch Project/architecture/Pipeline Registers/WriteBack_Reg.vhd|
+!i113 1
+R12
+R13
+Abehavioral
+R1
+R2
+R3
+DEx4 work 8 wb_stage 0 22 D?6;^QDi:Im1J<@:Ud^Gm0
+!i122 12
+l40
+L39 33
+VEGON=_nUFA0II20`7aQ]T0
+!s100 _U8zR1]VlnD[OIWIc>Kng0
+R7
+32
+R20
+!i10b 1
+R21
+R52
+Z53 !s107 C:/Users/Y.A/Desktop/Arch Project/architecture/Pipeline Registers/WriteBack_Reg.vhd|
+!i113 1
+R12
+R13
+Ewrite_back
+R0
+R1
+R2
+R3
+!i122 7
+R4
+Z54 8C:/Users/Y.A/Desktop/Arch Project/architecture/Stages/Write_Back.vhd
+Z55 FC:/Users/Y.A/Desktop/Arch Project/architecture/Stages/Write_Back.vhd
+l0
+L5 1
+Vc1lKJg?H<SK:O;Mf>gh0e3
+!s100 45RJ4>CgX9oCCmR5hl^Ni0
+R7
+32
+R8
+!i10b 1
+R9
+Z56 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Y.A/Desktop/Arch Project/architecture/Stages/Write_Back.vhd|
+Z57 !s107 C:/Users/Y.A/Desktop/Arch Project/architecture/Stages/Write_Back.vhd|
+!i113 1
+R12
+R13
+Amy_write_back
+R1
+R2
+R3
+DEx4 work 10 write_back 0 22 c1lKJg?H<SK:O;Mf>gh0e3
+!i122 7
+l33
+L24 20
+V=[c[Gnl0z@R9MgfP4hn5W1
+!s100 N`_=PVo3JDa4jEdQjJkm[0
+R7
+32
+R8
+!i10b 1
+R9
+R56
+R57
+!i113 1
+R12
+R13
