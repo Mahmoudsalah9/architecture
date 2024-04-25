@@ -3,29 +3,15 @@ USE IEEE.STD_LOGIC_1164.ALL;
 USE IEEE.numeric_std.ALL;
 
 ENTITY Write_Back IS
-<<<<<<< HEAD
 	PORT(
 		
-        OutPort_Enable,Swap_Enable_in,Write_Enable_in : IN std_logic;
-        Read_port2_data,Immediate_data,Write_Data2_in: IN  std_logic_vector(31 DOWNTO 0);
-        Result_Mem:IN  std_logic_vector(31 DOWNTO 0);
-        Alu_result: IN  std_logic_vector(31 DOWNTO 0);
-		Write_Add_1_in,Write_Add_2_in  :IN  std_logic_vector(2 DOWNTO 0);
-        WB_Selector:IN  std_logic_vector(1 DOWNTO 0);
-        Swap_Enable_out,Write_Enable_out  : OUT std_logic_vector(2 DOWNTO 0);
-        Write_Data2_out:OUT  std_logic_vector(31 DOWNTO 0);
-		Write_Add_1_out,Write_Add_2_out  : OUT std_logic;
-        OUT_PORT:OUT std_logic_vector(31 DOWNTO 0)
-		Wtite_Back_Data:OUT std_logic_vector(31 DOWNTO 0)
-=======
-    PORT (
->>>>>>> d45c801a471b6c971e746e652fc7e299d151f581
+       
 
         OutPort_Enable, Swap_Enable_in, Write_Enable_in : IN STD_LOGIC;
         Read_port2_data, Immediate_data, Write_Data2_in : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
         Result_Mem : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
         Alu_result : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
-        Write_Add_1_in, Write_Add_2_in : IN STD_LOGIC;
+        Write_Add_1_in, Write_Add_2_in : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
         WB_Selector : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
         Swap_Enable_out, Write_Enable_out : OUT STD_LOGIC;
         Write_Data2_out : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
