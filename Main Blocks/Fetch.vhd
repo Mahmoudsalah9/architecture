@@ -8,6 +8,8 @@ ENTITY Fetch IS
         Rst : IN STD_LOGIC;
         Data_After : IN STD_LOGIC;
 
+        Instruction : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+        Data : OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
     );
 END ENTITY;
 
@@ -36,9 +38,7 @@ ARCHITECTURE Fetch_Design OF Fetch IS
     COMPONENT Instruction_Memory IS
         PORT (
             CLK : IN STD_LOGIC;
-            we : IN STD_LOGIC;
             address : IN STD_LOGIC_VECTOR(11 DOWNTO 0);
-            datain : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
             dataout : OUT STD_LOGIC_VECTOR(15 DOWNTO 0));
     END COMPONENT Instruction_Memory;
 
@@ -65,11 +65,6 @@ ARCHITECTURE Fetch_Design OF Fetch IS
 
     SIGNAL PC_Address : STD_LOGIC_VECTOR(11 DOWNTO 0);
     SIGNAL Data_From_Instruction_Memory : STD_LOGIC_VECTOR(15 DOWNTO 0);
-    
-    -- TO F/D
-
-    SIGNAL Instruction : STD_LOGIC_VECTOR(15 DOWNTO 0);
-    SIGNAL Data : STD_LOGIC_VECTOR(15 DOWNTO 0);
 
 BEGIN
 
@@ -79,4 +74,4 @@ BEGIN
 
     InstructionData_Decoder_Instance : InstructionData_Decoder PORT MAP(Data_From_Instruction_Memory, Data, Instruction, Data_After);
 
-END ARCHITECTURE
+END ARCHITECTURE;

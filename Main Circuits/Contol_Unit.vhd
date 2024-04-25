@@ -82,7 +82,9 @@ BEGIN
         ELSE
         "00000" WHEN Instruction_OPCODE = "11011" -- RET
         ELSE
-        "00000" WHEN Instruction_OPCODE = "11100"; -- RTI
+        "00000" WHEN Instruction_OPCODE = "11100" -- RTI
+        ELSE
+        "00000";
 
     -- Write_Enable Signal
 
@@ -142,7 +144,9 @@ BEGIN
         ELSE
         '0' WHEN Instruction_OPCODE = "11011" -- RET
         ELSE
-        '0' WHEN Instruction_OPCODE = "11100"; -- RTI
+        '0' WHEN Instruction_OPCODE = "11100" -- RTI
+        ELSE
+        '0';
 
     -- Mem_Write Signal
 
@@ -202,11 +206,9 @@ BEGIN
         ELSE
         '0' WHEN Instruction_OPCODE = "11011" -- RET
         ELSE
-        '0' WHEN Instruction_OPCODE = "11100"; -- RTI
-
-
-    
-
+        '0' WHEN Instruction_OPCODE = "11100" -- RTI
+        ELSE
+        '0';
     -- Mem InPort_Enable Signal
 
     InPort_Enable <= '0' WHEN Instruction_OPCODE = "00000" --NOP
@@ -265,7 +267,9 @@ BEGIN
         ELSE
         '0' WHEN Instruction_OPCODE = "11011" -- RET
         ELSE
-        '0' WHEN Instruction_OPCODE = "11100"; -- RTI
+        '0' WHEN Instruction_OPCODE = "11100" -- RTI
+        ELSE
+        '0';
 
     -- Mem Memoy_Add_Selec Signal
 
@@ -325,7 +329,9 @@ BEGIN
         ELSE
         "00" WHEN Instruction_OPCODE = "11011" -- RET
         ELSE
-        "00" WHEN Instruction_OPCODE = "11100"; -- RTI
+        "00" WHEN Instruction_OPCODE = "11100" -- RTI
+        ELSE
+        "00";
 
     -- Data_After Signal
 
@@ -385,7 +391,9 @@ BEGIN
         ELSE
         '0' WHEN Instruction_OPCODE = "11011" -- RET
         ELSE
-        '0' WHEN Instruction_OPCODE = "11100"; -- RTI
+        '0' WHEN Instruction_OPCODE = "11100" -- RTI
+        ELSE
+        '0';
 
     -- ALU_SRC Signal
 
@@ -445,7 +453,9 @@ BEGIN
         ELSE
         '0' WHEN Instruction_OPCODE = "11011" -- RET
         ELSE
-        '0' WHEN Instruction_OPCODE = "11100"; -- RTI
+        '0' WHEN Instruction_OPCODE = "11100" -- RTI
+        ELSE
+        '0';
 
     -- WB_Selector Signal
 
@@ -505,7 +515,9 @@ BEGIN
         ELSE
         "00" WHEN Instruction_OPCODE = "11011" -- RET
         ELSE
-        "00" WHEN Instruction_OPCODE = "11100"; -- RTI
+        "00" WHEN Instruction_OPCODE = "11100" -- RTI
+        ELSE
+        "00";
 
     -- OutPort_Enable Signal
 
@@ -565,7 +577,9 @@ BEGIN
         ELSE
         '0' WHEN Instruction_OPCODE = "11011" -- RET
         ELSE
-        '0' WHEN Instruction_OPCODE = "11100"; -- RTI
+        '0' WHEN Instruction_OPCODE = "11100" -- RTI
+        ELSE
+        '0';
 
     -- Swap_Enable Signal
 
@@ -625,7 +639,9 @@ BEGIN
         ELSE
         '0' WHEN Instruction_OPCODE = "11011" -- RET
         ELSE
-        '0' WHEN Instruction_OPCODE = "11100"; -- RTI
+        '0' WHEN Instruction_OPCODE = "11100" -- RTI
+        ELSE
+        '0';
 
     -- Extend_Sign Signal
 
@@ -685,6 +701,8 @@ BEGIN
         ELSE
         '0' WHEN Instruction_OPCODE = "11011" -- RET
         ELSE
-        '0' WHEN Instruction_OPCODE = "11100"; -- RTI
+        '0' WHEN Instruction_OPCODE = "11100" -- RTI
+        ELSE
+        '0';
 
 END ARCHITECTURE;

@@ -10,11 +10,11 @@ ENTITY Mux2x1 IS
 	);
 END ENTITY;
 
-ARCHITECTURE when_else_mux OF mux_gesneric IS
+ARCHITECTURE Mux2x1_Design OF Mux2x1 IS
 BEGIN
 
 	MUX_Out <= in0 WHEN sel = '0'
 		ELSE
-		in1 WHEN sel = "1";
+		in1 WHEN sel = '1';
 
 END ARCHITECTURE;
