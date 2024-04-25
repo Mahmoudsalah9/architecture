@@ -5,13 +5,13 @@ USE IEEE.numeric_std.ALL;
 ENTITY memory_stage IS
     PORT (
         CLK, RST : IN STD_LOGIC;
-        InPort_Enable_in, OutPort_Enable_in, Swap_Enable_in, Write_Enable_in, Mem_Write_enable : IN STD_LOGIC;
+        OutPort_Enable_in, Swap_Enable_in, Write_Enable_in, Mem_Write_enable : IN STD_LOGIC;
         Read_port2_data_in, Immediate_data_in, Write_Data2_in : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
         Alu_result_in : IN STD_LOGIC_VECTOR(11 DOWNTO 0);
         Write_Add_1_in, Write_Add_2_in : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
         WB_Selector_in, Mem_Add_selector : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
         
-        InPort_Enable_out, OutPort_Enable_out, Swap_Enable_out, Write_Enable_out : OUT STD_LOGIC;
+        OutPort_Enable_out, Swap_Enable_out, Write_Enable_out : OUT STD_LOGIC;
         Read_port2_data_out, Immediate_data_out, Write_Data2_out : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
         Alu_result_out : OUT STD_LOGIC_VECTOR(11 DOWNTO 0);
         Write_Add_1_out, Write_Add_2_out : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
@@ -46,7 +46,6 @@ BEGIN
 
     Mux4x1_Address : Mux4x1 GENERIC MAP(12) PORT MAP(Alu_result_in(11 DOWNTO 0), Read_port2_data_in(11 DOWNTO 0), x"00000000", x"00000000", Mem_Add_selector, Address);
     Memory_instance : Memory PORT MAP(CLK, RST, Mem_Write_enable, Address, Read_port2_data_in, Result_Mem);
-    InPort_Enable_out <= InPort_Enable_in;
     OutPort_Enable_out <= OutPort_Enable_in;
     Swap_Enable_out <= Swap_Enable_in;
     Write_Enable_out <= Write_Enable_in;
