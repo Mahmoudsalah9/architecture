@@ -41,6 +41,7 @@ ENTITY Execute IS
         Read_Port2_out : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
         Write_Add1_out : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
         Write_Add2_out : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+        ALU_Write_Data2 : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
 
         Flag_Output : OUT STD_LOGIC_VECTOR(3 DOWNTO 0)
 
@@ -105,7 +106,6 @@ ARCHITECTURE Execute_Design OF Execute IS
     --ALU signals
     SIGNAL Oprand2 : STD_LOGIC_VECTOR(31 DOWNTO 0);
     SIGNAL ALU_Result : STD_LOGIC_VECTOR(31 DOWNTO 0);
-    SIGNAL ALU_Write_Data2 : STD_LOGIC_VECTOR(31 DOWNTO 0);
     SIGNAL Flags : STD_LOGIC_VECTOR(3 DOWNTO 0);
 
 BEGIN
@@ -133,4 +133,4 @@ BEGIN
     Write_Add1_out <= Write_Add1;
     Write_Add2_out <= Write_Add2;
 
-END architecture;
+END ARCHITECTURE;

@@ -10,6 +10,7 @@ ENTITY memory_stage IS
         Alu_result_in : IN STD_LOGIC_VECTOR(11 DOWNTO 0);
         Write_Add_1_in, Write_Add_2_in : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
         WB_Selector_in, Mem_Add_selector : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
+        
         InPort_Enable_out, OutPort_Enable_out, Swap_Enable_out, Write_Enable_out : OUT STD_LOGIC;
         Read_port2_data_out, Immediate_data_out, Write_Data2_out : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
         Alu_result_out : OUT STD_LOGIC_VECTOR(11 DOWNTO 0);
