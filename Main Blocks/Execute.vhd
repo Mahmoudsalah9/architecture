@@ -6,6 +6,44 @@ ENTITY Execute IS
 
         Clk : IN STD_LOGIC;
         Rst : IN STD_LOGIC;
+        INPUT_PORT : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+
+        --Buses In:
+        Immdite_Data : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+        Read_Port1 : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+        Read_Port2 : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+        Write_Add1 : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
+        Write_Add2 : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
+
+        --Control Signals In:
+        ALU_OP : IN STD_LOGIC_VECTOR(4 DOWNTO 0);
+        Write_Enable : IN STD_LOGIC;
+        Mem_Write : IN STD_LOGIC;
+        InPort_Enable : IN STD_LOGIC;
+        OutPort_Enable : IN STD_LOGIC;
+        Swap_Enable : IN STD_LOGIC;
+        Memory_Add_Selec : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
+        ALU_SRC : IN STD_LOGIC;
+        WB_Selector : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
+        Extend_Sign : IN STD_LOGIC;
+
+        --Control Signals Out:
+        Write_Enable_out : OUT STD_LOGIC;
+        Mem_Write_out : OUT STD_LOGIC;
+        OutPort_Enable_out : OUT STD_LOGIC;
+        Swap_Enable_out : OUT STD_LOGIC;
+        Memory_Add_Selec_out : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
+        WB_Selector_out : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
+
+        --Buses Out:
+        Extended_Imm_Memory : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+        Final_Result : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+        Read_Port2_out : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+        Write_Add1_out : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+        Write_Add2_out : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+
+        Flag_Output : OUT STD_LOGIC_VECTOR(3 DOWNTO 0)
+
     );
 END ENTITY;
 
@@ -62,32 +100,37 @@ ARCHITECTURE Execute_Design OF Execute IS
 
     ----------------------------------------------------------------------------  Signals  -------------------------------------------------------------------------------
 
-    SIGNAL Immdite_Data_Execute : STD_LOGIC_VECTOR(15 DOWNTO 0);
-    SIGNAL Read_Port1_Execute : STD_LOGIC_VECTOR(31 DOWNTO 0);
-    SIGNAL Read_Port2_Execute : STD_LOGIC_VECTOR(31 DOWNTO 0);
-    SIGNAL Write_Add1_Execute : STD_LOGIC_VECTOR(2 DOWNTO 0);
-    SIGNAL Write_Add2_Execute : STD_LOGIC_VECTOR(2 DOWNTO 0);
-
-    --Control signals Execute
-    SIGNAL ALU_OP_Execute STD_LOGIC_VECTOR(4 DOWNTO 0);
-    SIGNAL Write_Enable_Execute STD_LOGIC; --- E/M
-    SIGNAL Mem_Write_Execute STD_LOGIC; --- E/M
-    SIGNAL InPort_Enable_Execute STD_LOGIC;
-    SIGNAL OutPort_Enable_Execute STD_LOGIC; --- E/M
-    SIGNAL Swap_Execute STD_LOGIC; --- E/M
-    SIGNAL Memory_Add_Selec_Execute STD_LOGIC_VECTOR(1 DOWNTO 0); --- E/M
-    SIGNAL ALU_SRC_Execute STD_LOGIC;
-    SIGNAL WB_Selector_Execute STD_LOGIC_VECTOR(1 DOWNTO 0) --- E/M
-    SIGNAL Extend_Sign_Execute STD_LOGIC;
+    SIGNAL Extended_Imm : STD_LOGIC_VECTOR(31 DOWNTO 0);
 
     --ALU signals
-    SIGNAL Oprand1 : STD_LOGIC_VECTOR(31 DOWNTO 0);
     SIGNAL Oprand2 : STD_LOGIC_VECTOR(31 DOWNTO 0);
-    SIGNAL ALU_Result_Execute : STD_LOGIC_VECTOR(31 DOWNTO 0);
-    SIGNAL ALU_Write_Data2 : STD_LOGIC_VECTOR(31 DOWNTO 0); --- E/M     
+    SIGNAL ALU_Result : STD_LOGIC_VECTOR(31 DOWNTO 0);
+    SIGNAL ALU_Write_Data2 : STD_LOGIC_VECTOR(31 DOWNTO 0);
     SIGNAL Flags : STD_LOGIC_VECTOR(3 DOWNTO 0);
 
-    SIGNAL Final_Result_Execute : STD_LOGIC_VECTOR(31 DOWNTO 0); --- E/M
-
 BEGIN
-END;
+
+    Write_Enable_out <= Write_Enable;
+    Mem_Write_out <= Mem_Write;
+    OutPort_Enable_out <= OutPort_Enable;
+    Swap_Enable_out <= Swap_Enable;
+    Memory_Add_Selec_out <= Memory_Add_Selec;
+    WB_Selector_out <= WB_Selector;
+
+    Sign_Extend_Instance : Sign_Extend PORT MAP(Extend_Sign, Immdite_Data, Extended_Imm);
+
+    Extended_Imm_Memory <= Extended_Imm;
+
+    Mux2x1_ALU_Source : Mux2x1 GENERIC MAP(32) PORT MAP(Read_Port2, Extended_Imm, ALU_SRC, Oprand2); -- mux for choosing oprand 2 for Alu
+
+    ALU_Instance : ALU GENERIC MAP(32) PORT MAP(Read_Port1, Oprand2, ALU_OP, Flags, ALU_Result, ALU_Write_Data2);
+
+    CCR_Reg_Instance : CCR_Reg PORT MAP(Clk, Rst, Flags, Flag_Output);
+
+    Mux2x1_INPUTPORT : Mux2x1 GENERIC MAP(32) PORT MAP(ALU_Result, INPUT_PORT, InPort_Enable, Final_Result);
+
+    Read_Port2_out <= Read_Port2;
+    Write_Add1_out <= Write_Add1;
+    Write_Add2_out <= Write_Add2;
+
+END architecture;
