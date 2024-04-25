@@ -12,3 +12,46 @@
 # Compile of Processor_Integration.vhd failed with 3 errors.
 # Compile of WriteBack_Reg.vhd was successful.
 # 13 compiles, 2 failed with 18 errors.
+# Compile of Memory_stage.vhd was successful.
+# Compile of Mux2x1.vhd was successful.
+# Compile of Mux4x1.vhd was successful.
+# Compile of Memory_stage.vhd was successful.
+# 3 compiles, 16 failed with no errors.
+# Compile of Mux2x1.vhd was successful.
+# Compile of Mux4x1.vhd was successful.
+# Compile of ALU.vhd was successful.
+# Compile of CCR_Reg.vhd failed with 13 errors.
+# Compile of Contol_Unit.vhd failed with 1 errors.
+# Compile of Instruction_Memory.vhd was successful.
+# Compile of InstructionData_Decoder.vhd was successful.
+# Compile of InstructionFetch.vhd was successful.
+# Compile of Memory.vhd was successful.
+# Compile of Program_Counter.vhd was successful.
+# Compile of RegisterFile.vhd was successful.
+# Compile of Sign_Extend.vhd was successful.
+# Compile of Decode_Stage.vhd was successful.
+# Compile of Execute_Stage.vhd was successful.
+# Compile of Fetch_Stage.vhd was successful.
+# Compile of Memory_Stage.vhd was successful.
+# Compile of Processor_Integration.vhd failed with 15 errors.
+# Compile of WriteBack_Stage.vhd was successful.
+# Compile of MUX.vhd was successful.
+# Compile of my_adder.vhd was successful.
+# Compile of my_Dff.vhd was successful.
+# Compile of my_nadder.vhd was successful.
+# Compile of my_nDff.vhd was successful.
+# Compile of select_adder.vhd was successful.
+# 24 compiles, 3 failed with 29 errors.
+# Compile of CCR_Reg.vhd failed with 13 errors.
+# Compile of Contol_Unit.vhd failed with 1 errors.
+# Compile of Instruction_Memory.vhd was successful.
+# Compile of Processor_Integration.vhd failed with 15 errors.
+# Compile of WriteBack_Stage.vhd was successful.
+# 5 compiles, 3 failed with 29 errors.
+# Compile of CCR_Reg.vhd failed with 13 errors.
+# Compile of Contol_Unit.vhd was successful with warnings.
+# Compile of Processor_Integration.vhd failed with 15 errors.
+# 3 compiles, 2 failed with 28 errors.
+# Compile of CCR_Reg.vhd failed with 13 errors.
+# Compile of Processor_Integration.vhd failed with 15 errors.
+# 2 compiles, 2 failed with 28 errors.

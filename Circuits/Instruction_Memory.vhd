@@ -7,9 +7,7 @@ ENTITY Instruction_Memory IS
 		CLK : IN STD_LOGIC;
 		address : IN STD_LOGIC_VECTOR(11 DOWNTO 0);
 		dataout : OUT STD_LOGIC_VECTOR(15 DOWNTO 0));
-END ENTITY Instruction_Memory;
-
--- make sure that the we is always zero 
+END ENTITY;
 
 ARCHITECTURE Instruction_Memory_Design OF Instruction_Memory IS
 
