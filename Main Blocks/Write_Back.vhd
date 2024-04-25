@@ -3,9 +3,7 @@ USE IEEE.STD_LOGIC_1164.ALL;
 USE IEEE.numeric_std.ALL;
 
 ENTITY Write_Back IS
-	PORT(
-		
-       
+    PORT (
 
         OutPort_Enable, Swap_Enable_in, Write_Enable_in : IN STD_LOGIC;
         Read_port2_data, Immediate_data, Write_Data2_in : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
@@ -15,7 +13,7 @@ ENTITY Write_Back IS
         WB_Selector : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
         Swap_Enable_out, Write_Enable_out : OUT STD_LOGIC;
         Write_Data2_out : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
-        Write_Add_1_out, Write_Add_2_out : OUT STD_LOGIC;
+        Write_Add_1_out, Write_Add_2_out : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
         OUT_PORT : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
         Wtite_Back_Data : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)
 

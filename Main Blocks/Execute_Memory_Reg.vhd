@@ -22,7 +22,7 @@ ENTITY E_M_Stage IS
         read_port2_memory : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
         result_alu_memory : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
         immediate_data_memory : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
-        Write_Data2_Out : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+        Write_Data2_Out : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
         write_add_memory : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
         wb_selector_memory : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
         memory_add_select_Out : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
