@@ -734,7 +734,7 @@ BEGIN
         ELSE
         '0011' WHEN Instruction_OPCODE = "01101" -- XOR
         ELSE
-        '0000' WHEN Instruction_OPCODE = "01110" -- CMP
+        '0011' WHEN Instruction_OPCODE = "01110" -- CMP
         ELSE
         '1111' WHEN Instruction_OPCODE = "01111" -- ADDI
         ELSE
