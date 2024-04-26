@@ -26,6 +26,7 @@ ENTITY Execute_Stage IS
         ALU_SRC : IN STD_LOGIC;
         WB_Selector : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
         Extend_Sign : IN STD_LOGIC;
+        CCR_Enable : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
 
         --Control Signals Out:
         Write_Enable_out : OUT STD_LOGIC;
@@ -91,12 +92,13 @@ ARCHITECTURE Execute_Stage_Design OF Execute_Stage IS
     END COMPONENT;
 
     COMPONENT CCR_Reg IS
-        PORT (
 
+        PORT (
             Clk, Rst : IN STD_LOGIC;
-            CCR : IN STD_LOGIC_VECTOR(3 DOWNTO 0); --CCR<0>:=zero flag,CCR<1>:=negative flag,CCR<2>:=carry flag,CCR<3>:=overflow flag
+            CCR, CCR_Enable : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
             q : OUT STD_LOGIC_VECTOR(3 DOWNTO 0)
         );
+
     END COMPONENT;
 
     ----------------------------------------------------------------------------  Signals  -------------------------------------------------------------------------------
@@ -125,7 +127,7 @@ BEGIN
 
     ALU_Instance : ALU GENERIC MAP(32) PORT MAP(Read_Port1, Oprand2, ALU_OP, Flags, ALU_Result, ALU_Write_Data2);
 
-    CCR_Reg_Instance : CCR_Reg PORT MAP(Clk, Rst, Flags, Flag_Output);
+    CCR_Reg_Instance : CCR_Reg PORT MAP(Clk, Rst, Flags, CCR_Enable, Flag_Output);
 
     Mux2x1_INPUTPORT : Mux2x1 GENERIC MAP(32) PORT MAP(ALU_Result, INPUT_PORT, InPort_Enable, Final_Result);
 

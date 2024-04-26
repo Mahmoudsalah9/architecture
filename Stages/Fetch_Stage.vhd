@@ -3,9 +3,9 @@ USE IEEE.std_logic_1164.ALL;
 
 ENTITY Fetch_Stage IS
     PORT (
-
         Clk : IN STD_LOGIC;
         Rst : IN STD_LOGIC;
+        
         Data_After : IN STD_LOGIC;
 
         Instruction : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);

@@ -6,26 +6,34 @@ USE IEEE.numeric_std.ALL;
 ENTITY Fetch_Decode IS
     PORT (
         clk : IN STD_LOGIC;
-        reset : IN STD_LOGIC;
-        data_in : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-        instruction_in : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+        Rst : IN STD_LOGIC;
 
-        data_fetch_out : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-        instruction_fetch_out : OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
+        Data_in : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
+        Instruction_in : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
 
+        Data_out : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+        Instruction_Out : OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
     );
 END ENTITY;
 
 ARCHITECTURE Fetch_Decode_Design OF Fetch_Decode IS
+
 BEGIN
-    PROCESS (clk, reset)
+
+    PROCESS (clk, Rst)
     BEGIN
-        IF reset = '1' THEN
-            data_fetch_out <= (OTHERS => '0');
-            instruction_fetch_out <= (OTHERS => '0');
+        IF Rst = '1' THEN
+
+            Data_out <= (OTHERS => '0');
+            Instruction_Out <= (OTHERS => '0');
+
         ELSIF rising_edge(clk) THEN
-            data_fetch_out <= data_in;
-            instruction_fetch_out <= instruction_in;
+
+            Data_out <= Data_in;
+            Instruction_Out <= Instruction_in;
+
         END IF;
+
     END PROCESS;
+
 END ARCHITECTURE;

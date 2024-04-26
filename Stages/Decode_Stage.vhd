@@ -3,9 +3,9 @@ USE IEEE.std_logic_1164.ALL;
 
 ENTITY Decode_Stage IS
     PORT (
-
         Clk : IN STD_LOGIC;
         Rst : IN STD_LOGIC;
+        
         Instruction : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
         IMData_in : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
 
@@ -35,8 +35,7 @@ ENTITY Decode_Stage IS
         Read_Port2 : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
 
         IMData_out : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-        CCR_Enable : OUT STD_LOGIC
-
+        CCR_Enable : OUT STD_LOGIC_VECTOR(3 DOWNTO 0)
     );
 END ENTITY;
 
@@ -57,7 +56,7 @@ ARCHITECTURE Decode_Stage_Design OF Decode_Stage IS
             ALU_SRC : OUT STD_LOGIC;
             WB_Selector : OUT STD_LOGIC_VECTOR(1 DOWNTO 0); -- 00 ALU Result,  01 Mem Result,   10 Imm Data, 11 Readport2 Data
             Extend_Sign : OUT STD_LOGIC;
-            CCR_Enable : OUT STD_LOGIC
+            CCR_Enable : OUT STD_LOGIC_VECTOR(3 DOWNTO 0)
 
         );
     END COMPONENT;

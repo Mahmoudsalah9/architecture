@@ -1,0 +1,291 @@
+# Compile of Decode_Execute.vhd was successful.
+# Compile of Execute_Memory.vhd was successful.
+# Compile of Fetch_Decode.vhd failed with 4 errors.
+# Compile of Memory_WriteBack.vhd was successful.
+# 4 compiles, 1 failed with 4 errors.
+# Compile of Fetch_Decode.vhd was successful.
+# Compile of Decode_Execute.vhd was successful.
+# Compile of Execute_Memory.vhd was successful.
+# Compile of Fetch_Decode.vhd was successful.
+# Compile of Memory_WriteBack.vhd was successful.
+# 4 compiles, 0 failed with no errors.
+# Compile of Decode_Execute.vhd failed with 3 errors.
+# Compile of Decode_Execute.vhd failed with 3 errors.
+# Compile of Execute_Memory.vhd was successful.
+# Compile of Fetch_Decode.vhd was successful.
+# Compile of Memory_WriteBack.vhd was successful.
+# Compile of ALU.vhd was successful.
+# Compile of CCR_Reg.vhd failed with 12 errors.
+# Compile of Contol_Unit.vhd was successful with warnings.
+# Compile of Instruction_Memory.vhd was successful.
+# Compile of InstructionData_Decoder.vhd was successful.
+# Compile of InstructionFetch.vhd was successful.
+# Compile of Memory.vhd was successful.
+# Compile of Program_Counter.vhd was successful.
+# Compile of RegisterFile.vhd was successful.
+# Compile of Sign_Extend.vhd was successful.
+# 14 compiles, 2 failed with 15 errors.
+# Compile of Decode_Execute.vhd failed with 3 errors.
+# Compile of Execute_Memory.vhd was successful.
+# Compile of Fetch_Decode.vhd was successful.
+# Compile of Memory_WriteBack.vhd was successful.
+# Compile of ALU.vhd was successful.
+# Compile of CCR_Reg.vhd failed with 12 errors.
+# Compile of Contol_Unit.vhd was successful with warnings.
+# Compile of Instruction_Memory.vhd was successful.
+# Compile of InstructionData_Decoder.vhd was successful.
+# Compile of InstructionFetch.vhd was successful.
+# Compile of Memory.vhd was successful.
+# Compile of Program_Counter.vhd was successful.
+# Compile of RegisterFile.vhd was successful.
+# Compile of Sign_Extend.vhd was successful.
+# 14 compiles, 2 failed with 15 errors.
+# Compile of Decode_Execute.vhd failed with 3 errors.
+# Compile of CCR_Reg.vhd failed with 12 errors.
+# 2 compiles, 2 failed with 15 errors.
+# Compile of Decode_Execute.vhd failed with 3 errors.
+# Compile of CCR_Reg.vhd failed with 12 errors.
+# 2 compiles, 2 failed with 15 errors.
+# Compile of Decode_Execute.vhd failed with 3 errors.
+# Compile of Execute_Memory.vhd was successful.
+# Compile of Fetch_Decode.vhd was successful.
+# Compile of Memory_WriteBack.vhd was successful.
+# Compile of ALU.vhd was successful.
+# Compile of CCR_Reg.vhd failed with 12 errors.
+# Compile of Contol_Unit.vhd was successful with warnings.
+# Compile of Instruction_Memory.vhd was successful.
+# Compile of InstructionData_Decoder.vhd was successful.
+# Compile of InstructionFetch.vhd was successful.
+# Compile of Memory.vhd was successful.
+# Compile of Program_Counter.vhd was successful.
+# Compile of RegisterFile.vhd was successful.
+# Compile of Sign_Extend.vhd was successful.
+# 14 compiles, 2 failed with 15 errors.
+# Compile of CCR_Reg.vhd failed with 12 errors.
+# Compile of CCR_Reg.vhd failed with 12 errors.
+# Compile of CCR_Reg.vhd failed with 12 errors.
+# Compile of CCR_Reg.vhd failed with 12 errors.
+# Compile of CCR_Reg.vhd failed with 12 errors.
+# Compile of CCR_Reg.vhd failed with 12 errors.
+# Compile of Decode_Execute.vhd failed with 3 errors.
+# Compile of CCR_Reg.vhd failed with 12 errors.
+# 2 compiles, 2 failed with 15 errors.
+# Compile of Decode_Execute.vhd failed with 3 errors.
+# Compile of CCR_Reg.vhd failed with 12 errors.
+# 2 compiles, 2 failed with 15 errors.
+# Compile of Decode_Execute.vhd was successful.
+# Compile of CCR_Reg.vhd failed with 12 errors.
+# 2 compiles, 1 failed with 12 errors.
+# Compile of ALU.vhd was successful.
+# Compile of CCR_Reg.vhd failed with 12 errors.
+# Compile of Contol_Unit.vhd was successful with warnings.
+# Compile of Instruction_Memory.vhd was successful.
+# Compile of InstructionData_Decoder.vhd was successful.
+# Compile of InstructionFetch.vhd was successful.
+# Compile of Memory.vhd was successful.
+# Compile of Program_Counter.vhd was successful.
+# Compile of RegisterFile.vhd was successful.
+# Compile of Sign_Extend.vhd was successful.
+# Compile of Mux2x1.vhd was successful.
+# Compile of Mux4x1.vhd was successful.
+# Compile of MUX.vhd was successful.
+# Compile of my_adder.vhd was successful.
+# Compile of my_Dff.vhd was successful.
+# Compile of my_nadder.vhd was successful.
+# Compile of my_nDff.vhd was successful.
+# Compile of select_adder.vhd was successful.
+# 18 compiles, 1 failed with 12 errors.
+# Compile of ALU.vhd was successful.
+# Compile of CCR_Reg.vhd failed with 12 errors.
+# Compile of Contol_Unit.vhd was successful with warnings.
+# Compile of Instruction_Memory.vhd was successful.
+# Compile of InstructionData_Decoder.vhd was successful.
+# Compile of InstructionFetch.vhd was successful.
+# Compile of Memory.vhd was successful.
+# Compile of Program_Counter.vhd was successful.
+# Compile of RegisterFile.vhd was successful.
+# Compile of Sign_Extend.vhd was successful.
+# Compile of Mux2x1.vhd was successful.
+# Compile of Mux4x1.vhd was successful.
+# Compile of MUX.vhd was successful.
+# Compile of my_adder.vhd was successful.
+# Compile of my_Dff.vhd was successful.
+# Compile of my_nadder.vhd was successful.
+# Compile of my_nDff.vhd was successful.
+# Compile of select_adder.vhd was successful.
+# 18 compiles, 1 failed with 12 errors.
+# Compile of ALU.vhd was successful.
+# Compile of CCR_Reg.vhd failed with 12 errors.
+# Compile of Contol_Unit.vhd was successful with warnings.
+# Compile of Instruction_Memory.vhd was successful.
+# Compile of InstructionData_Decoder.vhd was successful.
+# Compile of InstructionFetch.vhd was successful.
+# Compile of Memory.vhd was successful.
+# Compile of Program_Counter.vhd was successful.
+# Compile of RegisterFile.vhd was successful.
+# Compile of Sign_Extend.vhd was successful.
+# Compile of Mux2x1.vhd was successful.
+# Compile of Mux4x1.vhd was successful.
+# Compile of MUX.vhd was successful.
+# Compile of my_adder.vhd was successful.
+# Compile of my_Dff.vhd was successful.
+# Compile of my_nadder.vhd was successful.
+# Compile of my_nDff.vhd was successful.
+# Compile of select_adder.vhd was successful.
+# 18 compiles, 1 failed with 12 errors.
+# Compile of Fetch_Decode.vhd was successful.
+# Compile of Decode_Stage.vhd was successful.
+# Compile of Fetch_Stage.vhd was successful.
+# Compile of Processor_Integration.vhd failed with 4 errors.
+# 4 compiles, 1 failed with 4 errors.
+# Compile of Fetch_Decode.vhd was successful.
+# Compile of Decode_Stage.vhd was successful.
+# Compile of Fetch_Stage.vhd was successful.
+# Compile of Processor_Integration.vhd failed with 4 errors.
+# Compile of Contol_Unit.vhd was successful with warnings.
+# Compile of Instruction_Memory.vhd was successful.
+# Compile of InstructionData_Decoder.vhd was successful.
+# Compile of Program_Counter.vhd was successful.
+# Compile of RegisterFile.vhd was successful.
+# 9 compiles, 1 failed with 4 errors.
+# Compile of Processor_Integration.vhd was successful.
+# Compile of Fetch_Decode.vhd was successful.
+# Compile of Decode_Stage.vhd was successful.
+# Compile of Fetch_Stage.vhd was successful.
+# Compile of Processor_Integration.vhd was successful.
+# Compile of Contol_Unit.vhd was successful with warnings.
+# Compile of Instruction_Memory.vhd was successful.
+# Compile of InstructionData_Decoder.vhd was successful.
+# Compile of Program_Counter.vhd was successful.
+# Compile of RegisterFile.vhd was successful.
+# 9 compiles, 0 failed with no errors.
+vsim -gui work.processor_integration
+# vsim -gui work.processor_integration 
+# Start time: 02:23:48 on Apr 26,2024
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.processor_integration(processor_integration_design)
+# Loading work.fetch_stage(fetch_stage_design)
+# Loading ieee.numeric_std(body)
+# Loading work.program_counter(pc_arch)
+# Loading work.instruction_memory(instruction_memory_design)
+# Loading work.instructiondata_decoder(instructiondata_decoder_design)
+# Loading work.fetch_decode(fetch_decode_design)
+# Loading work.decode_stage(decode_stage_design)
+# Loading work.control_unit(control_unit_design)
+# ** Fatal: (vsim-3807) Types do not match between component and entity for port "CCR_Enable".
+#    Time: 0 ps  Iteration: 0  Instance: /processor_integration/Decode_stage_Instance/Control_Unit_Instance File: C:/Users/Y.A/Desktop/Arch Project/architecture/Contol_Unit.vhd Line: 18
+# FATAL ERROR while loading design
+# Error loading design
+# End time: 02:23:48 on Apr 26,2024, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 39
+# Compile of Decode_Stage.vhd failed with 1 errors.
+# Compile of Processor_Integration.vhd was successful.
+# 2 compiles, 1 failed with 1 error.
+# Compile of Decode_Stage.vhd failed with 1 errors.
+# Compile of Decode_Stage.vhd failed with 1 errors.
+# Compile of Decode_Stage.vhd failed with 1 errors.
+# Compile of Decode_Stage.vhd was successful.
+# Compile of Fetch_Decode.vhd was successful.
+# Compile of Decode_Stage.vhd was successful.
+# Compile of Fetch_Stage.vhd was successful.
+# Compile of Processor_Integration.vhd was successful.
+# Compile of Contol_Unit.vhd was successful with warnings.
+# Compile of Instruction_Memory.vhd was successful.
+# Compile of InstructionData_Decoder.vhd was successful.
+# Compile of Program_Counter.vhd was successful.
+# Compile of RegisterFile.vhd was successful.
+# 9 compiles, 0 failed with no errors.
+vsim -gui work.processor_integration
+# vsim -gui work.processor_integration 
+# Start time: 02:40:42 on Apr 26,2024
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading work.processor_integration(processor_integration_design)
+# Loading work.fetch_stage(fetch_stage_design)
+# Loading ieee.numeric_std(body)
+# Loading work.program_counter(pc_arch)
+# Loading work.instruction_memory(instruction_memory_design)
+# Loading work.instructiondata_decoder(instructiondata_decoder_design)
+# Loading work.fetch_decode(fetch_decode_design)
+# Loading work.decode_stage(decode_stage_design)
+# Loading work.control_unit(control_unit_design)
+# Loading work.register_file(behavioral)
+add wave -position end  sim:/processor_integration/Clk
+add wave -position end  sim:/processor_integration/Rst
+force -freeze sim:/processor_integration/Clk 0 0, 1 {50 ps} -r 100
+force -freeze sim:/processor_integration/Rst 1 0
+mem load -filltype value -filldata 0000111111111100 -fillradix binary /processor_integration/Fetch_Stage_Instance/Instruction_Memory_Instance/ram(0)
+force -freeze sim:/processor_integration/Rst 0 0
+add wave -position end  sim:/processor_integration/Fetch_Stage_Instance/Program_Counter_Instance/address
+add wave -position end  sim:/processor_integration/Fetch_Stage_Instance/Instruction
+add wave -position end  sim:/processor_integration/Fetch_Stage_Instance/Data
+add wave -position 2  sim:/processor_integration/Fetch_Stage_Instance/Program_Counter_Instance/address
+add wave -position end  sim:/processor_integration/Decode_stage_Instance/ALU_OP
+add wave -position end  sim:/processor_integration/Decode_stage_Instance/Write_Enable
+run
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /processor_integration/Decode_stage_Instance/Register_File_Instance
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /processor_integration/Decode_stage_Instance/Register_File_Instance
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 50 ps  Iteration: 0  Instance: /processor_integration/Fetch_Stage_Instance/Instruction_Memory_Instance
+run
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 150 ps  Iteration: 0  Instance: /processor_integration/Fetch_Stage_Instance/Instruction_Memory_Instance
+run
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 250 ps  Iteration: 0  Instance: /processor_integration/Fetch_Stage_Instance/Instruction_Memory_Instance
+run
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 350 ps  Iteration: 0  Instance: /processor_integration/Fetch_Stage_Instance/Instruction_Memory_Instance
+run
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 450 ps  Iteration: 0  Instance: /processor_integration/Fetch_Stage_Instance/Instruction_Memory_Instance
+quit -sim
+# End time: 02:57:39 on Apr 26,2024, Elapsed time: 0:16:57
+# Errors: 0, Warnings: 15
+# Compile of Decode_Execute.vhd was successful.
+# Compile of ALU.vhd was successful.
+# Compile of CCR_Reg.vhd failed with 12 errors.
+# 3 compiles, 1 failed with 12 errors.
+# Compile of Fetch_Decode.vhd was successful.
+# Compile of Decode_Stage.vhd was successful.
+# Compile of Fetch_Stage.vhd was successful.
+# Compile of Processor_Integration.vhd was successful.
+# Compile of Contol_Unit.vhd was successful with warnings.
+# Compile of Instruction_Memory.vhd was successful.
+# Compile of InstructionData_Decoder.vhd was successful.
+# Compile of Program_Counter.vhd was successful.
+# Compile of RegisterFile.vhd was successful.
+# Compile of Decode_Execute.vhd was successful.
+# Compile of ALU.vhd was successful.
+# Compile of CCR_Reg.vhd failed with 12 errors.
+# 12 compiles, 1 failed with 12 errors.
+# Compile of Processor_Integration.vhd failed with 23 errors.
+# Compile of CCR_Reg.vhd failed with 12 errors.
+# 2 compiles, 2 failed with 35 errors.
+# Compile of Processor_Integration.vhd failed with 20 errors.
+# Compile of CCR_Reg.vhd failed with 12 errors.
+# 2 compiles, 2 failed with 32 errors.
+# Compile of Processor_Integration.vhd failed with 1 errors.
+# Compile of CCR_Reg.vhd failed with 12 errors.
+# 2 compiles, 2 failed with 13 errors.
+# Compile of Processor_Integration.vhd was successful.
+# Compile of CCR_Reg.vhd failed with 12 errors.
+# 2 compiles, 1 failed with 12 errors.
+# Compile of Fetch_Decode.vhd was successful.
+# Compile of Decode_Stage.vhd was successful.
+# Compile of Fetch_Stage.vhd was successful.
+# Compile of Processor_Integration.vhd was successful.
+# Compile of Contol_Unit.vhd was successful with warnings.
+# Compile of Instruction_Memory.vhd was successful.
+# Compile of InstructionData_Decoder.vhd was successful.
+# Compile of Program_Counter.vhd was successful.
+# Compile of RegisterFile.vhd was successful.
+# Compile of Decode_Execute.vhd was successful.
+# Compile of ALU.vhd was successful.
+# Compile of CCR_Reg.vhd failed with 12 errors.
+# 12 compiles, 1 failed with 12 errors.
