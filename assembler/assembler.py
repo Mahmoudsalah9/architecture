@@ -1,5 +1,15 @@
 import re
 
+
+def process_line(line):
+    # Remove everything after #
+    string = re.sub(r'#.*', '', line)
+
+    # Split by space, comma, or any whitespace character
+    result = re.split(r'[,\s]+', string)
+    
+    return result
+
 def process_line(line):
     #return [word.replace(',', '') for word in line.strip().split()]
     # Remove everything after #
@@ -7,6 +17,7 @@ def process_line(line):
 
     # Split by space or comma
     result = re.split(r'[,\s]+', string)
+    
     return result
 
 def hex_to_bin(hexdec):
@@ -33,33 +44,38 @@ def line_to_command(line, counter):
     src2 = '000_'
     imm_Value = '0000000000000000_'
     uselessbits = '00' # total size will be 32 + 5 for '_'
-    
-    opcode_dict = {   
-                'NOP' : '00000_',
-                'SETC' : '00001_',
-                'CLRC' : '00010_',
-                'NOT' : '00011_',
-                'INC' : '00100_',
-                'DEC' : '00101_',
-                'MOV' : '00110_',
-                'ADD' : '00111_',
-                'IADD' : '01000_',
-                'SUB' : '01001_',
-                'AND' : '01010_',
-                'OR' : '01011_',
-                'IN' : '01100_',
-                'OUT' : '01101_',
-                'PUSH' : '01110_',
-                'POP' : '01111_',
-                'LDM' : '10010_',
-                'LDD' : '10000_',
-                'STD' : '10001_',
-                'JZ' : '10011_',
-                'JC' : '10100_',
-                'JMP' : '10101_',
-                'CALL' : '10110_',
-                'RET' : '10111_',
-                'RTI' : '11000_'}
+       
+    opcode_dict = {
+    'NOP': '00000_',
+    'NOT': '00001_',
+    'NEG': '00010_',
+    'INC': '00011_',
+    'DEC': '00100_',
+    'OUT': '00101_',
+    'IN': '00110_',
+    'MOV': '00111_',
+    'SWAP': '01000_',
+    'ADD': '01001_',
+    'SUB': '01010_',
+    'AND': '01011_',
+    'OR': '01100_',
+    'XOR': '01101_',
+    'CMP': '01110_',
+    'ADDI': '01111_',
+    'SUBI': '10000_',
+    'LDM': '10001_',
+    'PUSH': '10010_',
+    'POP': '10011_',
+    'LDD': '10100_',
+    'STD': '10101_',
+    'PROTECT': '10110_',
+    'FREE': '10111_',
+    'JZ': '11000_',
+    'JMP': '11001_',
+    'CALL': '11010_',
+    'RET': '11011_',
+    'RTI': '11100_'
+                    }
     
     register_dict = {   'R0' : '000_',
                         'R1' : '001_',
@@ -72,52 +88,97 @@ def line_to_command(line, counter):
                     }
     
     #out, push have OPCODE AND src1 only 
-    if line[0] == 'OUT' or line[0] == 'PUSH': 
+    if line[0] == 'OUT' or line[0] == 'PUSH' or line[0] == 'POP': 
+        opcode = opcode_dict[line[0]] 
+        dest = register_dict[line[1]] #there might be error here 
+        src1 = register_dict[line[1]] #there might be error here 
+    
+            
+    #CMP has OPCODE SRC1 AND SRC2 
+    elif line[0] == 'CMP': 
         opcode = opcode_dict[line[0]] 
         src1 = register_dict[line[1]]
+        src2 = register_dict[line[2]]
+        
+    elif line[0] == 'PROTECT'or line[0] == 'FREE': 
+        opcode = opcode_dict[line[0]] 
+        src1 = register_dict[line[1]]
+      
+        
+    
+       
         
     #ldm has OPCODE AND dest and immediate only 
     elif line[0] == 'LDM': 
         opcode = opcode_dict[line[0]] 
         dest = register_dict[line[1]]
         imm_Value = hex_to_bin(line[2]) + '_'
+     
+    #this needs to be implemented correctly    
+    #ldd has OPCODE AND dest and immediate only 
+    elif line[0] == 'LDD': 
+        opcode = opcode_dict[line[0]] 
+        dest = register_dict[line[1]]
+        imm_Value = hex_to_bin(line[2]) + '_'    
     
+    
+          
+    #SWAP has OPCODE SRC1 AND SRC2 AND DEST
+    elif line[0] == 'SWAP': 
+        opcode = opcode_dict[line[0]] 
+        dest = register_dict[line[1]]
+        src1 = register_dict[line[1]]
+        src2 = register_dict[line[2]]
+        
+        
+       
+   
+        
     #ldm has OPCODE AND dest and src1 and immediate only 
-    elif line[0] == 'IADD': 
+    elif line[0] == 'ADDI'or line[0] == 'SUBI': 
         opcode = opcode_dict[line[0]] 
         dest = register_dict[line[1]]
         src1 = register_dict[line[2]]
         imm_Value = hex_to_bin(line[3]) + '_'
         
     #RTI AND RET AND NOP AND SETC AND CLRC HAVE OPCODE ONLY
-    elif line[0] == 'RTI' or line[0] == 'RET' or line[0] == 'NOP' or line[0] == 'SETC' or line[0] == 'CLRC':
+    elif line[0] == 'RTI' or line[0] == 'RET' or line[0] == 'NOP':
         opcode = opcode_dict[line[0]]
+        
     #STD HAS OPCODE AND SRC1 AND SRC2 ONLY
+    #same as ldd needs checking
     elif line[0] == 'STD':
         opcode = opcode_dict[line[0]]
-        src2 = register_dict[line[1]]
-        src1 = register_dict[line[2]]
+        src1 = register_dict[line[1]]
+        src2 = register_dict[line[2]]
         
-    #IN AND JMP AND INC AND CALL AND JC AND JZ AND POP HAVE OPCODE AND DEST ONLY
-    elif line[0] == 'IN' or line[0] == 'JMP'  or line[0] == 'CALL' or line[0] == 'JC' or line[0] == 'JZ' or line[0] == 'POP':
+        
+    #IN 
+    elif line[0] == 'IN' :
         opcode = opcode_dict[line[0]]
         dest = register_dict[line[1]]
         
+   #JZ 
+    elif line[0] == 'JZ'or line[0] == 'JMP'or line[0] == 'CALL' :
+        opcode = opcode_dict[line[0]]
+        src1 = register_dict[line[1]]      
+        
+       
     #NOT AND DEC AND MOV AND LDD HAVE OPCODE AND DEST AND SRC1 ONLY
-    elif line[0] == 'NOT' or line[0] == 'DEC' or line[0] == 'INC' or line[0] == 'MOV' or line[0] == 'LDD':
+    elif line[0] == 'NOT'or line[0] == 'NEG' or line[0] == 'DEC' or line[0] == 'INC' or line[0] == 'MOV' :
         opcode = opcode_dict[line[0]]
         dest = register_dict[line[1]]
-        try:
+        try: 
             src1 = register_dict[line[2]]
         except: src1 = register_dict[line[1]]
     
     #ADD AND SUB AND AND AND OR HAVE OPCODE AND DEST AND SRC1 AND SRC2 ONLY
-    elif line[0] == 'ADD' or line[0] == 'SUB' or line[0] == 'AND' or line[0] == 'OR':
+    elif line[0] == 'ADD' or line[0] == 'SUB' or line[0] == 'AND' or line[0] == 'OR' or line[0] == 'XOR':
         opcode = opcode_dict[line[0]]
         dest = register_dict[line[1]]
         src1 = register_dict[line[2]]
         src2 = register_dict[line[3]]
-    
+      
     else:
         print('instruction transalation error', counter, opcode, dest, src1, src2, imm_Value)
         for x in line:
