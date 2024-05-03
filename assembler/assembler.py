@@ -36,55 +36,64 @@ def hex_to_bin(hexdec):
 def int_to_bin(integer):
     return bin(integer)[2:].zfill(16)
 
+
+def extract_part(input_string):
+     number=input_string.split('(')[0]
+     inside_bracket=input_string[input_string.find('(')+1:input_string.find(')')]
+     return number,inside_bracket
+
+
+
+
 def line_to_command(line, counter):
     
-    opcode = '00000_'
-    dest = '000_'
-    src1 = '000_'
-    src2 = '000_'
-    imm_Value = '0000000000000000_'
+    opcode = '00000'
+    dest = '000'
+    src1 = '000'
+    src2 = '000'
+    imm_Value = '0000000000000000'
     uselessbits = '00' # total size will be 32 + 5 for '_'
        
     opcode_dict = {
-    'NOP': '00000_',
-    'NOT': '00001_',
-    'NEG': '00010_',
-    'INC': '00011_',
-    'DEC': '00100_',
-    'OUT': '00101_',
-    'IN': '00110_',
-    'MOV': '00111_',
-    'SWAP': '01000_',
-    'ADD': '01001_',
-    'SUB': '01010_',
-    'AND': '01011_',
-    'OR': '01100_',
-    'XOR': '01101_',
-    'CMP': '01110_',
-    'ADDI': '01111_',
-    'SUBI': '10000_',
-    'LDM': '10001_',
-    'PUSH': '10010_',
-    'POP': '10011_',
-    'LDD': '10100_',
-    'STD': '10101_',
-    'PROTECT': '10110_',
-    'FREE': '10111_',
-    'JZ': '11000_',
-    'JMP': '11001_',
-    'CALL': '11010_',
-    'RET': '11011_',
-    'RTI': '11100_'
+    'NOP': '00000',
+    'NOT': '00001',
+    'NEG': '00010',
+    'INC': '00011',
+    'DEC': '00100',
+    'OUT': '00101',
+    'IN': '00110',
+    'MOV': '00111',
+    'SWAP': '01000',
+    'ADD': '01001',
+    'SUB': '01010',
+    'AND': '01011',
+    'OR': '01100',
+    'XOR': '01101',
+    'CMP': '01110',
+    'ADDI': '01111',
+    'SUBI': '10000',
+    'LDM': '10001',
+    'PUSH': '10010',
+    'POP': '10011',
+    'LDD': '10100',
+    'STD': '10101',
+    'PROTECT': '10110',
+    'FREE': '10111',
+    'JZ': '11000',
+    'JMP': '11001',
+    'CALL': '11010',
+    'RET': '11011',
+    'RTI': '11100'
                     }
     
-    register_dict = {   'R0' : '000_',
-                        'R1' : '001_',
-                        'R2' : '010_',
-                        'R3' : '011_',
-                        'R4' : '100_',
-                        'R5' : '101_',
-                        'R6' : '110_',
-                        'R7' : '111_'
+    register_dict = {   'R0' : '000',
+                        'R1' : '001',
+                        'R2' : '010',
+                        'R3' : '011',
+                        'R4' : '100',
+                        'R5' : '101',
+                        'R6' : '110',
+                        'R7' : '111'
                     }
     
     #out, push have OPCODE AND src1 only 
@@ -112,15 +121,16 @@ def line_to_command(line, counter):
     elif line[0] == 'LDM': 
         opcode = opcode_dict[line[0]] 
         dest = register_dict[line[1]]
-        imm_Value = hex_to_bin(line[2]) + '_'
+        imm_Value = hex_to_bin(line[2]) 
      
     #this needs to be implemented correctly    
     #ldd has OPCODE AND dest and immediate only 
     elif line[0] == 'LDD': 
         opcode = opcode_dict[line[0]] 
         dest = register_dict[line[1]]
-        imm_Value = hex_to_bin(line[2]) + '_'    
-    
+        number,inside_bracket = extract_part(line[2])
+        imm_Value  =  hex_to_bin(number)
+        src1= register_dict[inside_bracket]
     
           
     #SWAP has OPCODE SRC1 AND SRC2 AND DEST
@@ -139,7 +149,7 @@ def line_to_command(line, counter):
         opcode = opcode_dict[line[0]] 
         dest = register_dict[line[1]]
         src1 = register_dict[line[2]]
-        imm_Value = hex_to_bin(line[3]) + '_'
+        imm_Value = hex_to_bin(line[3])
         
     #RTI AND RET AND NOP AND SETC AND CLRC HAVE OPCODE ONLY
     elif line[0] == 'RTI' or line[0] == 'RET' or line[0] == 'NOP':
@@ -149,8 +159,10 @@ def line_to_command(line, counter):
     #same as ldd needs checking
     elif line[0] == 'STD':
         opcode = opcode_dict[line[0]]
-        src1 = register_dict[line[1]]
-        src2 = register_dict[line[2]]
+        src2 = register_dict[line[1]]
+        number,inside_bracket = extract_part(line[2])
+        imm_Value  =  hex_to_bin(number)
+        src1= register_dict[inside_bracket]
         
         
     #IN 
@@ -180,11 +192,11 @@ def line_to_command(line, counter):
         src2 = register_dict[line[3]]
       
     else:
-        print('instruction transalation error', counter, opcode, dest, src1, src2, imm_Value)
+        print('instruction transalation error', counter, opcode, src1, src2,dest, imm_Value)
         for x in line:
             print(x)
         
-    return str(counter) + ": " + opcode + dest + src1 + src2 + imm_Value + uselessbits
+    return  opcode + src1 + src2+ dest + uselessbits +imm_Value
     
     
 def work(inputfile, outputfile):
@@ -204,16 +216,22 @@ def work(inputfile, outputfile):
             #print('result', result)
             
             if  len(result)<2 and( result[0].isdigit() or all(c in '0123456789abcdefABCDEF' for c in result[0]) ):
-                instruction_write_dict[counter] =  str(hex(counter)[2:]) + ": " + '11010_' + '000_' + '000_' + '000_' + hex_to_bin( result[0] ) + '_00'
+                instruction_write_dict[counter] =  '11010' + '000' + '000' + '000' + '00'
                 #for Reset opcode is 11010
                 counter +=1
                 
             elif result[0].lower() == '.org': 
                 counter = int(result[1], 16)
+            elif result[0]=='ADDI' or result[0]=='SUBI' or result[0]=='STD' or result[0]=='LDD' or result[0]=='LDM'  : 
+                result = line_to_command(result, hex(counter)[2:])
+                instruction_write_dict[counter] = result[:16]
+                counter +=1
+                instruction_write_dict[counter] = result[16:32]
+                counter +=1
                 
             else:    
                 result = line_to_command(result, hex(counter)[2:])
-                instruction_write_dict[counter] = result
+                instruction_write_dict[counter] = result[:16]
                 counter +=1
                 
         
@@ -227,7 +245,7 @@ def work(inputfile, outputfile):
             else: 
                 result = process_line('NOP')
                 result = line_to_command(result, hex(x)[2:])
-                out.write(''.join(result) + '\n')
+                out.write(''.join(result[:16]) + '\n')
                 
                     
 
