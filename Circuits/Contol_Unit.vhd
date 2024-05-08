@@ -8,8 +8,8 @@ ENTITY Control_Unit IS
         Instruction_OPCODE : IN STD_LOGIC_VECTOR(4 DOWNTO 0);
 
         --out:
-        RTI_Begin : IN STD_LOGIC;
-        FLUSH : IN STD_LOGIC;
+        RTI_Begin : OUT STD_LOGIC;
+        FLUSH : OUT STD_LOGIC;
         PROTECT : OUT STD_LOGIC;
         OUTPORT_Enable : OUT STD_LOGIC;
         SWAP_Enable : OUT STD_LOGIC;
@@ -22,12 +22,13 @@ ENTITY Control_Unit IS
         MEM_Write : OUT STD_LOGIC;
         MEM_Read : OUT STD_LOGIC;
         ALU_OP : OUT STD_LOGIC_VECTOR(4 DOWNTO 0);
-        Extend_Sign : OUT STD_LOGIC
+        Extend_Sign : OUT STD_LOGIC;
         CALL_Enable : OUT STD_LOGIC;
         INPORT_Enable : OUT STD_LOGIC;
         ALU_SRC : OUT STD_LOGIC;
         CCR_Arithmetic : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
         RET_Enable : OUT STD_LOGIC;
+        STACK_Operation : OUT STD_LOGIC_VECTOR(1 DOWNTO 0) -- 00 NOP on sp, 01 increment by 2, 10 decrement by 2
 
     );
 END ENTITY;
@@ -283,9 +284,9 @@ BEGIN
         ELSE
         '0';
 
-    -- Mem Memoy_Add_Selec Signal
+    -- MEM_Add_Selec Signal
 
-    Memory_Add_Selec <= "00" WHEN Instruction_OPCODE = "00000" -- NOP
+    MEM_Add_Selec <= "00" WHEN Instruction_OPCODE = "00000" -- NOP
         ELSE
         "00" WHEN Instruction_OPCODE = "00001" -- NOT
         ELSE
@@ -344,69 +345,6 @@ BEGIN
         "00" WHEN Instruction_OPCODE = "11100" -- RTI
         ELSE
         "00";
-
-    -- Data_After Signal
-
-    Data_After <= '0' WHEN Instruction_OPCODE = "00000" -- NOP
-        ELSE
-        '0' WHEN Instruction_OPCODE = "00001" -- NOT
-        ELSE
-        '0' WHEN Instruction_OPCODE = "00010" -- NEG
-        ELSE
-        '0' WHEN Instruction_OPCODE = "00011" -- INC
-        ELSE
-        '0' WHEN Instruction_OPCODE = "00100" -- DEC
-        ELSE
-        '0' WHEN Instruction_OPCODE = "00100" -- OUT
-        ELSE
-        '1' WHEN Instruction_OPCODE = "00110" -- IN
-        ELSE
-        '0' WHEN Instruction_OPCODE = "00111" -- MOV
-        ELSE
-        '0' WHEN Instruction_OPCODE = "01000" -- SWAP
-        ELSE
-        '0' WHEN Instruction_OPCODE = "01001" -- ADD
-        ELSE
-        '0' WHEN Instruction_OPCODE = "01010" -- SUB
-        ELSE
-        '0' WHEN Instruction_OPCODE = "01011" -- AND
-        ELSE
-        '0' WHEN Instruction_OPCODE = "01100" -- OR
-        ELSE
-        '0' WHEN Instruction_OPCODE = "01101" -- XOR
-        ELSE
-        '0' WHEN Instruction_OPCODE = "01110" -- CMP
-        ELSE
-        '1' WHEN Instruction_OPCODE = "01111" -- ADDI
-        ELSE
-        '1' WHEN Instruction_OPCODE = "10000" -- SUBI
-        ELSE
-        '1' WHEN Instruction_OPCODE = "10001" -- LDM
-        ELSE
-        '0' WHEN Instruction_OPCODE = "10010" -- PUSH
-        ELSE
-        '0' WHEN Instruction_OPCODE = "10011" -- POP
-        ELSE
-        '1' WHEN Instruction_OPCODE = "10100" -- LDD
-        ELSE
-        '1' WHEN Instruction_OPCODE = "10101" -- STD
-        ELSE
-        '0' WHEN Instruction_OPCODE = "10110" -- PROTECT
-        ELSE
-        '0' WHEN Instruction_OPCODE = "10111" -- FREE
-        ELSE
-        '0' WHEN Instruction_OPCODE = "11000" -- JZ
-        ELSE
-        '0' WHEN Instruction_OPCODE = "11001" -- JMP
-        ELSE
-        '0' WHEN Instruction_OPCODE = "11010" -- CALL
-        ELSE
-        '0' WHEN Instruction_OPCODE = "11011" -- RET
-        ELSE
-        '0' WHEN Instruction_OPCODE = "11100" -- RTI
-        ELSE
-        '0';
-
     -- ALU_SRC Signal
 
     ALU_SRC <= '0' WHEN Instruction_OPCODE = "00000" -- NOP
@@ -531,9 +469,9 @@ BEGIN
         ELSE
         "00";
 
-    -- OutPort_Enable Signal
+    -- OUTPORT_Enable Signal
 
-    OutPort_Enable <= '0' WHEN Instruction_OPCODE = "00000" --NOP
+    OUTPORT_Enable <= '0' WHEN Instruction_OPCODE = "00000" --NOP
         ELSE
         '0' WHEN Instruction_OPCODE = "00001" -- NOT
         ELSE
@@ -593,9 +531,9 @@ BEGIN
         ELSE
         '0';
 
-    -- Swap_Enable Signal
+    -- SWAP_Enable Signal
 
-    Swap_Enable <= '0' WHEN Instruction_OPCODE = "00000" --NOP
+    SWAP_Enable <= '0' WHEN Instruction_OPCODE = "00000" --NOP
         ELSE
         '0' WHEN Instruction_OPCODE = "00001" -- NOT
         ELSE
@@ -716,9 +654,9 @@ BEGIN
         '0' WHEN Instruction_OPCODE = "11100" -- RTI
         ELSE
         '0';
-    --CCR_Enable Signal
+    --CCR_Arithmetic Signal
 
-    CCR_Enable <= "0000" WHEN Instruction_OPCODE = "0000" --NOP
+    CCR_Arithmetic <= "0000" WHEN Instruction_OPCODE = "0000" --NOP
 
         ELSE
         "0011" WHEN Instruction_OPCODE = "00001" -- NOT
@@ -778,9 +716,9 @@ BEGIN
         "1111" WHEN Instruction_OPCODE = "11100" -- RTI
         ELSE
         "0000";
-    -- RTI_Enable Signal
+    -- RTI_Begin Signal
 
-    RTI_Enable <= '0' WHEN Instruction_OPCODE = "00000" --NOP
+    RTI_Begin <= '0' WHEN Instruction_OPCODE = "00000" --NOP
         ELSE
         '0' WHEN Instruction_OPCODE = "00001" -- NOT
         ELSE
@@ -1205,4 +1143,187 @@ BEGIN
         '0' WHEN Instruction_OPCODE = "11100" -- RTI
         ELSE
         '0';
+    -- FREE Signal
+
+    FREE <= '0' WHEN Instruction_OPCODE = "00000" --NOP
+        ELSE
+        '0' WHEN Instruction_OPCODE = "00001" -- NOT
+        ELSE
+        '0' WHEN Instruction_OPCODE = "00010" -- NEG
+        ELSE
+        '0' WHEN Instruction_OPCODE = "00011" -- INC
+        ELSE
+        '0' WHEN Instruction_OPCODE = "00100" -- DEC
+        ELSE
+        '0' WHEN Instruction_OPCODE = "00100" -- OUT
+        ELSE
+        '0' WHEN Instruction_OPCODE = "00110" -- IN
+        ELSE
+        '0' WHEN Instruction_OPCODE = "00111" -- MOV
+        ELSE
+        '0' WHEN Instruction_OPCODE = "01000" -- SWAP
+        ELSE
+        '0' WHEN Instruction_OPCODE = "01001" -- ADD
+        ELSE
+        '0' WHEN Instruction_OPCODE = "01010" -- SUB
+        ELSE
+        '0' WHEN Instruction_OPCODE = "01011" -- AND
+        ELSE
+        '0' WHEN Instruction_OPCODE = "01100" -- OR
+        ELSE
+        '0' WHEN Instruction_OPCODE = "01101" -- XOR
+        ELSE
+        '0' WHEN Instruction_OPCODE = "01110" -- CMP
+        ELSE
+        '0' WHEN Instruction_OPCODE = "01111" -- ADDI
+        ELSE
+        '0' WHEN Instruction_OPCODE = "10000" -- SUBI
+        ELSE
+        '0' WHEN Instruction_OPCODE = "10001" -- LDM
+        ELSE
+        '0' WHEN Instruction_OPCODE = "10010" -- PUSH
+        ELSE
+        '0' WHEN Instruction_OPCODE = "10011" -- POP
+        ELSE
+        '0' WHEN Instruction_OPCODE = "10100" -- LDD
+        ELSE
+        '0' WHEN Instruction_OPCODE = "10101" -- STD
+        ELSE
+        '0' WHEN Instruction_OPCODE = "10110" -- PROTECT
+        ELSE
+        '1' WHEN Instruction_OPCODE = "10111" -- FREE
+        ELSE
+        '0' WHEN Instruction_OPCODE = "11000" -- JZ
+        ELSE
+        '0' WHEN Instruction_OPCODE = "11001" -- JMP
+        ELSE
+        '0' WHEN Instruction_OPCODE = "11010" -- CALL
+        ELSE
+        '0' WHEN Instruction_OPCODE = "11011" -- RET
+        ELSE
+        '0' WHEN Instruction_OPCODE = "11100" -- RTI
+        ELSE
+        '0';
+    -- CALL_Enable Signal
+
+    CALL_Enable <= '0' WHEN Instruction_OPCODE = "00000" --NOP
+        ELSE
+        '0' WHEN Instruction_OPCODE = "00001" -- NOT
+        ELSE
+        '0' WHEN Instruction_OPCODE = "00010" -- NEG
+        ELSE
+        '0' WHEN Instruction_OPCODE = "00011" -- INC
+        ELSE
+        '0' WHEN Instruction_OPCODE = "00100" -- DEC
+        ELSE
+        '0' WHEN Instruction_OPCODE = "00100" -- OUT
+        ELSE
+        '0' WHEN Instruction_OPCODE = "00110" -- IN
+        ELSE
+        '0' WHEN Instruction_OPCODE = "00111" -- MOV
+        ELSE
+        '0' WHEN Instruction_OPCODE = "01000" -- SWAP
+        ELSE
+        '0' WHEN Instruction_OPCODE = "01001" -- ADD
+        ELSE
+        '0' WHEN Instruction_OPCODE = "01010" -- SUB
+        ELSE
+        '0' WHEN Instruction_OPCODE = "01011" -- AND
+        ELSE
+        '0' WHEN Instruction_OPCODE = "01100" -- OR
+        ELSE
+        '0' WHEN Instruction_OPCODE = "01101" -- XOR
+        ELSE
+        '0' WHEN Instruction_OPCODE = "01110" -- CMP
+        ELSE
+        '0' WHEN Instruction_OPCODE = "01111" -- ADDI
+        ELSE
+        '0' WHEN Instruction_OPCODE = "10000" -- SUBI
+        ELSE
+        '0' WHEN Instruction_OPCODE = "10001" -- LDM
+        ELSE
+        '0' WHEN Instruction_OPCODE = "10010" -- PUSH
+        ELSE
+        '0' WHEN Instruction_OPCODE = "10011" -- POP
+        ELSE
+        '0' WHEN Instruction_OPCODE = "10100" -- LDD
+        ELSE
+        '0' WHEN Instruction_OPCODE = "10101" -- STD
+        ELSE
+        '0' WHEN Instruction_OPCODE = "10110" -- PROTECT
+        ELSE
+        '0' WHEN Instruction_OPCODE = "10111" -- FREE
+        ELSE
+        '0' WHEN Instruction_OPCODE = "11000" -- JZ
+        ELSE
+        '0' WHEN Instruction_OPCODE = "11001" -- JMP
+        ELSE
+        '1' WHEN Instruction_OPCODE = "11010" -- CALL
+        ELSE
+        '0' WHEN Instruction_OPCODE = "11011" -- RET
+        ELSE
+        '0' WHEN Instruction_OPCODE = "11100" -- RTI
+        ELSE
+        '0';
+    -- STACK_Operation Signal
+
+    STACK_Operation <= "00" WHEN Instruction_OPCODE = "00000" -- NOP
+        ELSE
+        "00" WHEN Instruction_OPCODE = "00001" -- NOT
+        ELSE
+        "00" WHEN Instruction_OPCODE = "00010" -- NEG
+        ELSE
+        "00" WHEN Instruction_OPCODE = "00011" -- INC
+        ELSE
+        "00" WHEN Instruction_OPCODE = "00100" -- DEC
+        ELSE
+        "00" WHEN Instruction_OPCODE = "00100" -- OUT
+        ELSE
+        "00" WHEN Instruction_OPCODE = "00110" -- IN
+        ELSE
+        "00" WHEN Instruction_OPCODE = "00111" -- MOV
+        ELSE
+        "00" WHEN Instruction_OPCODE = "01000" -- SWAP
+        ELSE
+        "00" WHEN Instruction_OPCODE = "01001" -- ADD
+        ELSE
+        "00" WHEN Instruction_OPCODE = "01010" -- SUB
+        ELSE
+        "00" WHEN Instruction_OPCODE = "01011" -- AND
+        ELSE
+        "00" WHEN Instruction_OPCODE = "01100" -- OR
+        ELSE
+        "00" WHEN Instruction_OPCODE = "01101" -- XOR
+        ELSE
+        "00" WHEN Instruction_OPCODE = "01110" -- CMP
+        ELSE
+        "00" WHEN Instruction_OPCODE = "01111" -- ADDI
+        ELSE
+        "00" WHEN Instruction_OPCODE = "10000" -- SUBI
+        ELSE
+        "00" WHEN Instruction_OPCODE = "10001" -- LDM
+        ELSE
+        "10" WHEN Instruction_OPCODE = "10010" -- PUSH
+        ELSE
+        "01" WHEN Instruction_OPCODE = "10011" -- POP
+        ELSE
+        "00" WHEN Instruction_OPCODE = "10100" -- LDD
+        ELSE
+        "00" WHEN Instruction_OPCODE = "10101" -- STD
+        ELSE
+        "00" WHEN Instruction_OPCODE = "10110" -- PROTECT
+        ELSE
+        "00" WHEN Instruction_OPCODE = "10111" -- FREE
+        ELSE
+        "00" WHEN Instruction_OPCODE = "11000" -- JZ
+        ELSE
+        "00" WHEN Instruction_OPCODE = "11001" -- JMP
+        ELSE
+        "10" WHEN Instruction_OPCODE = "11010" -- CALL
+        ELSE
+        "01" WHEN Instruction_OPCODE = "11011" -- RET
+        ELSE
+        "00" WHEN Instruction_OPCODE = "11100" -- RTI
+        ELSE
+        "00";
 END ARCHITECTURE;
