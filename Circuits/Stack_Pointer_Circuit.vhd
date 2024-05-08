@@ -33,8 +33,8 @@ BEGIN
 				SP_Value := STD_LOGIC_VECTOR(unsigned(SP_Value) + 2);
 				SP_Value_Out <= SP_Value;
 			ELSIF Stack_Operation_Controller = "10" OR Stack_Operation_RTI = "10" OR Stack_Operation_INT = "10" THEN
-				SP_Value := STD_LOGIC_VECTOR(unsigned(SP_Value) - 2);
 				SP_Value_Out <= SP_Value;
+				SP_Value := STD_LOGIC_VECTOR(unsigned(SP_Value) - 2);
 			ELSE
 				SP_Value_Out <= SP_Value;
 			END IF;
