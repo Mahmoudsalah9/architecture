@@ -5,17 +5,35 @@ USE IEEE.numeric_std.ALL;
 ENTITY WriteBack_Stage IS
     PORT (
 
-        OutPort_Enable, Swap_Enable_in, Write_Enable_in : IN STD_LOGIC;
-        Read_port2_data, Immediate_data, Write_Data2_in : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
-        Result_Mem : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
-        Alu_result : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
-        Write_Add_1_in, Write_Add_2_in : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
-        WB_Selector : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
-        Swap_Enable_out, Write_Enable_out : OUT STD_LOGIC;
-        Write_Data2_out : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
-        Write_Add_1_out, Write_Add_2_out : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
-        OUT_PORT : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
-        Wtite_Back_Data : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)
+        ------ IN:
+
+        -- Data:
+        Result_ALU_IN : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+        Result_MEM_IN : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+        Read_Port2_Data_IN : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+        Immdite_Data_IN : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+        Write_Data2_IN : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+        -- Address:
+        Write_Add1_IN : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
+        Write_Add2_IN : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
+        -- Control:
+        OUTPORT_Enable_IN : IN STD_LOGIC;
+        SWAP_Enable_IN : IN STD_LOGIC;
+        WB_Selector_IN : IN STD_LOGIC_VECTOR(1 DOWNTO 0); -- 00 ALU Result,  01 Mem Result,   10 Imm Data, 11 Readport2 Data
+        WRITE_Enable_IN : IN STD_LOGIC;
+
+        ------ OUT:
+
+        -- Data:
+        Write_Back_Data1_OUT : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+        Write_Back_Data2_OUT : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+        OUTPUT_PORT_DATA : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+        -- Address:
+        Write_Add1_OUT : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+        Write_Add2_OUT : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+        -- Control:
+        WRITE_Enable_OUT : OUT STD_LOGIC;
+        SWAP_Enable_OUT : OUT STD_LOGIC
 
     );
 
@@ -32,15 +50,41 @@ ARCHITECTURE WriteBack_Stage_Design OF WriteBack_Stage IS
         );
     END COMPONENT;
 
-BEGIN
-    Mux4x1_Write_Data : Mux4x1 GENERIC MAP(32) PORT MAP(Alu_result, Result_Mem, Immediate_data, Read_port2_data, WB_Selector, Wtite_Back_Data);
+    COMPONENT Mux2x1 IS
+        GENERIC (n : INTEGER := 32);
+        PORT (
+            in0, in1 : IN STD_LOGIC_VECTOR (n - 1 DOWNTO 0);
+            sel : IN STD_LOGIC;
+            MUX_Out : OUT STD_LOGIC_VECTOR (n - 1 DOWNTO 0)
+        );
+    END COMPONENT;
 
-    OUT_PORT <= Read_port2_data WHEN OutPort_Enable = '1' ELSE
-        x"00000000";
-    Swap_Enable_out <= Swap_Enable_in;
-    Write_Enable_out <= Write_Enable_in;
-    Write_Data2_out <= Write_Data2_in;
-    Write_Add_1_out <= Write_Add_1_in;
-    Write_Add_2_out <= Write_Add_2_in;
+BEGIN
+
+    Mux4x1_Write_Data1 : Mux4x1 GENERIC MAP(
+        32) PORT MAP(
+        in0 => Result_ALU_IN,
+        in1 => Result_MEM_IN,
+        in2 => Immdite_Data_IN,
+        in3 => Read_Port2_Data_IN,
+        sel => WB_Selector_IN,
+        MUX_Out => Write_Back_Data1_OUT
+    );
+
+    Mux2x1_OUTPUT_PORT : Mux2x1 GENERIC MAP(
+        32) PORT MAP(
+
+        in0 => "00000000000000000000000000000000",
+        in1 => Read_Port2_Data_IN,
+        sel => OUTPORT_Enable_IN,
+        MUX_Out => OUTPUT_PORT_DATA
+
+    );
+
+    Write_Back_Data2_OUT <= Write_Data2_IN;
+    Write_Add1_OUT <= Write_Add1_IN;
+    Write_Add2_OUT <= Write_Add2_IN;
+    WRITE_Enable_OUT <= WRITE_Enable_IN;
+    SWAP_Enable_OUT <= SWAP_Enable_IN;
 
 END ARCHITECTURE;
