@@ -656,7 +656,7 @@ BEGIN
         '0';
     --CCR_Arithmetic Signal
 
-    CCR_Arithmetic <= "0000" WHEN Instruction_OPCODE = "0000" --NOP
+    CCR_Arithmetic <= "0000" WHEN Instruction_OPCODE = "00000" --NOP
 
         ELSE
         "0011" WHEN Instruction_OPCODE = "00001" -- NOT

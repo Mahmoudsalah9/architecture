@@ -9,39 +9,59 @@ ENTITY Decode_Execute IS
         Clk : IN STD_LOGIC;
         Rst : IN STD_LOGIC;
 
-        ALU_OP_In : IN STD_LOGIC_VECTOR(4 DOWNTO 0);
-        Write_Enable_In : IN STD_LOGIC;
-        Mem_Write_In : IN STD_LOGIC;
-        InPort_Enable_In : IN STD_LOGIC;
-        OutPort_Enable_In : IN STD_LOGIC;
-        Swap_Enable_In : IN STD_LOGIC;
-        Memory_Add_Selec_In : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
-        ALU_SRC_In : IN STD_LOGIC;
-        WB_Selector_In : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
-        Extend_Sign_In : IN STD_LOGIC;
-        Write_Add1_EX_In : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
-        Write_Add2_EX_In : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
-        Read_Port1_In : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
-        Read_Port2_In : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
-        IMData_In : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-        CCR_Enable_In : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+        -- IN:
+        PROTECT_IN : IN STD_LOGIC;
+        OUTPORT_Enable_IN : IN STD_LOGIC;
+        SWAP_Enable_IN : IN STD_LOGIC;
+        MEM_Add_Selec_IN : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
+        WB_Selector_IN : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
+        FREE_IN : IN STD_LOGIC;
+        JUMP_IN : IN STD_LOGIC;
+        BRANCH_ZERO_IN : IN STD_LOGIC;
+        WRITE_Enable_IN : IN STD_LOGIC;
+        MEM_Write_IN : IN STD_LOGIC;
+        MEM_Read_IN : IN STD_LOGIC;
+        ALU_OP_IN : IN STD_LOGIC_VECTOR(4 DOWNTO 0);
+        CALL_Enable_IN : IN STD_LOGIC;
+        INPORT_Enable_IN : IN STD_LOGIC;
+        ALU_SRC_IN : IN STD_LOGIC;
+        CCR_Arithmetic_IN : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+        RET_Enable_IN : IN STD_LOGIC;
+        STACK_Operation_IN : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
+        Write_Add1_IN : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
+        Write_Add2_R_Source2_IN : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
+        Read_Port1_IN : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+        Read_Port2_IN : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+        Immediate_Data_Extended_IN : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+        R_Source1_IN : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
+        PCVALUE_IN : IN STD_LOGIC_VECTOR(11 DOWNTO 0);
 
-        ALU_OP_Out : OUT STD_LOGIC_VECTOR(4 DOWNTO 0);
-        Write_Enable_Out : OUT STD_LOGIC;
-        Mem_Write_Out : OUT STD_LOGIC;
-        InPort_Enable_Out : OUT STD_LOGIC;
-        OutPort_Enable_Out : OUT STD_LOGIC;
-        Swap_Enable_Out : OUT STD_LOGIC;
-        Memory_Add_Selec_Out : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
-        ALU_SRC_Out : OUT STD_LOGIC;
-        WB_Selector_Out : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
-        Extend_Sign_Out : OUT STD_LOGIC;
-        Write_Add1_EX_Out : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
-        Write_Add2_EX_Out : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
-        Read_Port1_Out : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
-        Read_Port2_Out : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
-        IMData_Out : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-        CCR_Enable_Out : OUT STD_LOGIC_VECTOR(3 DOWNTO 0)
+        -- OUT:
+        PROTECT_OUT : OUT STD_LOGIC;
+        OUTPORT_Enable_OUT : OUT STD_LOGIC;
+        SWAP_Enable_OUT : OUT STD_LOGIC;
+        MEM_Add_Selec_OUT : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
+        WB_Selector_OUT : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
+        FREE_OUT : OUT STD_LOGIC;
+        JUMP_OUT : OUT STD_LOGIC;
+        BRANCH_ZERO_OUT : OUT STD_LOGIC;
+        WRITE_Enable_OUT : OUT STD_LOGIC;
+        MEM_Write_OUT : OUT STD_LOGIC;
+        MEM_Read_OUT : OUT STD_LOGIC;
+        ALU_OP_OUT : OUT STD_LOGIC_VECTOR(4 DOWNTO 0);
+        CALL_Enable_OUT : OUT STD_LOGIC;
+        INPORT_Enable_OUT : OUT STD_LOGIC;
+        ALU_SRC_OUT : OUT STD_LOGIC;
+        CCR_Arithmetic_OUT : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+        RET_Enable_OUT : OUT STD_LOGIC;
+        STACK_Operation_OUT : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
+        Write_Add1_OUT : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+        Write_Add2_R_Source2_OUT : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+        Read_Port1_OUT : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+        Read_Port2_OUT : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+        Immediate_Data_Extended_OUT : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+        R_Source1_OUT : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+        PCVALUE_OUT : OUT STD_LOGIC_VECTOR(11 DOWNTO 0)
 
     );
 
@@ -56,41 +76,61 @@ BEGIN
 
         IF rst = '1' THEN
 
-            ALU_OP_Out <= (OTHERS => '0');
-            Write_Enable_Out <= '0';
-            Mem_Write_Out <= '0';
-            InPort_Enable_Out <= '0';
-            OutPort_Enable_Out <= '0';
-            Swap_Enable_Out <= '0';
-            Memory_Add_Selec_Out <= (OTHERS => '0');
-            ALU_SRC_Out <= '0';
-            WB_Selector_Out <= (OTHERS => '0');
-            Extend_Sign_Out <= '0';
-            Write_Add1_EX_Out <= (OTHERS => '0');
-            Write_Add2_EX_Out <= (OTHERS => '0');
-            Read_Port1_Out <= (OTHERS => '0');
-            Read_Port2_Out <= (OTHERS => '0');
-            IMData_Out <= (OTHERS => '0');
-            CCR_Enable_Out <= (OTHERS => '0');
+            -- Reset all outputs to '0'
+            PROTECT_OUT <= '0';
+            OUTPORT_Enable_OUT <= '0';
+            SWAP_Enable_OUT <= '0';
+            MEM_Add_Selec_OUT <= (OTHERS => '0');
+            WB_Selector_OUT <= (OTHERS => '0');
+            FREE_OUT <= '0';
+            JUMP_OUT <= '0';
+            BRANCH_ZERO_OUT <= '0';
+            WRITE_Enable_OUT <= '0';
+            MEM_Write_OUT <= '0';
+            MEM_Read_OUT <= '0';
+            ALU_OP_OUT <= (OTHERS => '0');
+            CALL_Enable_OUT <= '0';
+            INPORT_Enable_OUT <= '0';
+            ALU_SRC_OUT <= '0';
+            CCR_Arithmetic_OUT <= (OTHERS => '0');
+            RET_Enable_OUT <= '0';
+            STACK_Operation_OUT <= (OTHERS => '0');
+            Write_Add1_OUT <= (OTHERS => '0');
+            Write_Add2_R_Source2_OUT <= (OTHERS => '0');
+            Read_Port1_OUT <= (OTHERS => '0');
+            Read_Port2_OUT <= (OTHERS => '0');
+            Immediate_Data_Extended_OUT <= (OTHERS => '0');
+            R_Source1_OUT <= (OTHERS => '0');
+            PCVALUE_OUT <= (OTHERS => '0');
 
         ELSIF rising_edge(clk) THEN
 
-            Read_Port1_Out <= Read_Port1_In;
-            Read_Port2_Out <= Read_Port2_In;
-            Write_Add1_EX_Out <= Write_Add1_EX_In;
-            Write_Add2_EX_Out <= Write_Add2_EX_In;
-            Memory_Add_Selec_Out <= Memory_Add_Selec_In;
-            WB_Selector_Out <= WB_Selector_In;
-            Mem_Write_Out <= Mem_Write_In;
-            ALU_OP_Out <= ALU_OP_In;
-            ALU_SRC_Out <= ALU_SRC_In;
-            Extend_Sign_Out <= Extend_Sign_In;
-            CCR_Enable_Out <= CCR_Enable_In;
-            IMData_Out <= IMData_In;
-            OutPort_Enable_Out <= OutPort_Enable_In;
-            InPort_Enable_Out <= InPort_Enable_In;
-            Write_Enable_Out <= Write_Enable_In;
-            Swap_Enable_Out <= Swap_Enable_In;
+            -- Assign input to outputs
+            PROTECT_OUT <= PROTECT_IN;
+            OUTPORT_Enable_OUT <= OUTPORT_Enable_IN;
+            SWAP_Enable_OUT <= SWAP_Enable_IN;
+            MEM_Add_Selec_OUT <= MEM_Add_Selec_IN;
+            WB_Selector_OUT <= WB_Selector_IN;
+            FREE_OUT <= FREE_IN;
+            JUMP_OUT <= JUMP_IN;
+            BRANCH_ZERO_OUT <= BRANCH_ZERO_IN;
+            WRITE_Enable_OUT <= WRITE_Enable_IN;
+            MEM_Write_OUT <= MEM_Write_IN;
+            MEM_Read_OUT <= MEM_Read_IN;
+            ALU_OP_OUT <= ALU_OP_IN;
+            CALL_Enable_OUT <= CALL_Enable_IN;
+            INPORT_Enable_OUT <= INPORT_Enable_IN;
+            ALU_SRC_OUT <= ALU_SRC_IN;
+            CCR_Arithmetic_OUT <= CCR_Arithmetic_IN;
+            RET_Enable_OUT <= RET_Enable_IN;
+            STACK_Operation_OUT <= STACK_Operation_IN;
+            Write_Add1_OUT <= Write_Add1_IN;
+            Write_Add2_R_Source2_OUT <= Write_Add2_R_Source2_IN;
+            Read_Port1_OUT <= Read_Port1_IN;
+            Read_Port2_OUT <= Read_Port2_IN;
+            Immediate_Data_Extended_OUT <= Immediate_Data_Extended_IN;
+            R_Source1_OUT <= R_Source1_IN;
+            PCVALUE_OUT <= PCVALUE_IN;
 
         END IF;
 
