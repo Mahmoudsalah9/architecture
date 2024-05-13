@@ -35,8 +35,8 @@ R2
 DEx4 work 18 data_control_fetch 0 22 zHA5hLZVZA6WFTmh?DKKc3
 l12
 L11
-Z13 V_Z1Q4ojmU77V372di;l@12
-Z14 !s100 jdWc0Z13>M0F`iSHb=cX72
+V_Z1Q4ojmU77V372di;l@12
+!s100 jdWc0Z13>M0F`iSHb=cX72
 R6
 32
 R7
@@ -48,29 +48,29 @@ R10
 R11
 R12
 Einstruction_memory
-Z15 w1715548271
-Z16 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
+Z13 w1715548271
+Z14 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
 R1
 R2
 R3
-Z17 8C:/Users/mahmo/OneDrive/Desktop/architecture/Circuits/Instruction_Memory.vhd
-Z18 FC:/Users/mahmo/OneDrive/Desktop/architecture/Circuits/Instruction_Memory.vhd
+Z15 8C:/Users/mahmo/OneDrive/Desktop/architecture/Circuits/Instruction_Memory.vhd
+Z16 FC:/Users/mahmo/OneDrive/Desktop/architecture/Circuits/Instruction_Memory.vhd
 l0
 L5
 V24AIZR:bQ25ng2_T@fUz43
 !s100 ?9BZ?SYoe[4;eOI>ZhQ0F2
 R6
 32
-Z19 !s110 1715548282
+Z17 !s110 1715548282
 !i10b 1
-Z20 !s108 1715548282.000000
-Z21 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/mahmo/OneDrive/Desktop/architecture/Circuits/Instruction_Memory.vhd|
-Z22 !s107 C:/Users/mahmo/OneDrive/Desktop/architecture/Circuits/Instruction_Memory.vhd|
+Z18 !s108 1715548282.000000
+Z19 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/mahmo/OneDrive/Desktop/architecture/Circuits/Instruction_Memory.vhd|
+Z20 !s107 C:/Users/mahmo/OneDrive/Desktop/architecture/Circuits/Instruction_Memory.vhd|
 !i113 1
 R11
 R12
 Ainstruction_memory_design
-R16
+R14
 R1
 R2
 DEx4 work 18 instruction_memory 0 22 24AIZR:bQ25ng2_T@fUz43
@@ -80,11 +80,52 @@ Vj=J8>2fOeAoA^]GePKP1G3
 !s100 flfzfNYLVL^mH;zRAXEC]3
 R6
 32
-R19
+R17
 !i10b 1
+R18
+R19
 R20
-R21
-R22
+!i113 1
+R11
+R12
+Eprogram_counter
+Z21 w1715634694
+R14
+R1
+R2
+R3
+Z22 8C:/Users/mahmo/OneDrive/Desktop/architecture/Circuits/Program_Counter.vhd
+Z23 FC:/Users/mahmo/OneDrive/Desktop/architecture/Circuits/Program_Counter.vhd
+l0
+L5
+VkICSWMUhQ0NO<j;77A]@30
+!s100 n;`E?MH1Y<FcdJo@Og4<c0
+R6
+32
+Z24 !s110 1715634717
+!i10b 1
+Z25 !s108 1715634717.000000
+Z26 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/mahmo/OneDrive/Desktop/architecture/Circuits/Program_Counter.vhd|
+Z27 !s107 C:/Users/mahmo/OneDrive/Desktop/architecture/Circuits/Program_Counter.vhd|
+!i113 1
+R11
+R12
+Apc_arch
+R14
+R1
+R2
+DEx4 work 15 program_counter 0 22 kICSWMUhQ0NO<j;77A]@30
+l15
+L13
+VC=]gRlfU33>abgTYB]jl[1
+!s100 XKEgH0Eo?Q0o2bh<mbn@o2
+R6
+32
+R24
+!i10b 1
+R25
+R26
+R27
 !i113 1
 R11
 R12
