@@ -19,9 +19,9 @@ BEGIN
 
     PROCESS (clk, Rst)
         -- Variable declarations inside the process
-        variable Data_in_temp : STD_LOGIC_VECTOR(15 DOWNTO 0);
-        variable increment_in_temp : STD_LOGIC_VECTOR(31 DOWNTO 0);
-        variable Instruction_in_temp : STD_LOGIC_VECTOR(15 DOWNTO 0);
+        VARIABLE Data_in_temp : STD_LOGIC_VECTOR(15 DOWNTO 0);
+        VARIABLE increment_in_temp : STD_LOGIC_VECTOR(31 DOWNTO 0);
+        VARIABLE Instruction_in_temp : STD_LOGIC_VECTOR(15 DOWNTO 0);
     BEGIN
         IF Rst = '1' THEN
             -- Reset all outputs and clear variables
@@ -46,15 +46,14 @@ BEGIN
                 Data_out <= (OTHERS => '0');
                 Instruction_Out <= (OTHERS => '0');
             ELSE
-                -- Normal operation, show data from variables
-                increment_out <= increment_in_temp;
-                Data_out <= Data_in_temp;
-                Instruction_Out <= Instruction_in_temp;
-
                 -- Update variables with current inputs
                 Data_in_temp := Data_in;
                 increment_in_temp := increment_in;
                 Instruction_in_temp := Instruction_in;
+                -- Normal operation, show data from variables
+                increment_out <= increment_in_temp;
+                Data_out <= Data_in_temp;
+                Instruction_Out <= Instruction_in_temp;
             END IF;
         END IF;
     END PROCESS;
