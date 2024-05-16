@@ -65,14 +65,6 @@ ARCHITECTURE Execute_Stage_Design OF Execute_Stage IS
         );
     END COMPONENT;
 
-    COMPONENT Sign_Extend IS
-        PORT (
-            Extend_Sign : IN STD_LOGIC;
-            Data_16_bits : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-            Data_32_bits : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)
-        );
-    END COMPONENT;
-
     COMPONENT Mux2x1 IS
         GENERIC (n : INTEGER := 32);
         PORT (
@@ -118,8 +110,6 @@ BEGIN
     Swap_Enable_out <= Swap_Enable;
     Memory_Add_Selec_out <= Memory_Add_Selec;
     WB_Selector_out <= WB_Selector;
-
-    Sign_Extend_Instance : Sign_Extend PORT MAP(Extend_Sign, Immdite_Data, Extended_Imm);
 
     Extended_Imm_Memory <= Extended_Imm;
 

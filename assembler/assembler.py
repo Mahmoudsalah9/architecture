@@ -121,7 +121,7 @@ def line_to_command(line, counter):
     elif line[0] == 'LDM': 
         opcode = opcode_dict[line[0]] 
         dest = register_dict[line[1]]
-        imm_Value = hex_to_bin(line[2]) 
+        imm_Value = hex_to_bin(line[2])
      
     #this needs to be implemented correctly    
     #ldd has OPCODE AND dest and immediate only 
@@ -203,9 +203,9 @@ def work(inputfile, outputfile):
     instruction_write_dict = {}
     
     with open(inputfile) as f, open(outputfile, 'w') as out:
-        out.write('// memory data file (do not edit the following line - required for mem load use)\n')
-        out.write('// instance=/instruction_memory/ram\n')
-        out.write('// format=mti addressradix=h dataradix=s version=1.0 wordsperline=1\n')
+        # out.write('// memory data file (do not edit the following line - required for mem load use)\n')
+        # out.write('// instance=/instruction_memory/ram\n')
+        # out.write('// format=mti addressradix=h dataradix=s version=1.0 wordsperline=1\n')
         
         counter = 0
         for line in f:
@@ -222,6 +222,7 @@ def work(inputfile, outputfile):
                 
             elif result[0].lower() == '.org': 
                 counter = int(result[1], 16)
+
             elif result[0]=='ADDI' or result[0]=='SUBI' or result[0]=='STD' or result[0]=='LDD' or result[0]=='LDM'  : 
                 result = line_to_command(result, hex(counter)[2:])
                 instruction_write_dict[counter] = result[:16]
