@@ -145,7 +145,7 @@ BEGIN
         ELSE
         '0' WHEN Instruction_OPCODE = "10101" -- STD
         ELSE
-        '0' WHEN Instruction_OPCODE = "10110" -- PROTECT
+        '0' WHEN Instruction_OPCODE = "10110" -- PROTECT ----------------------------
         ELSE
         '0' WHEN Instruction_OPCODE = "10111" -- FREE
         ELSE
@@ -207,9 +207,9 @@ BEGIN
         ELSE
         '1' WHEN Instruction_OPCODE = "10101" -- STD
         ELSE
-        '0' WHEN Instruction_OPCODE = "10110" -- PROTECT
+        '1' WHEN Instruction_OPCODE = "10110" -- PROTECT
         ELSE
-        '0' WHEN Instruction_OPCODE = "10111" -- FREE
+        '1' WHEN Instruction_OPCODE = "10111" -- FREE
         ELSE
         '0' WHEN Instruction_OPCODE = "11000" -- JZ
         ELSE
