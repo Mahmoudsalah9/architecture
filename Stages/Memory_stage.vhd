@@ -17,6 +17,9 @@ ENTITY Memory_Stage IS
         Write_Add_1_in, Write_Add_2_in : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
         Immediate_data_in, Write_Data2_in : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
         MEM_Add_MUX_RTI_Select, MEM_Add_MUX_INT_Select : IN STD_LOGIC;
+        MEM_read_in:: IN STD_LOGIC;
+
+
 
         Ret_Enable_Out : OUT STD_LOGIC;
         OutPort_Enable_out, Swap_Enable_out : OUT STD_LOGIC;
@@ -28,7 +31,8 @@ ENTITY Memory_Stage IS
         Alu_result_out : OUT STD_LOGIC_VECTOR(11 DOWNTO 0);
         Write_Add_1_out : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
         Immediate_data_out, Write_Data2_out : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
-        Write_Add_2_out : OUT STD_LOGIC_VECTOR(2 DOWNTO 0)
+        Write_Add_2_out : OUT STD_LOGIC_VECTOR(2 DOWNTO 0):
+        MEM_read_out:: OUT STD_LOGIC;
     );
 END ENTITY;
 
@@ -71,7 +75,7 @@ ARCHITECTURE Memory_Stage_Deisgn OF Memory_Stage IS
 
 BEGIN
 CCR_Write_Data(3 downto 0)<=CCR_Out;
-CCR_Write_Data(31 downto 4)<=x"0000000"
+CCR_Write_Data(31 downto 4)<=x"0000000";
 
     Mux4x1__level_1_Data : Mux4x1 GENERIC MAP(32) PORT MAP(Read_port2_data_in, PC_Value, x"00000000", x"00000000", Write_Data_Selector, Result_Mux4x1_level_1_Data);
     Mux4x1__level_2 : Mux4x1 GENERIC MAP(32) PORT MAP(Result_Mux4x1_level_1_Data, PC_Address_INT_OUT, CCR_Write_Data, x"00000000", Mux_Select_INT_FSM, Result_Mux4x1_level_2);
@@ -91,5 +95,5 @@ CCR_Write_Data(31 downto 4)<=x"0000000"
     Write_Add_1_out <= Write_Add_1_in;
     Write_Add_2_out <= Write_Add_2_in;
     WB_Selector_out <= WB_Selector_in;
-
+    MEM_read_out<=MEM_read_in;
 END ARCHITECTURE;
