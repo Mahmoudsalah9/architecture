@@ -344,22 +344,110 @@ ARCHITECTURE Processor_Integration_Design OF Processor_Integration IS
     ------------------------------------------------------------------------------ signals ------------------------------------------------------------------------------------------------------------------------------------------------------------
 
     --Out of Fetch Stage:
+    SIGNAL JMPZ_Done_Fetch : STD_LOGIC;
+    SIGNAL PC_Value_Fetch : STD_LOGIC_VECTOR(31 DOWNTO 0);
+    SIGNAL Instruction_Fetch : STD_LOGIC_VECTOR(15 DOWNTO 0);
+    SIGNAL Data_Fetch : STD_LOGIC_VECTOR(15 DOWNTO 0);
 
     --Out of Fetch/Decode Buffer:
+    SIGNAL Instruction_FD : STD_LOGIC_VECTOR(15 DOWNTO 0);
+    SIGNAL Data_FD : STD_LOGIC_VECTOR(15 DOWNTO 0);
+    SIGNAL PC_Value_FD : STD_LOGIC_VECTOR(31 DOWNTO 0);
 
     --Out of Decode Stage:
+    SIGNAL RTI_Begin_DECODE : STD_LOGIC;
+    SIGNAL FLUSH_DECODE : STD_LOGIC;
+    SIGNAL PROTECT_DECODE : STD_LOGIC;
+    SIGNAL OUTPORT_Enable_DECODE : STD_LOGIC;
+    SIGNAL SWAP_Enable_DECODE : STD_LOGIC;
+    SIGNAL MEM_Add_Selec_DECODE : STD_LOGIC_VECTOR(1 DOWNTO 0);
+    SIGNAL WB_Selector_DECODE : STD_LOGIC_VECTOR(1 DOWNTO 0);
+    SIGNAL FREE_DECODE : STD_LOGIC;
+    SIGNAL JUMP_DECODE : STD_LOGIC;
+    SIGNAL BRANCH_ZERO_DECODE : STD_LOGIC;
+    SIGNAL WRITE_Enable_DECODE : STD_LOGIC;
+    SIGNAL MEM_Write_DECODE : STD_LOGIC;
+    SIGNAL MEM_Read_DECODE : STD_LOGIC;
+    SIGNAL ALU_OP_DECODE : STD_LOGIC_VECTOR(4 DOWNTO 0);
+    SIGNAL CALL_Enable_DECODE : STD_LOGIC;
+    SIGNAL INPORT_Enable_DECODE : STD_LOGIC;
+    SIGNAL ALU_SRC_DECODE : STD_LOGIC;
+    SIGNAL CCR_Arithmetic_DECODE : STD_LOGIC_VECTOR(3 DOWNTO 0);
+    SIGNAL RET_Enable_DECODE : STD_LOGIC;
+    SIGNAL STACK_Operation_DECODE : STD_LOGIC_VECTOR(1 DOWNTO 0);
+    SIGNAL Write_Add1_DECODE : STD_LOGIC_VECTOR(2 DOWNTO 0);
+    SIGNAL Write_Add2_R_Source2_DECODE : STD_LOGIC_VECTOR(2 DOWNTO 0);
+    SIGNAL Read_Port1_DECODE : STD_LOGIC_VECTOR(31 DOWNTO 0);
+    SIGNAL Read_Port2_DECODE : STD_LOGIC_VECTOR(31 DOWNTO 0);
+    SIGNAL Immediate_Data_Extended_DECODE : STD_LOGIC_VECTOR(31 DOWNTO 0);
+    SIGNAL R_Source1_DECODE : STD_LOGIC_VECTOR(2 DOWNTO 0);
+    SIGNAL PCVALUE_DECODE : STD_LOGIC_VECTOR(11 DOWNTO 0);
 
     --Out of Decode/Execute Buffer:
+    SIGNAL PROTECT_DE : STD_LOGIC;
+    SIGNAL OUTPORT_Enable_DE : STD_LOGIC;
+    SIGNAL SWAP_Enable_DE : STD_LOGIC;
+    SIGNAL MEM_Add_Selec_DE : STD_LOGIC_VECTOR(1 DOWNTO 0);
+    SIGNAL WB_Selector_DE : STD_LOGIC_VECTOR(1 DOWNTO 0);
+    SIGNAL FREE_DE : STD_LOGIC;
+    SIGNAL JUMP_DE : STD_LOGIC;
+    SIGNAL BRANCH_ZERO_DE : STD_LOGIC;
+    SIGNAL WRITE_Enable_DE : STD_LOGIC;
+    SIGNAL MEM_Write_DE : STD_LOGIC;
+    SIGNAL MEM_Read_DE : STD_LOGIC;
+    SIGNAL ALU_OP_DE : STD_LOGIC_VECTOR(4 DOWNTO 0);
+    SIGNAL CALL_Enable_DE : STD_LOGIC;
+    SIGNAL INPORT_Enable_DE : STD_LOGIC;
+    SIGNAL ALU_SRC_DE : STD_LOGIC;
+    SIGNAL CCR_Arithmetic_DE : STD_LOGIC_VECTOR(3 DOWNTO 0);
+    SIGNAL RET_Enable_DE : STD_LOGIC;
+    SIGNAL STACK_Operation_DE : STD_LOGIC_VECTOR(1 DOWNTO 0);
+    SIGNAL Write_Add1_DE : STD_LOGIC_VECTOR(2 DOWNTO 0);
+    SIGNAL Write_Add2_R_Source2_DE : STD_LOGIC_VECTOR(2 DOWNTO 0);
+    SIGNAL Read_Port1_DE : STD_LOGIC_VECTOR(31 DOWNTO 0);
+    SIGNAL Read_Port2_DE : STD_LOGIC_VECTOR(31 DOWNTO 0);
+    SIGNAL Immediate_Data_Extended_DE : STD_LOGIC_VECTOR(31 DOWNTO 0);
+    SIGNAL R_Source1_DE : STD_LOGIC_VECTOR(2 DOWNTO 0);
+    SIGNAL PCVALUE_DE : STD_LOGIC_VECTOR(11 DOWNTO 0);
 
     --Out of Execute Stage:
 
     --Out of Execute/Memory Buffer:
 
     --Out of Memory Stage:
+    SIGNAL Ret_Enable_MEMORY : STD_LOGIC;
+    SIGNAL OutPort_Enable_MEMORY, Swap_Enable_MEMORY : STD_LOGIC;
+    SIGNAL WB_Selector_MEMORY : STD_LOGIC_VECTOR(1 DOWNTO 0);
+    SIGNAL Write_Enable_MEMORY : STD_LOGIC;
+    SIGNAL Result_Mem_MEMORY : STD_LOGIC_VECTOR(31 DOWNTO 0);
+    SIGNAL Protected_To_Exception_MEMORY : STD_LOGIC;
+    SIGNAL Read_port2_data_MEMORY : STD_LOGIC_VECTOR(31 DOWNTO 0);
+    SIGNAL Alu_result_MEMORY : STD_LOGIC_VECTOR(11 DOWNTO 0);
+    SIGNAL Write_Add_1_MEMORY : STD_LOGIC_VECTOR(2 DOWNTO 0);
+    SIGNAL Immediate_data_MEMORY, Write_Data2_MEMORY : STD_LOGIC_VECTOR(31 DOWNTO 0);
+    SIGNAL Write_Add_2_MEMORY : STD_LOGIC_VECTOR(2 DOWNTO 0);
 
     --Out of Memory/WriteBack Buffer:
+    SIGNAL Result_Mem_MW : STD_LOGIC_VECTOR(31 DOWNTO 0);
+    SIGNAL Read_Port2_Memory_MW : STD_LOGIC_VECTOR(31 DOWNTO 0);
+    SIGNAL Result_ALU_Memory_MW : STD_LOGIC_VECTOR(31 DOWNTO 0);
+    SIGNAL Immediate_Data_Memory_MW : STD_LOGIC_VECTOR(31 DOWNTO 0);
+    SIGNAL Write_Data2_MW : STD_LOGIC_VECTOR(31 DOWNTO 0);
+    SIGNAL Write_Add1_Memory_MW : STD_LOGIC_VECTOR(2 DOWNTO 0);
+    SIGNAL Write_Add2_Memory_MW : STD_LOGIC_VECTOR(2 DOWNTO 0);
+    SIGNAL WB_Selector_Memory_MW : STD_LOGIC_VECTOR(1 DOWNTO 0);
+    SIGNAL Write_Enable_Memory_MW : STD_LOGIC;
+    SIGNAL Out_Enable_Memory_MW : STD_LOGIC;
+    SIGNAL Swap_Enable_Memory_MW : STD_LOGIC;
 
     --Out of WriteBack Stage:
+    SIGNAL Write_Back_Data1_WB : STD_LOGIC_VECTOR(31 DOWNTO 0);
+    SIGNAL Write_Back_Data2_WB : STD_LOGIC_VECTOR(31 DOWNTO 0);
+    SIGNAL Output_Port_Data_WB : STD_LOGIC_VECTOR(31 DOWNTO 0);
+    SIGNAL Write_Add1_WB : STD_LOGIC_VECTOR(2 DOWNTO 0);
+    SIGNAL Write_Add2_WB : STD_LOGIC_VECTOR(2 DOWNTO 0);
+    SIGNAL Write_Enable_WB : STD_LOGIC;
+    SIGNAL Swap_Enable_WB : STD_LOGIC;
 
     -------------------------------------------------------------------------- Port Connections ----------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -636,5 +724,5 @@ BEGIN
         PC_Disable => OPEN,
         FD_Stall => OPEN
     );
-    
+
 END ARCHITECTURE;
