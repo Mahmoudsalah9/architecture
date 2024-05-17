@@ -21,32 +21,61 @@ END ENTITY;
 
 ARCHITECTURE Fetch_Decode_Design OF Fetch_Decode IS
 
+    COMPONENT FLIPFLOP IS
+        GENERIC (
+            DATA_WIDTH : INTEGER := 32
+        );
+        PORT (
+            d : IN STD_LOGIC_VECTOR(DATA_WIDTH - 1 DOWNTO 0);
+            clk, rst, EN : IN STD_LOGIC;
+            q : OUT STD_LOGIC_VECTOR(DATA_WIDTH - 1 DOWNTO 0)
+        );
+    END COMPONENT;
+
+    -- Internal signals for storing output values
+    SIGNAL Instruction_ff : STD_LOGIC_VECTOR(15 DOWNTO 0);
+    SIGNAL Data_ff : STD_LOGIC_VECTOR(15 DOWNTO 0);
+    SIGNAL PC_Value_ff : STD_LOGIC_VECTOR(31 DOWNTO 0);
+    SIGNAL ENABLE_Final : STD_LOGIC;
+
 BEGIN
 
-    PROCESS (clk, Rst)
-    BEGIN
-        IF Rst = '1' THEN
+    Instruction_ff <= Instruction_IN WHEN flush = '0' ELSE
+        (OTHERS => '0');
+    Data_ff <= Data_in WHEN flush = '0' ELSE
+        (OTHERS => '0');
+    PC_Value_ff <= PC_Value_IN WHEN flush = '0' ELSE
+        (OTHERS => '0');
 
-            Instruction_OUT <= (OTHERS => '0');
-            Data_OUT <= (OTHERS => '0');
-            PC_Value_OUT <= (OTHERS => '0');
+    ENABLE_Final <= '0' WHEN stall = '1' ELSE
+        '1';
 
-        ELSIF rising_edge(clk) THEN
-            IF flush = '1' OR stall = '1' THEN
+    -- Instantiating flip-flops for output storage
+    Inst_Instruction_OUT_FF : FLIPFLOP GENERIC MAP(DATA_WIDTH => 16)
+    PORT MAP(
+        d => Instruction_ff,
+        clk => clk,
+        rst => Rst,
+        EN => ENABLE_Final,
+        q => Instruction_OUT
+    );
 
-                Instruction_OUT <= (OTHERS => '0');
-                Data_OUT <= (OTHERS => '0');
-                PC_Value_OUT <= (OTHERS => '0');
+    Inst_Data_OUT_FF : FLIPFLOP GENERIC MAP(DATA_WIDTH => 16)
+    PORT MAP(
+        d => Data_ff,
+        clk => clk,
+        rst => Rst,
+        EN => ENABLE_Final,
+        q => Data_OUT
+    );
 
-            ELSE 
-
-                Instruction_OUT <= Instruction_IN;
-                Data_OUT <= Data_in;
-                PC_Value_OUT <= PC_Value_IN; 
-
-            END IF;
-
-        END IF;
-    END PROCESS;
+    Inst_PC_Value_OUT_FF : FLIPFLOP GENERIC MAP(DATA_WIDTH => 32)
+    PORT MAP(
+        d => PC_Value_ff,
+        clk => clk,
+        rst => Rst,
+        EN => ENABLE_Final,
+        q => PC_Value_OUT
+    );
 
 END ARCHITECTURE;

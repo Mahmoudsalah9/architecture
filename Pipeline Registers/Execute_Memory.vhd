@@ -6,6 +6,7 @@ ENTITY Execute_Memory IS
     PORT (
         clk : IN STD_LOGIC;
         reset : IN STD_LOGIC;
+        LoadUse_RST : IN STD_LOGIC;
 
         alu_result_execute : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
         read_port2_data_execute : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
@@ -52,17 +53,32 @@ BEGIN
             memory_add_select_Out <= (OTHERS => '0');
             Write_Data2_Out <= (OTHERS => '0');
         ELSIF rising_edge(clk) THEN
-            read_port2_memory <= read_port2_data_execute;
-            result_alu_memory <= alu_result_execute;
-            immediate_data_memory <= immediate_data_execute;
-            write_add_memory <= write_add_execute;
-            OutPort_Enable_out <= OutPort_Enable;
-            wb_selector_memory <= wb_selector;
-            mem_write_out <= mem_write_execute;
-            write_enable_out <= write_enable_execute;
-            memory_add_select_Out <= memory_add_select_execute;
-            swap_enable_Out <= swap_enable_execute;
-            Write_Data2_Out <= Write_Data2_In;
+        
+            IF LoadUse_RST = '1' THEN
+                read_port2_memory <= (OTHERS => '0');
+                result_alu_memory <= (OTHERS => '0');
+                immediate_data_memory <= (OTHERS => '0');
+                write_add_memory <= (OTHERS => '0');
+                OutPort_Enable_out <= '0';
+                wb_selector_memory <= (OTHERS => '0');
+                mem_write_out <= '0';
+                write_enable_out <= '0';
+                swap_enable_Out <= '0';
+                memory_add_select_Out <= (OTHERS => '0');
+                Write_Data2_Out <= (OTHERS => '0');
+            ELSE
+                read_port2_memory <= read_port2_data_execute;
+                result_alu_memory <= alu_result_execute;
+                immediate_data_memory <= immediate_data_execute;
+                write_add_memory <= write_add_execute;
+                OutPort_Enable_out <= OutPort_Enable;
+                wb_selector_memory <= wb_selector;
+                mem_write_out <= mem_write_execute;
+                write_enable_out <= write_enable_execute;
+                memory_add_select_Out <= memory_add_select_execute;
+                swap_enable_Out <= swap_enable_execute;
+                Write_Data2_Out <= Write_Data2_In;
+            END IF;
 
         END IF;
     END PROCESS;
