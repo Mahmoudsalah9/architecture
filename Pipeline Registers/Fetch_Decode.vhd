@@ -6,55 +6,46 @@ ENTITY Fetch_Decode IS
     PORT (
         clk, Rst : IN STD_LOGIC;
         flush, stall : IN STD_LOGIC;
+
+        -- Inputs:
+        Instruction_IN : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
         Data_in : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-        increment_in : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
-        Instruction_in : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
-        increment_out : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
-        Data_out, Instruction_Out : OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
+        PC_Value_IN : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+
+        -- Outputs:
+        Instruction_OUT : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+        Data_OUT : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+        PC_Value_OUT : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)
     );
 END ENTITY;
 
 ARCHITECTURE Fetch_Decode_Design OF Fetch_Decode IS
+
 BEGIN
 
     PROCESS (clk, Rst)
-        -- Variable declarations inside the process
-        VARIABLE Data_in_temp : STD_LOGIC_VECTOR(15 DOWNTO 0);
-        VARIABLE increment_in_temp : STD_LOGIC_VECTOR(31 DOWNTO 0);
-        VARIABLE Instruction_in_temp : STD_LOGIC_VECTOR(15 DOWNTO 0);
     BEGIN
         IF Rst = '1' THEN
-            -- Reset all outputs and clear variables
-            Data_out <= (OTHERS => '0');
-            Instruction_Out <= (OTHERS => '0');
-            increment_out <= (OTHERS => '0');
-            Data_in_temp := (OTHERS => '0');
-            increment_in_temp := (OTHERS => '0');
-            Instruction_in_temp := (OTHERS => '0');
+
+            Instruction_OUT <= (OTHERS => '0');
+            Data_OUT <= (OTHERS => '0');
+            PC_Value_OUT <= (OTHERS => '0');
+
         ELSIF rising_edge(clk) THEN
-            IF flush = '1' THEN
-                -- On flush, reset all outputs and clear variables
-                increment_out <= (OTHERS => '0');
-                Data_out <= (OTHERS => '0');
-                Instruction_Out <= (OTHERS => '0');
-                Data_in_temp := (OTHERS => '0');
-                increment_in_temp := (OTHERS => '0');
-                Instruction_in_temp := (OTHERS => '0');
-            ELSIF stall = '1' THEN
-                -- On stall, zero the outputs but retain the last data in variables
-                increment_out <= (OTHERS => '0');
-                Data_out <= (OTHERS => '0');
-                Instruction_Out <= (OTHERS => '0');
-            ELSE
-                -- Update variables with current inputs
-                Data_in_temp := Data_in;
-                increment_in_temp := increment_in;
-                Instruction_in_temp := Instruction_in;
-                -- Normal operation, show data from variables
-                increment_out <= increment_in_temp;
-                Data_out <= Data_in_temp;
-                Instruction_Out <= Instruction_in_temp;
+            IF flush = '1' OR stall = '1' THEN
+
+                Instruction_OUT <= (OTHERS => '0');
+                Data_OUT <= (OTHERS => '0');
+                PC_Value_OUT <= (OTHERS => '0');
+
+            ELSE 
+
+                Instruction_OUT <= Instruction_IN;
+                Data_OUT <= Data_in;
+                PC_Value_OUT <= PC_Value_IN; 
+
             END IF;
+
         END IF;
     END PROCESS;
 
