@@ -15,7 +15,9 @@ ENTITY Fetch_Stage IS
         RET_EN : IN STD_LOGIC;
         Zero_Flag : IN STD_LOGIC;
         BRANCH_ZERO : IN STD_LOGIC;
-        PC_Disable : IN STD_LOGIC;
+        PC_Disable_INT : IN STD_LOGIC;
+        PC_Disable_RTI : IN STD_LOGIC;
+        PC_Disable_HDU : IN STD_LOGIC;
 
         Result_MEM : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
         JMP_DEST : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
@@ -104,7 +106,7 @@ ARCHITECTURE Fetch_Stage_Design OF Fetch_Stage IS
 BEGIN
 
     JMP_ZERO_WIRE <= BRANCH_ZERO AND Zero_Flag;
-    Incremental_MUX_SEL(1) <= PC_Disable;
+    Incremental_MUX_SEL(1) <= PC_Disable_RTI OR PC_Disable_INT OR PC_Disable_HDU;
     Incremental_MUX_SEL(0) <= Control_Bit_Wire;
     PC_Address_Extended(31 DOWNTO 12) <= (OTHERS => '0');
     PC_Address_Extended(11 DOWNTO 0) <= PC_Address;
