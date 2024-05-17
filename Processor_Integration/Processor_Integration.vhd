@@ -365,8 +365,8 @@ ARCHITECTURE Processor_Integration_Design OF Processor_Integration IS
 
 BEGIN
 
-    -- Fetch_Stage instantiation
-    U1_Fetch_Stage : Fetch_Stage
+    -- Instance of Fetch_Stage component
+    Fetch_Stage_Instance : Fetch_Stage
     PORT MAP(
         Clk => OPEN,
         Rst => OPEN,
@@ -389,8 +389,8 @@ BEGIN
         Data_OUT => OPEN
     );
 
-    -- Decode_Stage instantiation
-    U2_Decode_Stage : Decode_Stage
+    -- Instance of Decode_Stage component
+    Decode_Stage_Instance : Decode_Stage
     PORT MAP(
         Clk => OPEN,
         Rst => OPEN,
@@ -432,8 +432,52 @@ BEGIN
         PCVALUE_OUT => OPEN
     );
 
-    -- WriteBack_Stage instantiation
-    U3_WriteBack_Stage : WriteBack_Stage
+    -- Instance of Memory_Stage component
+    Memory_Stage_Instance : Memory_Stage
+    PORT MAP(
+        CLK => OPEN,
+        RST => OPEN,
+        Protect => OPEN,
+        OutPort_Enable_in => OPEN,
+        Swap_Enable_in => OPEN,
+        Mem_Add_selector => OPEN,
+        WB_Selector_in => OPEN,
+        Free => OPEN,
+        Write_Enable_in => OPEN,
+        Mem_Write_enable => OPEN,
+        Mem_Write_INT_FSM => OPEN,
+        Ret_Enable_In => OPEN,
+        Write_Data_Selector => OPEN,
+        Mux_Select_INT_FSM => OPEN,
+        CCR_Out => OPEN,
+        PC_Address_INT_OUT => OPEN,
+        Read_port2_data_in => OPEN,
+        PC_Value => OPEN,
+        Alu_result_in => OPEN,
+        SP => OPEN,
+        Write_Add_1_in => OPEN,
+        Write_Add_2_in => OPEN,
+        Immediate_data_in => OPEN,
+        Write_Data2_in => OPEN,
+        MEM_Add_MUX_RTI_Select => OPEN,
+        MEM_Add_MUX_INT_Select => OPEN,
+        Ret_Enable_Out => OPEN,
+        OutPort_Enable_out => OPEN,
+        Swap_Enable_out => OPEN,
+        WB_Selector_out => OPEN,
+        Write_Enable_out => OPEN,
+        Result_Mem => OPEN,
+        Protected_To_Exception => OPEN,
+        Read_port2_data_out => OPEN,
+        Alu_result_out => OPEN,
+        Write_Add_1_out => OPEN,
+        Immediate_data_out => OPEN,
+        Write_Data2_out => OPEN,
+        Write_Add_2_out => OPEN
+    );
+
+    -- Instance of WriteBack_Stage component
+    WriteBack_Stage_Instance : WriteBack_Stage
     PORT MAP(
         Result_ALU_IN => OPEN,
         Result_MEM_IN => OPEN,
@@ -455,8 +499,8 @@ BEGIN
         SWAP_Enable_OUT => OPEN
     );
 
-    -- Fetch_Decode instantiation
-    U4_Fetch_Decode : Fetch_Decode
+    -- Instance of Fetch_Decode component
+    Fetch_Decode_Instance : Fetch_Decode
     PORT MAP(
         clk => OPEN,
         Rst => OPEN,
@@ -470,8 +514,8 @@ BEGIN
         PC_Value_OUT => OPEN
     );
 
-    -- Decode_Execute instantiation
-    U5_Decode_Execute : Decode_Execute
+    -- Instance of Decode_Execute component
+    Decode_Execute_Instance : Decode_Execute
     PORT MAP(
         Clk => OPEN,
         Rst => OPEN,
@@ -528,8 +572,38 @@ BEGIN
         PCVALUE_OUT => OPEN
     );
 
-    -- INT_Operator instantiation
-    U6_INT_Operator : INT_Operator
+    -- Instance of Memory_WriteBack component
+    Memory_WriteBack_Instance : Memory_WriteBack
+    PORT MAP(
+        clk => OPEN,
+        reset => OPEN,
+        result_mem => OPEN,
+        readport2_memory => OPEN,
+        Write_data_memory => OPEN,
+        result_alu_memory => OPEN,
+        immediate_data_memory => OPEN,
+        write_add1_memory => OPEN,
+        write_add2_memory => OPEN,
+        write_enable_memory => OPEN,
+        wb_selector_memory => OPEN,
+        out_enable_memory => OPEN,
+        swap_enable_memory => OPEN,
+        Write_Data2_in => OPEN,
+        result_mem_out => OPEN,
+        read_port2_memory_out => OPEN,
+        result_alu_memory_out => OPEN,
+        immediate_data_memory_out => OPEN,
+        Write_Data2_Out => OPEN,
+        write_add1_memory_out => OPEN,
+        write_add2_memory_out => OPEN,
+        wb_selector_memory_out => OPEN,
+        write_enable_memory_Out => OPEN,
+        out_enable_memory_Out => OPEN,
+        swap_enable_memory_Out => OPEN
+    );
+
+    -- Instance of INT_Operator component
+    INT_Operator_Instance : INT_Operator
     PORT MAP(
         Clk => OPEN,
         Rst => OPEN,
@@ -549,8 +623,8 @@ BEGIN
         FD_Stall => OPEN
     );
 
-    -- RTI_Operator instantiation
-    U7_RTI_Operator : RTI_Operator
+    -- Instance of RTI_Operator component
+    RTI_Operator_Instance : RTI_Operator
     PORT MAP(
         Clk => OPEN,
         Rst => OPEN,
@@ -562,5 +636,5 @@ BEGIN
         PC_Disable => OPEN,
         FD_Stall => OPEN
     );
-
+    
 END ARCHITECTURE;
