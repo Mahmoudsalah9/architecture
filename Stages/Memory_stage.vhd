@@ -17,7 +17,7 @@ ENTITY Memory_Stage IS
         Write_Add_1_in, Write_Add_2_in : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
         Immediate_data_in, Write_Data2_in : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
         MEM_Add_MUX_RTI_Select, MEM_Add_MUX_INT_Select : IN STD_LOGIC;
-        MEM_read_in : : IN STD_LOGIC;
+        MEM_read_in : IN STD_LOGIC;
 
         Ret_Enable_Out : OUT STD_LOGIC;
         OutPort_Enable_out, Swap_Enable_out : OUT STD_LOGIC;
@@ -30,7 +30,7 @@ ENTITY Memory_Stage IS
         Write_Add_1_out : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
         Immediate_data_out, Write_Data2_out : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
         Write_Add_2_out : OUT STD_LOGIC_VECTOR(2 DOWNTO 0) :
-        MEM_read_out : : OUT STD_LOGIC;
+        MEM_read_out : OUT STD_LOGIC;
     );
 END ENTITY;
 

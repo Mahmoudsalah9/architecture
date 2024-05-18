@@ -20,7 +20,7 @@ ENTITY Memory_WriteBack IS
         out_enable_memory : IN STD_LOGIC;
         swap_enable_memory : IN STD_LOGIC;
         Write_Data2_in : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
-        MEM_read_in : : IN STD_LOGIC;
+        MEM_read_in : IN STD_LOGIC;
 
         result_mem_out : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
         read_port2_memory_out : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
