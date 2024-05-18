@@ -247,6 +247,7 @@ ARCHITECTURE Processor_Integration_Design OF Processor_Integration IS
             SWAP_Enable_IN : IN STD_LOGIC;
             WB_Selector_IN : IN STD_LOGIC_VECTOR(1 DOWNTO 0); -- 00 ALU Result,  01 Mem Result,   10 Imm Data, 11 Readport2 Data
             WRITE_Enable_IN : IN STD_LOGIC;
+            Memory_Read_IN
 
             ------ OUT:
 
@@ -260,6 +261,7 @@ ARCHITECTURE Processor_Integration_Design OF Processor_Integration IS
             -- Control:
             WRITE_Enable_OUT : OUT STD_LOGIC;
             SWAP_Enable_OUT : OUT STD_LOGIC
+            Memory_Read_OUT : OUT STD_LOGIC;
 
         );
 
@@ -676,6 +678,7 @@ ARCHITECTURE Processor_Integration_Design OF Processor_Integration IS
     SIGNAL Write_Enable_Memory_MW : STD_LOGIC;
     SIGNAL Out_Enable_Memory_MW : STD_LOGIC;
     SIGNAL Swap_Enable_Memory_MW : STD_LOGIC;
+    SIGNAL MEM_Read_MW : STD_LOGIC;
 
     --Out of WriteBack Stage:
     SIGNAL Write_Back_Data1_WB : STD_LOGIC_VECTOR(31 DOWNTO 0);
@@ -685,6 +688,7 @@ ARCHITECTURE Processor_Integration_Design OF Processor_Integration IS
     SIGNAL Write_Add2_WB : STD_LOGIC_VECTOR(2 DOWNTO 0);
     SIGNAL Write_Enable_WB : STD_LOGIC;
     SIGNAL Swap_Enable_WB : STD_LOGIC;
+    
 
     --Out of Interput 
     SIGNAL MUX_Selec_INT_INTERUPT : STD_LOGIC_VECTOR(1 DOWNTO 0);
@@ -1099,33 +1103,34 @@ BEGIN
     U_Memory_WriteBack : Memory_WriteBack
     PORT MAP(
 
-        clk => OPEN,
-        reset => OPEN,
-        result_mem => OPEN,
-        read_port2_memory => OPEN,
+        clk => Clk,
+        reset => Rst,
+        result_mem => Result_Mem_MEMORY,
+        read_port2_memory => Read_port2_data_MEMORY,
         Write_data_memory => OPEN,
-        result_alu_memory => OPEN,
-        immediate_data_memory => OPEN,
-        write_add1_memory => OPEN,
-        write_add2_memory => OPEN,
-        write_enable_memory => OPEN,
-        wb_selector_memory => OPEN,
-        out_enable_memory => OPEN,
-        swap_enable_memory => OPEN,
-        Write_Data2_in => OPEN,
-        MEM_read_in => OPEN,
-        result_mem_out => OPEN,
-        read_port2_memory_out => OPEN,
-        result_alu_memory_out => OPEN,
-        immediate_data_memory_out => OPEN,
-        Write_Data2_Out => OPEN,
-        write_add1_memory_out => OPEN,
-        write_add2_memory_out => OPEN,
-        wb_selector_memory_out => OPEN,
-        write_enable_memory_Out => OPEN,
-        out_enable_memory_Out => OPEN,
-        swap_enable_memory_Out => OPEN,
-        MEM_read_out => OPEN
+        result_alu_memory => Alu_result_MEMORY,
+        immediate_data_memory => Immediate_data_MEMORY,
+        write_add1_memory => Write_Add_1_MEMORY,
+        write_add2_memory => Write_Add_2_MEMORY,
+        write_enable_memory => Write_Enable_MEMORY,
+        wb_selector_memory => WB_Selector_MEMORY,
+        out_enable_memory => OutPort_Enable_MEMORY,
+        swap_enable_memory => Swap_Enable_MEMORY,
+        Write_Data2_in => Write_Data2_MEMORY,
+        MEM_read_in => Mem_READ_MEMORY,
+
+        result_mem_out => Result_Mem_MW,
+        read_port2_memory_out => Read_Port2_Memory_MW,
+        result_alu_memory_out => Result_ALU_Memory_MW,
+        immediate_data_memory_out => Immediate_Data_Memory_MW,
+        Write_Data2_Out => Write_Data2_MW,
+        write_add1_memory_out => Write_Add1_Memory_MW,
+        write_add2_memory_out => Write_Add2_Memory_MW,
+        wb_selector_memory_out => WB_Selector_Memory_MW,
+        write_enable_memory_Out => Write_Enable_Memory_MW,
+        out_enable_memory_Out => Out_Enable_Memory_MW,
+        swap_enable_memory_Out => Swap_Enable_Memory_MW,
+        MEM_read_out => MEM_Read_MW
 
     );
     -- Instance of INT_Operator component
