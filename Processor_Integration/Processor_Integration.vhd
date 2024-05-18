@@ -688,7 +688,7 @@ ARCHITECTURE Processor_Integration_Design OF Processor_Integration IS
     SIGNAL Write_Add2_WB : STD_LOGIC_VECTOR(2 DOWNTO 0);
     SIGNAL Write_Enable_WB : STD_LOGIC;
     SIGNAL Swap_Enable_WB : STD_LOGIC;
-    
+    SIGNAL Mem_READ_WB : STD_LOGIC;
 
     --Out of Interput 
     SIGNAL MUX_Selec_INT_INTERUPT : STD_LOGIC_VECTOR(1 DOWNTO 0);
@@ -1136,67 +1136,67 @@ BEGIN
     -- Instance of INT_Operator component
     INT_Operator_Instance : INT_Operator
     PORT MAP(
-        Clk => OPEN,
-        Rst => OPEN,
-        INT => OPEN,
-        JUMP_EN => OPEN,
-        CALL_EN => OPEN,
-        JMP_ZERO_DONE => OPEN,
-        PC_Address_IN => OPEN,
+        Clk => Clk,
+        Rst => Rst,
+        INT => INTERUPT,
+        JUMP_EN => JMP_Enable_EXECUTE,
+        CALL_EN => Call_Enable_EXECUTE,
+        JMP_ZERO_DONE => JMPZ_Done_Fetch,
+        PC_Address_IN => PC_Value_Fetch,
         Operand1 => OPEN,
-        MUX_Selec_INT => OPEN,
-        PC_Address_OUT_INT => OPEN,
-        Stack_Operation_INT => OPEN,
-        MEM_WRITE_INT => OPEN,
-        MEM_ADD_Selec_INT => OPEN,
-        UPDATE_PC_INT => OPEN,
-        PC_Disable => OPEN,
-        FD_Stall => OPEN
+        MUX_Selec_INT => MUX_Selec_INT_INTERUPT,
+        PC_Address_OUT_INT => PC_Address_OUT_INT_INTERUPT,
+        Stack_Operation_INT => Stack_Operation_INT_INTERUPT,
+        MEM_WRITE_INT => MEM_WRITE_INT_INTERUPT,
+        MEM_ADD_Selec_INT => MEM_ADD_Selec_INT_INTERUPT,
+        UPDATE_PC_INT => UPDATE_PC_INT_INTERUPT,
+        PC_Disable => PC_Disable_INTERUPT,
+        FD_Stall => FD_Stall_INTERUPT
     );
 
     -- Instance of RTI_Operator component
     RTI_Operator_Instance : RTI_Operator
     PORT MAP(
-        Clk => OPEN,
-        Rst => OPEN,
-        RTI_BEGIN => OPEN,
-        Stack_Operation_RTI => OPEN,
-        RTI_PC_UPDATE => OPEN,
-        MEM_ADD_MUX_RTI_Selec => OPEN,
-        CCR_Selector => OPEN,
-        PC_Disable => OPEN,
-        FD_Stall => OPEN
+        Clk => Clk,
+        Rst => Rst,
+        RTI_BEGIN => RTI_Begin_DECODE,
+        Stack_Operation_RTI => Stack_Operation_RTI_RTI,
+        RTI_PC_UPDATE => RTI_PC_UPDATE_RTI,
+        MEM_ADD_MUX_RTI_Selec => MEM_ADD_MUX_RTI_Selec_RTI,
+        CCR_Selector => CCR_Selector_RTI,
+        PC_Disable => PC_Disable_RTI,
+        FD_Stall => FD_Stall_RTI
     );
 
     -- Instantiation of Hazard_DU
     Hazard_DU_Instance : Hazard_DU
     PORT MAP(
-        MEM_Read => OPEN,
-        Write_ADD_Execute => OPEN,
-        R_Source1_Decode => OPEN,
-        R_Source2_Decode => OPEN,
-        STALL => OPEN,
-        PC_Disable => OPEN,
-        LoadUse_RST => OPEN
+        MEM_Read => Mem_READ_EXECUTE,
+        Write_ADD_Execute => WriteAdd1_EXECUTE,
+        R_Source1_Decode => R_Source1_DECODE,
+        R_Source2_Decode => Write_Add2_R_Source2_DECODE,
+        STALL => STALL_Hazard,
+        PC_Disable => PC_Disable_Hazard,
+        LoadUse_RST => LoadUse_RST_Hazard
     );
 
     -- Instantiation of Forwarding_Unit
     Forwarding_Unit_Instance : Forwarding_Unit
     PORT MAP(
-        Read_Add1_Execute_Stage => OPEN,
-        Read_Add2_Execute_Stage => OPEN,
-        Write_Add1_Memory_Stage => OPEN,
-        Write_Add2_Memory_Stage => OPEN,
-        Write_Add1_WB_Stage => OPEN,
-        Write_Add2_WB_Stage => OPEN,
-        Write_EN_Memory_Stage => OPEN,
-        Swap_EN_Memory_Stage => OPEN,
-        Swap_EN_WB_Stage => OPEN,
-        Write_EN_WB_Stage => OPEN,
-        MEM_Read_Memory_Stage => OPEN,
-        MEM_Read_WB_Stage => OPEN,
-        OP1_Selec => OPEN,
-        OP2_Selec => OPEN
+        Read_Add1_Execute_Stage => Forwarded_ReadADD1_EXECUTE,
+        Read_Add2_Execute_Stage => Forwarded_ReadADD2_EXECUTE,
+        Write_Add1_Memory_Stage => Write_Add_1_MEMORY,
+        Write_Add2_Memory_Stage => Write_Add_2_MEMORY,
+        Write_Add1_WB_Stage => Write_Add1_WB,
+        Write_Add2_WB_Stage => Write_Add2_WB,
+        Write_EN_Memory_Stage => Write_Enable_MEMORY,
+        Swap_EN_Memory_Stage => Swap_Enable_MEMORY,
+        Swap_EN_WB_Stage => Swap_Enable_WB,
+        Write_EN_WB_Stage => Write_Enable_WB,
+        MEM_Read_Memory_Stage => Mem_READ_MEMORY,
+        MEM_Read_WB_Stage => Mem_READ_WB,
+        OP1_Selec => OP1_Selec_Forwarding_Unit,
+        OP2_Selec => OP2_Selec_Forwarding_Unit
     );
 
 END ARCHITECTURE;
