@@ -22,7 +22,7 @@ ENTITY Decode_Stage IS
         Write_Enable2_WB : IN STD_LOGIC;
 
         -- Input Propagating Signals:
-        PCVALUE_IN : IN STD_LOGIC_VECTOR(11 DOWNTO 0);
+        PCVALUE_IN : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
 
         --Out:
 
@@ -57,7 +57,7 @@ ENTITY Decode_Stage IS
         R_Source1_OUT : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
 
         -- OUTPUT Propagating Signals:
-        PCVALUE_OUT : OUT STD_LOGIC_VECTOR(11 DOWNTO 0)
+        PCVALUE_OUT : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)
 
     );
 END ENTITY;

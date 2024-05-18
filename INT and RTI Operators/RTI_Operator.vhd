@@ -13,7 +13,7 @@ ENTITY RTI_Operator IS
         Stack_Operation_RTI : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
         RTI_PC_UPDATE : OUT STD_LOGIC;
         MEM_ADD_MUX_RTI_Selec : OUT STD_LOGIC;
-        CCR_Selector : OUT STD_LOGIC;
+        CCR_Selector : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
         PC_Disable : OUT STD_LOGIC;
         FD_Stall : OUT STD_LOGIC
     );
@@ -31,7 +31,7 @@ BEGIN
             Stack_Operation_RTI <= (OTHERS => '0');
             RTI_PC_UPDATE <= '0';
             MEM_ADD_MUX_RTI_Selec <= '0';
-            CCR_Selector <= '0';
+            CCR_Selector <= (OTHERS => '0');
             PC_Disable <= '0';
             FD_Stall <= '0';
 
@@ -43,7 +43,7 @@ BEGIN
                 Stack_Operation_RTI <= (OTHERS => '0');
                 RTI_PC_UPDATE <= '0';
                 MEM_ADD_MUX_RTI_Selec <= '0';
-                CCR_Selector <= '0';
+                CCR_Selector <= (OTHERS => '0');
                 PC_Disable <= '0';
                 FD_Stall <= '0';
             END IF;
@@ -51,7 +51,7 @@ BEGIN
             IF Began = '1' AND count = 0 THEN
                 MEM_ADD_MUX_RTI_Selec <= '1';
                 RTI_PC_UPDATE <= '0';
-                CCR_Selector <= '1';
+                CCR_Selector <= "1111";
                 Stack_Operation_RTI <= "01";
                 PC_Disable <= '1';
                 FD_Stall <= '1';
@@ -62,7 +62,7 @@ BEGIN
             ELSIF Began = '1' AND count = 1 THEN
                 MEM_ADD_MUX_RTI_Selec <= '1';
                 RTI_PC_UPDATE <= '1';
-                CCR_Selector <= '0';
+                CCR_Selector <= (OTHERS => '0');
                 Stack_Operation_RTI <= "01";
                 PC_Disable <= '1';
                 FD_Stall <= '1';

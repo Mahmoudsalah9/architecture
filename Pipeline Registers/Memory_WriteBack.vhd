@@ -10,7 +10,6 @@ ENTITY Memory_WriteBack IS
 
         result_mem : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
         read_port2_memory : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
-        Write_data_memory : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
         result_alu_memory : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
         immediate_data_memory : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
         write_add1_memory : IN STD_LOGIC_VECTOR(2 DOWNTO 0);

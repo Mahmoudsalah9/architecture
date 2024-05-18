@@ -72,7 +72,7 @@ ARCHITECTURE Processor_Integration_Design OF Processor_Integration IS
             Write_Enable2_WB : IN STD_LOGIC;
 
             -- Input Propagating Signals:
-            PCVALUE_IN : IN STD_LOGIC_VECTOR(11 DOWNTO 0);
+            PCVALUE_IN : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
 
             --Out:
 
@@ -107,7 +107,7 @@ ARCHITECTURE Processor_Integration_Design OF Processor_Integration IS
             R_Source1_OUT : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
 
             -- OUTPUT Propagating Signals:
-            PCVALUE_OUT : OUT STD_LOGIC_VECTOR(11 DOWNTO 0)
+            PCVALUE_OUT : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)
 
         );
     END COMPONENT;
@@ -205,10 +205,12 @@ ARCHITECTURE Processor_Integration_Design OF Processor_Integration IS
             Free : IN STD_LOGIC;
             Write_Enable_in, Mem_Write_enable, Mem_Write_INT_FSM : IN STD_LOGIC;
             Ret_Enable_In : IN STD_LOGIC;
-            Write_Data_Selector, Mux_Select_INT_FSM : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
+            Write_Data_Selector : IN STD_LOGIC;
+            Mux_Select_INT_FSM : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
             CCR_Out : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
             PC_Address_INT_OUT, Read_port2_data_in, PC_Value : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
-            Alu_result_in, SP_Buffer, SP_Normal : IN STD_LOGIC_VECTOR(11 DOWNTO 0);
+            Alu_result_in : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+            SP_Buffer, SP_Normal : IN STD_LOGIC_VECTOR(11 DOWNTO 0);
             Write_Add_1_in, Write_Add_2_in : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
             Immediate_data_in, Write_Data2_in : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
             MEM_Add_MUX_RTI_Select, MEM_Add_MUX_INT_Select : IN STD_LOGIC;
@@ -221,7 +223,7 @@ ARCHITECTURE Processor_Integration_Design OF Processor_Integration IS
             Result_Mem : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
             Protected_To_Exception : OUT STD_LOGIC;
             Read_port2_data_out : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
-            Alu_result_out : OUT STD_LOGIC_VECTOR(11 DOWNTO 0);
+            Alu_result_out : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
             Write_Add_1_out : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
             Immediate_data_out, Write_Data2_out : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
             Write_Add_2_out : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
@@ -322,7 +324,7 @@ ARCHITECTURE Processor_Integration_Design OF Processor_Integration IS
             Read_Port2_IN : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
             Immediate_Data_Extended_IN : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
             R_Source1_IN : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
-            PCVALUE_IN : IN STD_LOGIC_VECTOR(11 DOWNTO 0);
+            PCVALUE_IN : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
 
             -- OUT:
             FLUSH_OUT : OUT STD_LOGIC;
@@ -350,7 +352,7 @@ ARCHITECTURE Processor_Integration_Design OF Processor_Integration IS
             Read_Port2_OUT : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
             Immediate_Data_Extended_OUT : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
             R_Source1_OUT : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
-            PCVALUE_OUT : OUT STD_LOGIC_VECTOR(11 DOWNTO 0)
+            PCVALUE_OUT : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)
 
         );
 
@@ -415,7 +417,6 @@ ARCHITECTURE Processor_Integration_Design OF Processor_Integration IS
 
             result_mem : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
             read_port2_memory : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
-            Write_data_memory : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
             result_alu_memory : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
             immediate_data_memory : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
             write_add1_memory : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
@@ -438,7 +439,7 @@ ARCHITECTURE Processor_Integration_Design OF Processor_Integration IS
             write_enable_memory_Out : OUT STD_LOGIC;
             out_enable_memory_Out : OUT STD_LOGIC;
             swap_enable_memory_Out : OUT STD_LOGIC;
-            MEM_read_out : IN STD_LOGIC
+            MEM_read_out : OUT STD_LOGIC
 
         );
     END COMPONENT;
@@ -482,7 +483,7 @@ ARCHITECTURE Processor_Integration_Design OF Processor_Integration IS
             Stack_Operation_RTI : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
             RTI_PC_UPDATE : OUT STD_LOGIC;
             MEM_ADD_MUX_RTI_Selec : OUT STD_LOGIC;
-            CCR_Selector : OUT STD_LOGIC;
+            CCR_Selector : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
             PC_Disable : OUT STD_LOGIC;
             FD_Stall : OUT STD_LOGIC
         );
@@ -571,7 +572,7 @@ ARCHITECTURE Processor_Integration_Design OF Processor_Integration IS
     SIGNAL Read_Port2_DECODE : STD_LOGIC_VECTOR(31 DOWNTO 0);
     SIGNAL Immediate_Data_Extended_DECODE : STD_LOGIC_VECTOR(31 DOWNTO 0);
     SIGNAL R_Source1_DECODE : STD_LOGIC_VECTOR(2 DOWNTO 0);
-    SIGNAL PCVALUE_DECODE : STD_LOGIC_VECTOR(11 DOWNTO 0);
+    SIGNAL PCVALUE_DECODE : STD_LOGIC_VECTOR(31 DOWNTO 0);
 
     --Out of Decode/Execute Buffer:
     SIGNAL FLUSH_DE : STD_LOGIC;
@@ -599,7 +600,7 @@ ARCHITECTURE Processor_Integration_Design OF Processor_Integration IS
     SIGNAL Read_Port2_DE : STD_LOGIC_VECTOR(31 DOWNTO 0);
     SIGNAL Immediate_Data_Extended_DE : STD_LOGIC_VECTOR(31 DOWNTO 0);
     SIGNAL R_Source1_DE : STD_LOGIC_VECTOR(2 DOWNTO 0);
-    SIGNAL PCVALUE_DE : STD_LOGIC_VECTOR(11 DOWNTO 0);
+    SIGNAL PCVALUE_DE : STD_LOGIC_VECTOR(31 DOWNTO 0);
 
     --Out of Execute Stage:
     SIGNAL JMP_Enable_EXECUTE : STD_LOGIC;
@@ -663,11 +664,11 @@ ARCHITECTURE Processor_Integration_Design OF Processor_Integration IS
     SIGNAL Result_Mem_MEMORY : STD_LOGIC_VECTOR(31 DOWNTO 0);
     SIGNAL Protected_To_Exception_MEMORY : STD_LOGIC;
     SIGNAL Read_port2_data_MEMORY : STD_LOGIC_VECTOR(31 DOWNTO 0);
-    SIGNAL Alu_result_MEMORY : STD_LOGIC_VECTOR(11 DOWNTO 0);
+    SIGNAL Alu_result_MEMORY : STD_LOGIC_VECTOR(31 DOWNTO 0);
     SIGNAL Write_Add_1_MEMORY : STD_LOGIC_VECTOR(2 DOWNTO 0);
     SIGNAL Immediate_data_MEMORY, Write_Data2_MEMORY : STD_LOGIC_VECTOR(31 DOWNTO 0);
     SIGNAL Write_Add_2_MEMORY : STD_LOGIC_VECTOR(2 DOWNTO 0);
-    SIGNAL Mem_READ_MEMORY : STD_LOGIC_VECTOR(2 DOWNTO 0);
+    SIGNAL Mem_READ_MEMORY : STD_LOGIC;
 
     --Out of Memory/WriteBack Buffer:
     SIGNAL Result_Mem_MW : STD_LOGIC_VECTOR(31 DOWNTO 0);
