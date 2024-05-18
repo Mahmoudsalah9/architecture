@@ -81,7 +81,8 @@ ENTITY Execute_Stage IS
         CCR_Out : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
 
         Forwarded_ReadADD1 : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
-        Forwarded_ReadADD2 : OUT STD_LOGIC_VECTOR(2 DOWNTO 0)
+        Forwarded_ReadADD2 : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+        OP1_to_INT : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)
 
     );
 END ENTITY;
@@ -270,5 +271,6 @@ BEGIN
 
     CCR_Out <= CCR_O_WIRE;
     Zero_Flag_OUT <= CCR_O_WIRE(0); 
+    OP1_to_INT<=Forward_MUX_OUTPUT1;
 
 END ARCHITECTURE;
