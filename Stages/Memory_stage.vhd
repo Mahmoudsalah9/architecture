@@ -10,7 +10,8 @@ ENTITY Memory_Stage IS
         Free : IN STD_LOGIC;
         Write_Enable_in, Mem_Write_enable, Mem_Write_INT_FSM : IN STD_LOGIC;
         Ret_Enable_In : IN STD_LOGIC;
-        Write_Data_Selector, Mux_Select_INT_FSM : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
+        Write_Data_Selector: IN STD_LOGIC;
+        Mux_Select_INT_FSM : IN STD_LOGIC_VECTOR(1 DOWNTO 0);
         CCR_Out : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
         PC_Address_INT_OUT, Read_port2_data_in, PC_Value : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
         Alu_result_in, SP_Buffer,SP_Normal : IN STD_LOGIC_VECTOR(11 DOWNTO 0);
@@ -75,7 +76,7 @@ BEGIN
     CCR_Write_Data(3 DOWNTO 0) <= CCR_Out;
     CCR_Write_Data(31 DOWNTO 4) <= x"0000000";
 
-    Mux4x1_level_1_Data : Mux4x1 GENERIC MAP(32) PORT MAP(Read_port2_data_in, PC_Value, x"00000000", x"00000000", Write_Data_Selector, Result_Mux4x1_level_1_Data);
+    Mux2x1_level_1_Data : Mux2x1 GENERIC MAP(32) PORT MAP(Read_port2_data_in, PC_Value, Write_Data_Selector, Result_Mux4x1_level_1_Data);
     Mux4x1_level_2 : Mux4x1 GENERIC MAP(32) PORT MAP(Result_Mux4x1_level_1_Data, PC_Address_INT_OUT, CCR_Write_Data, x"00000000", Mux_Select_INT_FSM, Result_Mux4x1_level_2);
     Mux4x1_level_1_Address : Mux4x1 GENERIC MAP(12) PORT MAP(Alu_result_in, Read_port2_data_in(11 DOWNTO 0), SP_Buffer, x"00000000", Mem_Add_selector, Result_Mux4x1_level_1_Address);
     OR_OUT <= MEM_Add_MUX_RTI_Select OR MEM_Add_MUX_INT_Select;
