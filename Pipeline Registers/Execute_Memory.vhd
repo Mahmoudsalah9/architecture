@@ -8,7 +8,6 @@ ENTITY Execute_Memory IS
         Rst : IN STD_LOGIC;
 
         -- Inputs:
-        Branch_ZERO_IN : IN STD_LOGIC;
         Protect_IN : IN STD_LOGIC;
         Out_Enable_IN : IN STD_LOGIC;
         Swap_Enable_IN : IN STD_LOGIC;
@@ -29,18 +28,8 @@ ENTITY Execute_Memory IS
         WriteData2_IN : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
         PC_Value_IN : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
         SP_IN_Buffered : IN STD_LOGIC_VECTOR(11 DOWNTO 0);
-        SP_IN_Normal : IN STD_LOGIC_VECTOR(11 DOWNTO 0);
-
-        Zero_Flag_IN : IN STD_LOGIC;
-        JMP_DEST_IN : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
-        JMPZ_DEST_IN : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
-        CCR_IN : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
-
-        Forwarded_ReadADD1_IN : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
-        Forwarded_ReadADD2_IN : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
 
         -- Outputs:
-        Branch_ZERO_OUT : OUT STD_LOGIC;
         Protect_OUT : OUT STD_LOGIC;
         Out_Enable_OUT : OUT STD_LOGIC;
         Swap_Enable_OUT : OUT STD_LOGIC;
@@ -61,15 +50,7 @@ ENTITY Execute_Memory IS
         WriteData2_OUT : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
         PC_Value_OUT : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
         SP_OUT_Buffered : OUT STD_LOGIC_VECTOR(11 DOWNTO 0);
-        SP_OUT_Normal : OUT STD_LOGIC_VECTOR(11 DOWNTO 0);
 
-        Zero_Flag_OUT : OUT STD_LOGIC;
-        JMP_DEST : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
-        JMPZ_DEST : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
-        CCR_Out : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
-
-        Forwarded_ReadADD1 : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
-        Forwarded_ReadADD2 : OUT STD_LOGIC_VECTOR(2 DOWNTO 0)
     );
 END ENTITY;
 
@@ -79,7 +60,6 @@ BEGIN
     BEGIN
         IF Rst = '1' THEN
             -- Initialize outputs to default values
-            Branch_ZERO_OUT <= '0';
             Protect_OUT <= '0';
             Out_Enable_OUT <= '0';
             Swap_Enable_OUT <= '0';
@@ -99,13 +79,6 @@ BEGIN
             WriteData2_OUT <= (OTHERS => '0');
             PC_Value_OUT <= (OTHERS => '0');
             SP_OUT_Buffered <= (OTHERS => '0');
-            SP_OUT_Normal <= (OTHERS => '0');
-            Zero_Flag_OUT <= '0';
-            JMP_DEST <= (OTHERS => '0');
-            JMPZ_DEST <= (OTHERS => '0');
-            CCR_Out <= (OTHERS => '0');
-            Forwarded_ReadADD1 <= (OTHERS => '0');
-            Forwarded_ReadADD2 <= (OTHERS => '0');
 
         ELSIF rising_edge(clk) THEN
             -- Assign outputs with input values
@@ -129,13 +102,6 @@ BEGIN
             WriteData2_OUT <= WriteData2_IN;
             PC_Value_OUT <= PC_Value_IN;
             SP_OUT_Buffered <= SP_IN_Buffered;
-            SP_OUT_Normal <= SP_IN_Normal;
-            Zero_Flag_OUT <= Zero_Flag_IN;
-            JMP_DEST <= JMP_DEST_IN;
-            JMPZ_DEST <= JMPZ_DEST_IN;
-            CCR_Out <= CCR_IN;
-            Forwarded_ReadADD1 <= Forwarded_ReadADD1_IN;
-            Forwarded_ReadADD2 <= Forwarded_ReadADD2_IN;
 
         END IF;
     END PROCESS;

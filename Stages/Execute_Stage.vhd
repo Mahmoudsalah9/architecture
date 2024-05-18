@@ -9,6 +9,7 @@ ENTITY Execute_Stage IS
         Rst : IN STD_LOGIC;
 
         --in:
+        JMP_Enable_IN : IN STD_LOGIC;
         Branch_ZERO_IN : IN STD_LOGIC;
         Protect_IN : IN STD_LOGIC;
         Out_Enable_IN : IN STD_LOGIC;
@@ -50,6 +51,7 @@ ENTITY Execute_Stage IS
         Result_Mem : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
 
         --out:
+        JMP_Enable_OUT : OUT STD_LOGIC;
         Branch_ZERO_OUT : OUT STD_LOGIC;
         Protect_OUT : OUT STD_LOGIC;
         Out_Enable_OUT : OUT STD_LOGIC;
@@ -94,7 +96,7 @@ ARCHITECTURE Execute_Stage_Design OF Execute_Stage IS
             reg1_in : IN STD_LOGIC_VECTOR (N - 1 DOWNTO 0);
             reg2_in : IN STD_LOGIC_VECTOR (N - 1 DOWNTO 0);
             opcode_in : IN STD_LOGIC_VECTOR (4 DOWNTO 0);
-            flag_reg_out : OUT STD_LOGIC_VECTOR (3  DOWNTO 0); 
+            flag_reg_out : OUT STD_LOGIC_VECTOR (3 DOWNTO 0);
             data_out : OUT STD_LOGIC_VECTOR (N - 1 DOWNTO 0);
             Write_Data_2 : OUT STD_LOGIC_VECTOR (N - 1 DOWNTO 0)
         );
@@ -145,6 +147,7 @@ ARCHITECTURE Execute_Stage_Design OF Execute_Stage IS
     SIGNAL SP_Wire : STD_LOGIC_VECTOR(11 DOWNTO 0);
     SIGNAL Flags_Wire_FromALU : STD_LOGIC_VECTOR(3 DOWNTO 0);
     SIGNAL Flags_Wire_IntoCCR : STD_LOGIC_VECTOR(3 DOWNTO 0);
+    Signal CCR_O_WIRE : STD_LOGIC_VECTOR(3 DOWNTO 0);
 
 BEGIN
 
@@ -182,7 +185,7 @@ BEGIN
         Result_MEM => Result_Mem,
         CCR_Arithmetic => CCR_Arethmetic_IN,
         CCR_Select => CCR_Select,
-        CCR_output => CCR_Out
+        CCR_output => CCR_O_WIRE
     );
 
     -- Instantiate two Mux5x1
@@ -236,8 +239,8 @@ BEGIN
         MUX_Out => Final_Result
     );
 
-    Flags_Wire_IntoCCR(2 DOWNTO 0) <= Flags_Wire_FromALU(2 DOWNTO 0);
-    Flags_Wire_IntoCCR(3) <= Flags_Wire_FromALU(3) AND (NOT Branch_ZERO_IN);
+    Flags_Wire_IntoCCR(3 DOWNTO 1) <= Flags_Wire_FromALU(3 DOWNTO 1);
+    Flags_Wire_IntoCCR(0) <= Flags_Wire_FromALU(0) AND (NOT Branch_ZERO_IN);
 
     SP_OUT_Buffered <= SP_Wire;
     SP_OUT_Normal <= SP_Wire;
@@ -264,5 +267,8 @@ BEGIN
 
     JMP_DEST <= Forward_MUX_OUTPUT1;
     JMPZ_DEST <= Forward_MUX_OUTPUT1;
+
+    CCR_Out <= CCR_O_WIRE;
+    Zero_Flag_OUT <= CCR_O_WIRE(0); 
 
 END ARCHITECTURE;

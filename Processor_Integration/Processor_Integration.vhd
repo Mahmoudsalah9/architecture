@@ -6,6 +6,7 @@ ENTITY Processor_Integration IS
 
         Clk : IN STD_LOGIC;
         Rst : IN STD_LOGIC;
+
         RESET : IN STD_LOGIC;
         INTERUPT : IN STD_LOGIC;
         In_Port : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
@@ -118,6 +119,7 @@ ARCHITECTURE Processor_Integration_Design OF Processor_Integration IS
             Rst : IN STD_LOGIC;
 
             --in:
+            JMP_Enable_IN : IN STD_LOGIC;
             Branch_ZERO_IN : IN STD_LOGIC;
             Protect_IN : IN STD_LOGIC;
             Out_Enable_IN : IN STD_LOGIC;
@@ -159,6 +161,7 @@ ARCHITECTURE Processor_Integration_Design OF Processor_Integration IS
             Result_Mem : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
 
             --out:
+            JMP_Enable_OUT : OUT STD_LOGIC;
             Branch_ZERO_OUT : OUT STD_LOGIC;
             Protect_OUT : OUT STD_LOGIC;
             Out_Enable_OUT : OUT STD_LOGIC;
@@ -286,10 +289,12 @@ ARCHITECTURE Processor_Integration_Design OF Processor_Integration IS
 
             Clk : IN STD_LOGIC;
             Rst : IN STD_LOGIC;
+            STALL : IN STD_LOGIC;
             FLUSH : IN STD_LOGIC;
             LoadUse_RST : IN STD_LOGIC;
 
             -- IN:
+            FLUSH_IN : IN STD_LOGIC;
             PROTECT_IN : IN STD_LOGIC;
             OUTPORT_Enable_IN : IN STD_LOGIC;
             SWAP_Enable_IN : IN STD_LOGIC;
@@ -317,6 +322,7 @@ ARCHITECTURE Processor_Integration_Design OF Processor_Integration IS
             PCVALUE_IN : IN STD_LOGIC_VECTOR(11 DOWNTO 0);
 
             -- OUT:
+            FLUSH_OUT : OUT STD_LOGIC;
             PROTECT_OUT : OUT STD_LOGIC;
             OUTPORT_Enable_OUT : OUT STD_LOGIC;
             SWAP_Enable_OUT : OUT STD_LOGIC;
@@ -353,7 +359,6 @@ ARCHITECTURE Processor_Integration_Design OF Processor_Integration IS
             Rst : IN STD_LOGIC;
 
             -- Inputs:
-            Branch_ZERO_IN : IN STD_LOGIC;
             Protect_IN : IN STD_LOGIC;
             Out_Enable_IN : IN STD_LOGIC;
             Swap_Enable_IN : IN STD_LOGIC;
@@ -374,18 +379,8 @@ ARCHITECTURE Processor_Integration_Design OF Processor_Integration IS
             WriteData2_IN : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
             PC_Value_IN : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
             SP_IN_Buffered : IN STD_LOGIC_VECTOR(11 DOWNTO 0);
-            SP_IN_Normal : IN STD_LOGIC_VECTOR(11 DOWNTO 0);
-
-            Zero_Flag_IN : IN STD_LOGIC;
-            JMP_DEST_IN : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
-            JMPZ_DEST_IN : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
-            CCR_IN : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
-
-            Forwarded_ReadADD1_IN : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
-            Forwarded_ReadADD2_IN : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
 
             -- Outputs:
-            Branch_ZERO_OUT : OUT STD_LOGIC;
             Protect_OUT : OUT STD_LOGIC;
             Out_Enable_OUT : OUT STD_LOGIC;
             Swap_Enable_OUT : OUT STD_LOGIC;
@@ -406,15 +401,7 @@ ARCHITECTURE Processor_Integration_Design OF Processor_Integration IS
             WriteData2_OUT : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
             PC_Value_OUT : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
             SP_OUT_Buffered : OUT STD_LOGIC_VECTOR(11 DOWNTO 0);
-            SP_OUT_Normal : OUT STD_LOGIC_VECTOR(11 DOWNTO 0);
 
-            Zero_Flag_OUT : OUT STD_LOGIC;
-            JMP_DEST : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
-            JMPZ_DEST : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
-            CCR_Out : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
-
-            Forwarded_ReadADD1 : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
-            Forwarded_ReadADD2 : OUT STD_LOGIC_VECTOR(2 DOWNTO 0)
         );
     END COMPONENT;
 
@@ -584,6 +571,7 @@ ARCHITECTURE Processor_Integration_Design OF Processor_Integration IS
     SIGNAL PCVALUE_DECODE : STD_LOGIC_VECTOR(11 DOWNTO 0);
 
     --Out of Decode/Execute Buffer:
+    SIGNAL FLUSH_DE : STD_LOGIC;
     SIGNAL PROTECT_DE : STD_LOGIC;
     SIGNAL OUTPORT_Enable_DE : STD_LOGIC;
     SIGNAL SWAP_Enable_DE : STD_LOGIC;
@@ -611,6 +599,7 @@ ARCHITECTURE Processor_Integration_Design OF Processor_Integration IS
     SIGNAL PCVALUE_DE : STD_LOGIC_VECTOR(11 DOWNTO 0);
 
     --Out of Execute Stage:
+    SIGNAL JMP_Enable_EXECUTE : STD_LOGIC;
     SIGNAL Branch_ZERO_EXECUTE : STD_LOGIC;
     SIGNAL Protect_EXECUTE : STD_LOGIC;
     SIGNAL Out_Enable_EXECUTE : STD_LOGIC;
@@ -640,7 +629,6 @@ ARCHITECTURE Processor_Integration_Design OF Processor_Integration IS
     SIGNAL Forwarded_ReadADD2_EXECUTE : STD_LOGIC_VECTOR(2 DOWNTO 0);
 
     --Out of Execute/Memory Buffer:
-    SIGNAL Branch_ZERO_EM : STD_LOGIC;
     SIGNAL Protect_EM : STD_LOGIC;
     SIGNAL Out_Enable_EM : STD_LOGIC;
     SIGNAL Swap_Enable_EM : STD_LOGIC;
@@ -661,15 +649,6 @@ ARCHITECTURE Processor_Integration_Design OF Processor_Integration IS
     SIGNAL WriteData2_EM : STD_LOGIC_VECTOR(31 DOWNTO 0);
     SIGNAL PC_Value_EM : STD_LOGIC_VECTOR(31 DOWNTO 0);
     SIGNAL SP_OUT_Buffered_EM : STD_LOGIC_VECTOR(11 DOWNTO 0);
-    SIGNAL SP_OUT_Normal_EM : STD_LOGIC_VECTOR(11 DOWNTO 0);
-
-    SIGNAL Zero_Flag_EM : STD_LOGIC;
-    SIGNAL JMP_DEST_EM : STD_LOGIC_VECTOR(31 DOWNTO 0);
-    SIGNAL JMPZ_DEST_EM : STD_LOGIC_VECTOR(31 DOWNTO 0);
-    SIGNAL CCR_EM : STD_LOGIC_VECTOR(3 DOWNTO 0);
-
-    SIGNAL Forwarded_ReadADD1_EM : STD_LOGIC_VECTOR(2 DOWNTO 0);
-    SIGNAL Forwarded_ReadADD2_EM : STD_LOGIC_VECTOR(2 DOWNTO 0);
 
     --Out of Memory Stage:
     SIGNAL Ret_Enable_MEMORY : STD_LOGIC;
@@ -683,6 +662,7 @@ ARCHITECTURE Processor_Integration_Design OF Processor_Integration IS
     SIGNAL Write_Add_1_MEMORY : STD_LOGIC_VECTOR(2 DOWNTO 0);
     SIGNAL Immediate_data_MEMORY, Write_Data2_MEMORY : STD_LOGIC_VECTOR(31 DOWNTO 0);
     SIGNAL Write_Add_2_MEMORY : STD_LOGIC_VECTOR(2 DOWNTO 0);
+    SIGNAL Mem_READ_MEMORY : STD_LOGIC_VECTOR(2 DOWNTO 0);
 
     --Out of Memory/WriteBack Buffer:
     SIGNAL Result_Mem_MW : STD_LOGIC_VECTOR(31 DOWNTO 0);
@@ -720,7 +700,7 @@ ARCHITECTURE Processor_Integration_Design OF Processor_Integration IS
     SIGNAL Stack_Operation_RTI_RTI : STD_LOGIC_VECTOR(1 DOWNTO 0);
     SIGNAL RTI_PC_UPDATE_RTI : STD_LOGIC;
     SIGNAL MEM_ADD_MUX_RTI_Selec_RTI : STD_LOGIC;
-    SIGNAL CCR_Selector_RTI : STD_LOGIC;
+    SIGNAL CCR_Selector_RTI : STD_LOGIC_VECTOR(3 DOWNTO 0);
     SIGNAL PC_Disable_RTI : STD_LOGIC;
     SIGNAL FD_Stall_RTI : STD_LOGIC;
 
@@ -740,68 +720,68 @@ BEGIN
     -- Instance of Fetch_Stage component
     Fetch_Stage_Instance : Fetch_Stage
     PORT MAP(
-        Clk => OPEN,
-        Rst => OPEN,
-        UPDATE_PC_RTI => OPEN,
-        UPDATE_PC_INT => OPEN,
-        RESET => OPEN,
-        JMP_EN => OPEN,
-        RET_EN => OPEN,
-        Zero_Flag => OPEN,
-        BRANCH_ZERO => OPEN,
-        PC_Disable_INT => OPEN,
-        PC_Disable_RTI => OPEN,
-        PC_Disable_HDU => OPEN,
-        Result_MEM => OPEN,
-        JMP_DEST => OPEN,
-        JMP_ZERO_DEST => OPEN,
-        JMPZ_Done => OPEN,
-        PC_Value_OUT => OPEN,
-        Instruction_OUT => OPEN,
-        Data_OUT => OPEN
+        Clk => Clk,
+        Rst => Rst,
+        UPDATE_PC_RTI => RTI_PC_UPDATE_RTI,
+        UPDATE_PC_INT => UPDATE_PC_INT_INTERUPT,
+        RESET => RESET,
+        JMP_EN => JMP_Enable_EN,
+        RET_EN => Ret_Enable_MEMORY,
+        Zero_Flag => Zero_Flag_EXECUTE,
+        BRANCH_ZERO => Branch_ZERO_EXECUTE,
+        PC_Disable_INT => PC_Disable_INTERUPT,
+        PC_Disable_RTI => PC_Disable_RTI,
+        PC_Disable_HDU => PC_Disable_Hazard,
+        Result_MEM => Result_Mem_MEMORY,
+        JMP_DEST => JMP_DEST_EXECUTE,
+        JMP_ZERO_DEST => JMPZ_DEST_EXECUTE,
+        JMPZ_Done => JMPZ_Done_Fetch,
+        PC_Value_OUT => PC_Value_Fetch,
+        Instruction_OUT => Instruction_Fetch,
+        Data_OUT => Data_Fetch
     );
 
     -- Instance of Decode_Stage component
     Decode_Stage_Instance : Decode_Stage
     PORT MAP(
-        Clk => OPEN,
-        Rst => OPEN,
-        Instruction => OPEN,
-        Immediate_Data_IN => OPEN,
-        Write_Add1_WB => OPEN,
-        Write_Add2_WB => OPEN,
-        Write_Data1_WB => OPEN,
-        Write_Data2_WB => OPEN,
-        Write_Enable1_WB => OPEN,
-        Write_Enable2_WB => OPEN,
-        PCVALUE_IN => OPEN,
-        RTI_Begin_OUT => OPEN,
-        FLUSH_OUT => OPEN,
-        PROTECT_OUT => OPEN,
-        OUTPORT_Enable_OUT => OPEN,
-        SWAP_Enable_OUT => OPEN,
-        MEM_Add_Selec_OUT => OPEN,
-        WB_Selector_OUT => OPEN,
-        FREE_OUT => OPEN,
-        JUMP_OUT => OPEN,
-        BRANCH_ZERO_OUT => OPEN,
-        WRITE_Enable_OUT => OPEN,
-        MEM_Write_OUT => OPEN,
-        MEM_Read_OUT => OPEN,
-        ALU_OP_OUT => OPEN,
-        CALL_Enable_OUT => OPEN,
-        INPORT_Enable_OUT => OPEN,
-        ALU_SRC_OUT => OPEN,
-        CCR_Arithmetic_OUT => OPEN,
-        RET_Enable_OUT => OPEN,
-        STACK_Operation_OUT => OPEN,
-        Write_Add1_OUT => OPEN,
-        Write_Add2_R_Source2_OUT => OPEN,
-        Read_Port1_OUT => OPEN,
-        Read_Port2_OUT => OPEN,
-        Immediate_Data_Extended_OUT => OPEN,
-        R_Source1_OUT => OPEN,
-        PCVALUE_OUT => OPEN
+        Clk => Clk,
+        Rst => Rst,
+        Instruction => Instruction_FD,
+        Immediate_Data_IN => Data_FD,
+        Write_Add1_WB => Write_Add1_WB,
+        Write_Add2_WB => Write_Add2_WB,
+        Write_Data1_WB => Write_Back_Data1_WB,
+        Write_Data2_WB => Write_Back_Data2_WB,
+        Write_Enable1_WB => Write_Enable_WB,
+        Write_Enable2_WB => Swap_Enable_WB,
+        PCVALUE_IN => PC_Value_FD,
+        RTI_Begin_OUT => RTI_Begin_DECODE,
+        FLUSH_OUT => FLUSH_DECODE,
+        PROTECT_OUT => PROTECT_DECODE,
+        OUTPORT_Enable_OUT => OUTPORT_Enable_DECODE,
+        SWAP_Enable_OUT => SWAP_Enable_DECODE,
+        MEM_Add_Selec_OUT => MEM_Add_Selec_DECODE,
+        WB_Selector_OUT => WB_Selector_DECODE,
+        FREE_OUT => FREE_DECODE,
+        JUMP_OUT => JUMP_DECODE,
+        BRANCH_ZERO_OUT => BRANCH_ZERO_DECODE,
+        WRITE_Enable_OUT => WRITE_Enable_DECODE,
+        MEM_Write_OUT => MEM_Write_DECODE,
+        MEM_Read_OUT => MEM_Read_DECODE,
+        ALU_OP_OUT => ALU_OP_DECODE,
+        CALL_Enable_OUT => CALL_Enable_DECODE,
+        INPORT_Enable_OUT => INPORT_Enable_DECODE,
+        ALU_SRC_OUT => ALU_SRC_DECODE,
+        CCR_Arithmetic_OUT => CCR_Arithmetic_DECODE,
+        RET_Enable_OUT => RET_Enable_DECODE,
+        STACK_Operation_OUT => STACK_Operation_DECODE,
+        Write_Add1_OUT => Write_Add1_DECODE,
+        Write_Add2_R_Source2_OUT => Write_Add2_R_Source2_DECODE,
+        Read_Port1_OUT => Read_Port1_DECODE,
+        Read_Port2_OUT => Read_Port2_DECODE,
+        Immediate_Data_Extended_OUT => Immediate_Data_Extended_DECODE,
+        R_Source1_OUT => R_Source1_DECODE,
+        PCVALUE_OUT => PCVALUE_DECODE
     );
 
     -- Port mapping for Execute_Stage
@@ -809,69 +789,72 @@ BEGIN
     PORT MAP(
         Clk => Clk,
         Rst => Rst,
-        Branch_ZERO_IN => OPEN,
-        Protect_IN => OPEN,
-        Out_Enable_IN => OPEN,
-        Swap_Enable_IN => OPEN,
-        Memory_Add_Selec_IN => OPEN,
-        Write_Back_Selector_IN => OPEN,
-        Free_IN => OPEN,
-        Write_Enable_IN => OPEN,
-        Mem_READ_IN => OPEN,
-        Mem_Write_IN => OPEN,
-        ALU_OP_IN => OPEN,
-        Call_Enable_IN => OPEN,
-        INPUT_PORT_ENABLE_IN => OPEN,
-        ALU_SRC_IN => OPEN,
-        CCR_Arethmetic_IN => OPEN,
-        Stack_Operation_IN => OPEN,
-        RET_Enable_IN => OPEN,
-        ReadPort1_Data => OPEN,
-        ReadPort2_Data => OPEN,
-        WriteAdd1_IN => OPEN,
-        WriteAdd2_IN => OPEN,
-        Imm_Data_IN => OPEN,
-        R_Source1_IN => OPEN,
-        PC_Value_IN => OPEN,
-        INPUT_PORT => OPEN,
-        Forwarding_UNIT_MUX1_Selec1 => OPEN,
-        Forwarding_UNIT_MUX1_Selec2 => OPEN,
+
+        JMP_Enable_IN => JUMP_DE,
+        Branch_ZERO_IN => BRANCH_ZERO_DE,
+        Protect_IN => PROTECT_DE,
+        Out_Enable_IN => OUTPORT_Enable_DE,
+        Swap_Enable_IN => SWAP_Enable_DE,
+        Memory_Add_Selec_IN => MEM_Add_Selec_DE,
+        Write_Back_Selector_IN => WB_Selector_DE,
+        Free_IN => FREE_DE,
+        Write_Enable_IN => WRITE_Enable_DE,
+        Mem_READ_IN => MEM_Read_DE,
+        Mem_Write_IN => MEM_Write_DE,
+        ALU_OP_IN => ALU_OP_DE,
+        Call_Enable_IN => CALL_Enable_DE,
+        INPUT_PORT_ENABLE_IN => INPORT_Enable_DE,
+        ALU_SRC_IN => ALU_SRC_DE,
+        CCR_Arethmetic_IN => CCR_Arithmetic_DE,
+        Stack_Operation_IN => STACK_Operation_DE,
+        RET_Enable_IN => RET_Enable_DE,
+        ReadPort1_Data => Read_Port1_DE,
+        ReadPort2_Data => Read_Port2_DE,
+        WriteAdd1_IN => Write_Add1_DE,
+        WriteAdd2_IN => Write_Add2_R_Source2_DE,
+        Imm_Data_IN => Immediate_Data_Extended_DE,
+        R_Source1_IN => R_Source1_DE,
+        PC_Value_IN => PCVALUE_DE,
+        INPUT_PORT => In_Port,
+        Forwarding_UNIT_MUX1_Selec1 => OP1_Selec_Forwarding_Unit,
+        Forwarding_UNIT_MUX1_Selec2 => OP2_Selec_Forwarding_Unit,
         Forwarded_Data_ALUtoALU => OPEN,
         Forwarded_Data_MEMtoALU => OPEN,
         Forwarded_Data_SWAPALUtoALU => OPEN,
         Forwarded_Data_SWAPMEMtoALU => OPEN,
-        Stack_OP_RTI => OPEN,
-        Stack_OP_INT => OPEN,
-        CCR_Select => OPEN,
-        Result_Mem => OPEN,
+        Stack_OP_RTI => Stack_Operation_RTI_RTI,
+        Stack_OP_INT => Stack_Operation_INT_INTERUPT,
+        CCR_Select => CCR_Selector_RTI,
+        Result_Mem => Result_Mem_MEMORY(3 DOWNTO 0),
         -- Outputs
-        Branch_ZERO_OUT => OPEN,
-        Protect_OUT => OPEN,
-        Out_Enable_OUT => OPEN,
-        Swap_Enable_OUT => OPEN,
-        Memory_Add_Selec_OUT => OPEN,
-        Write_Back_Selector_OUT => OPEN,
-        Free_OUT => OPEN,
-        Write_Enable_OUT => OPEN,
-        Mem_READ_OUT => OPEN,
-        Mem_Write_OUT => OPEN,
-        Call_Enable_OUT => OPEN,
-        RET_Enable_OUT => OPEN,
-        Final_Result => OPEN,
-        Read_Port2_Data_OUT => OPEN,
-        WriteAdd1_OUT => OPEN,
-        WriteAdd2_OUT => OPEN,
-        Imm_Data_OUT => OPEN,
-        WriteData2_OUT => OPEN,
-        PC_Value_OUT => OPEN,
-        SP_OUT_Buffered => OPEN,
-        SP_OUT_Normal => OPEN,
-        Zero_Flag_OUT => OPEN,
-        JMP_DEST => OPEN,
-        JMPZ_DEST => OPEN,
-        CCR_Out => OPEN,
-        Forwarded_ReadADD1 => OPEN,
-        Forwarded_ReadADD2 => OPEN
+        JMP_Enable_OUT => JMP_Enable_EN,
+        Branch_ZERO_OUT => Branch_ZERO_EXECUTE,
+        Protect_OUT => Protect_EXECUTE,
+        Out_Enable_OUT => Out_Enable_EXECUTE,
+        Swap_Enable_OUT => Swap_Enable_EXECUTE,
+        Memory_Add_Selec_OUT => Memory_Add_Selec_EXECUTE,
+        Write_Back_Selector_OUT => Write_Back_Selector_EXECUTE,
+        Free_OUT => Free_EXECUTE,
+        Write_Enable_OUT => Write_Enable_EXECUTE,
+        Mem_READ_OUT => Mem_READ_EXECUTE,
+        Mem_Write_OUT => Mem_Write_EXECUTE,
+        Call_Enable_OUT => Call_Enable_EXECUTE,
+        RET_Enable_OUT => RET_Enable_EXECUTE,
+        Final_Result => Final_Result_EXECUTE,
+        Read_Port2_Data_OUT => Read_Port2_Data_EXECUTE,
+        WriteAdd1_OUT => WriteAdd1_EXECUTE,
+        WriteAdd2_OUT => WriteAdd2_EXECUTE,
+        Imm_Data_OUT => Imm_Data_EXECUTE,
+        WriteData2_OUT => WriteData2_EXECUTE,
+        PC_Value_OUT => PC_Value_EXECUTE,
+        SP_OUT_Buffered => SP_OUT_Buffered_EXECUTE,
+        SP_OUT_Normal => SP_OUT_Normal_EXECUTE,
+        Zero_Flag_OUT => Zero_Flag_EXECUTE,
+        JMP_DEST => JMP_DEST_EXECUTE,
+        JMPZ_DEST => JMPZ_DEST_EXECUTE,
+        CCR_Out => CCR_EXECUTE,
+        Forwarded_ReadADD1 => Forwarded_ReadADD1_EXECUTE,
+        Forwarded_ReadADD2 => Forwarded_ReadADD2_EXECUTE
     );
 
     U_Memory_Stage : Memory_Stage
@@ -947,75 +930,123 @@ BEGIN
     -- Instance of Fetch_Decode component
     Fetch_Decode_Instance : Fetch_Decode
     PORT MAP(
-        clk => OPEN,
-        Rst => OPEN,
-        flush => OPEN,
-        stall => OPEN,
-        Instruction_IN => OPEN,
-        Data_in => OPEN,
-        PC_Value_IN => OPEN,
-        Instruction_OUT => OPEN,
-        Data_OUT => OPEN,
-        PC_Value_OUT => OPEN
+        clk => Clk,
+        Rst => Rst,
+        flush => FLUSH_DE,
+        stall => STALL_Hazard,
+        Instruction_IN => Instruction_Fetch,
+        Data_in => Data_Fetch,
+        PC_Value_IN => PC_Value_Fetch,
+        Instruction_OUT => Instruction_FD,
+        Data_OUT => Data_FD,
+        PC_Value_OUT => PC_Value_FD
     );
 
     -- Instance of Decode_Execute component
     Decode_Execute_Instance : Decode_Execute
     PORT MAP(
-        Clk => OPEN,
-        Rst => OPEN,
-        FLUSH => OPEN,
-        LoadUse_RST => OPEN,
-        PROTECT_IN => OPEN,
-        OUTPORT_Enable_IN => OPEN,
-        SWAP_Enable_IN => OPEN,
-        MEM_Add_Selec_IN => OPEN,
-        WB_Selector_IN => OPEN,
-        FREE_IN => OPEN,
-        JUMP_IN => OPEN,
-        BRANCH_ZERO_IN => OPEN,
-        WRITE_Enable_IN => OPEN,
-        MEM_Write_IN => OPEN,
-        MEM_Read_IN => OPEN,
-        ALU_OP_IN => OPEN,
-        CALL_Enable_IN => OPEN,
-        INPORT_Enable_IN => OPEN,
-        ALU_SRC_IN => OPEN,
-        CCR_Arithmetic_IN => OPEN,
-        RET_Enable_IN => OPEN,
-        STACK_Operation_IN => OPEN,
-        Write_Add1_IN => OPEN,
-        Write_Add2_R_Source2_IN => OPEN,
-        Read_Port1_IN => OPEN,
-        Read_Port2_IN => OPEN,
-        Immediate_Data_Extended_IN => OPEN,
-        R_Source1_IN => OPEN,
-        PCVALUE_IN => OPEN,
-        PROTECT_OUT => OPEN,
-        OUTPORT_Enable_OUT => OPEN,
-        SWAP_Enable_OUT => OPEN,
-        MEM_Add_Selec_OUT => OPEN,
-        WB_Selector_OUT => OPEN,
-        FREE_OUT => OPEN,
-        JUMP_OUT => OPEN,
-        BRANCH_ZERO_OUT => OPEN,
-        WRITE_Enable_OUT => OPEN,
-        MEM_Write_OUT => OPEN,
-        MEM_Read_OUT => OPEN,
-        ALU_OP_OUT => OPEN,
-        CALL_Enable_OUT => OPEN,
-        INPORT_Enable_OUT => OPEN,
-        ALU_SRC_OUT => OPEN,
-        CCR_Arithmetic_OUT => OPEN,
-        RET_Enable_OUT => OPEN,
-        STACK_Operation_OUT => OPEN,
-        Write_Add1_OUT => OPEN,
-        Write_Add2_R_Source2_OUT => OPEN,
-        Read_Port1_OUT => OPEN,
-        Read_Port2_OUT => OPEN,
-        Immediate_Data_Extended_OUT => OPEN,
-        R_Source1_OUT => OPEN,
-        PCVALUE_OUT => OPEN
+        Clk => Clk,
+        Rst => Rst,
+        FLUSH => FLUSH_DE,
+        FLUSH_IN => FLUSH_DECODE,
+        LoadUse_RST => LoadUse_RST_Hazard,
+        PROTECT_IN => PROTECT_DECODE,
+        OUTPORT_Enable_IN => OUTPORT_Enable_DECODE,
+        SWAP_Enable_IN => SWAP_Enable_DECODE,
+        MEM_Add_Selec_IN => MEM_Add_Selec_DECODE,
+        WB_Selector_IN => WB_Selector_DECODE,
+        FREE_IN => FREE_DECODE,
+        JUMP_IN => JUMP_DECODE,
+        BRANCH_ZERO_IN => BRANCH_ZERO_DECODE,
+        WRITE_Enable_IN => WRITE_Enable_DECODE,
+        MEM_Write_IN => MEM_Write_DECODE,
+        MEM_Read_IN => MEM_Read_DECODE,
+        ALU_OP_IN => ALU_OP_DECODE,
+        CALL_Enable_IN => CALL_Enable_DECODE,
+        INPORT_Enable_IN => INPORT_Enable_DECODE,
+        ALU_SRC_IN => ALU_SRC_DECODE,
+        CCR_Arithmetic_IN => CCR_Arithmetic_DECODE,
+        RET_Enable_IN => RET_Enable_DECODE,
+        STACK_Operation_IN => STACK_Operation_DECODE,
+        Write_Add1_IN => Write_Add1_DECODE,
+        Write_Add2_R_Source2_IN => Write_Add2_R_Source2_DECODE,
+        Read_Port1_IN => Read_Port1_DECODE,
+        Read_Port2_IN => Read_Port2_DECODE,
+        Immediate_Data_Extended_IN => Immediate_Data_Extended_DECODE,
+        R_Source1_IN => R_Source1_DECODE,
+        PCVALUE_IN => PCVALUE_DECODE,
+        FLUSH_OUT => FLUSH_DE,
+        PROTECT_OUT => PROTECT_DE,
+        OUTPORT_Enable_OUT => OUTPORT_Enable_DE,
+        SWAP_Enable_OUT => SWAP_Enable_DE,
+        MEM_Add_Selec_OUT => MEM_Add_Selec_DE,
+        WB_Selector_OUT => WB_Selector_DE,
+        FREE_OUT => FREE_DE,
+        JUMP_OUT => JUMP_DE,
+        BRANCH_ZERO_OUT => BRANCH_ZERO_DE,
+        WRITE_Enable_OUT => WRITE_Enable_DE,
+        MEM_Write_OUT => MEM_Write_DE,
+        MEM_Read_OUT => MEM_Read_DE,
+        ALU_OP_OUT => ALU_OP_DE,
+        CALL_Enable_OUT => CALL_Enable_DE,
+        INPORT_Enable_OUT => INPORT_Enable_DE,
+        ALU_SRC_OUT => ALU_SRC_DE,
+        CCR_Arithmetic_OUT => CCR_Arithmetic_DE,
+        RET_Enable_OUT => RET_Enable_DE,
+        STACK_Operation_OUT => STACK_Operation_DE,
+        Write_Add1_OUT => Write_Add1_DE,
+        Write_Add2_R_Source2_OUT => Write_Add2_R_Source2_DE,
+        Read_Port1_OUT => Read_Port1_DE,
+        Read_Port2_OUT => Read_Port2_DE,
+        Immediate_Data_Extended_OUT => Immediate_Data_Extended_DE,
+        R_Source1_OUT => R_Source1_DE,
+        PCVALUE_OUT => PCVALUE_DE
+    );
+
+    Execute_Memory_Instance : Execute_Memory
+    PORT MAP(
+        clk => Clk,
+        Rst => Rst,
+        -- Inputs:
+        Protect_IN => Protect_EXECUTE,
+        Out_Enable_IN => Out_Enable_EXECUTE,
+        Swap_Enable_IN => Swap_Enable_EXECUTE,
+        Memory_Add_Selec_IN => Memory_Add_Selec_EXECUTE,
+        Write_Back_Selector_IN => Write_Back_Selector_EXECUTE,
+        Free_IN => Free_EXECUTE,
+        Write_Enable_IN => Write_Enable_EXECUTE,
+        Mem_READ_IN => Mem_READ_EXECUTE,
+        Mem_Write_IN => Mem_Write_EXECUTE,
+        Call_Enable_IN => Call_Enable_EXECUTE,
+        RET_Enable_IN => RET_Enable_EXECUTE,
+        Final_Result_IN => Final_Result_EXECUTE,
+        Read_Port2_Data_IN => Read_Port2_Data_EXECUTE,
+        WriteAdd1_IN => WriteAdd1_EXECUTE,
+        WriteAdd2_IN => WriteAdd2_EXECUTE,
+        Imm_Data_IN => Imm_Data_EXECUTE,
+        WriteData2_IN => WriteData2_EXECUTE,
+        PC_Value_IN => PC_Value_EXECUTE,
+        SP_IN_Buffered => SP_OUT_Buffered_EXECUTE,
+        -- Outputs:
+        Protect_OUT => Protect_EM,
+        Out_Enable_OUT => Out_Enable_EM,
+        Swap_Enable_OUT => Swap_Enable_EM,
+        Memory_Add_Selec_OUT => Memory_Add_Selec_EM,
+        Write_Back_Selector_OUT => Write_Back_Selector_EM,
+        Free_OUT => Free_EM,
+        Write_Enable_OUT => Write_Enable_EM,
+        Mem_READ_OUT => Mem_READ_EM,
+        Mem_Write_OUT => Mem_Write_EM,
+        Call_Enable_OUT => Call_Enable_EM,
+        RET_Enable_OUT => RET_Enable_EM,
+        Final_Result => Final_Result_EM,
+        Read_Port2_Data_OUT => Read_Port2_Data_EM,
+        WriteAdd1_OUT => WriteAdd1_EM,
+        WriteAdd2_OUT => WriteAdd2_EM,
+        Imm_Data_OUT => Imm_Data_EM,
+        WriteData2_OUT => WriteData2_EM,
+        PC_Value_OUT => PC_Value_EM,
+        SP_OUT_Buffered => SP_OUT_Buffered_EM
     );
 
     -- Port mapping for Memory_Stage
@@ -1023,46 +1054,46 @@ BEGIN
     PORT MAP(
         CLK => CLK,
         RST => RST,
-        Protect => OPEN,
-        OutPort_Enable_in => OPEN,
-        Swap_Enable_in => OPEN,
-        Mem_Add_selector => OPEN,
-        WB_Selector_in => OPEN,
-        Free => OPEN,
-        Write_Enable_in => OPEN,
-        Mem_Write_enable => OPEN,
-        Mem_Write_INT_FSM => OPEN,
-        Ret_Enable_In => OPEN,
-        Write_Data_Selector => OPEN,
-        Mux_Select_INT_FSM => OPEN,
-        CCR_Out => OPEN,
-        PC_Address_INT_OUT => OPEN,
-        Read_port2_data_in => OPEN,
-        PC_Value => OPEN,
-        Alu_result_in => OPEN,
+        Protect => Protect_EM,
+        OutPort_Enable_in => Out_Enable_EM,
+        Swap_Enable_in => Swap_Enable_EM,
+        Mem_Add_selector => Memory_Add_Selec_EM,
+        WB_Selector_in => Write_Back_Selector_EM,
+        Free => Free_EM,
+        Write_Enable_in => Write_Enable_EM,
+        Mem_Write_enable => Mem_Write_EM,
+        Mem_Write_INT_FSM => MEM_WRITE_INT_INTERUPT,
+        Ret_Enable_In => RET_Enable_EM,
+        Write_Data_Selector => Call_Enable_EM,
+        Mux_Select_INT_FSM => MUX_Selec_INT_INTERUPT,
+        CCR_Out => CCR_EXECUTE,
+        PC_Address_INT_OUT => PC_Address_OUT_INT_INTERUPT,
+        Read_port2_data_in => Read_Port2_Data_EM,
+        PC_Value => PC_Value_EM,
+        Alu_result_in => Final_Result_EM,
         SP => OPEN,
-        Write_Add_1_in => OPEN,
-        Write_Add_2_in => OPEN,
-        Immediate_data_in => OPEN,
-        Write_Data2_in => OPEN,
-        MEM_Add_MUX_RTI_Select => OPEN,
-        MEM_Add_MUX_INT_Select => OPEN,
-        MEM_read_in => OPEN,
+        Write_Add_1_in => WriteAdd1_EM,
+        Write_Add_2_in => WriteAdd2_EM,
+        Immediate_data_in => Imm_Data_EM,
+        Write_Data2_in => WriteData2_EM,
+        MEM_Add_MUX_RTI_Select => MEM_ADD_MUX_RTI_Selec_RTI,
+        MEM_Add_MUX_INT_Select => MEM_ADD_Selec_INT_INTERUPT,
+        MEM_read_in => Mem_READ_EM,
         -- Outputs
-        Ret_Enable_Out => OPEN,
-        OutPort_Enable_out => OPEN,
-        Swap_Enable_out => OPEN,
-        WB_Selector_out => OPEN,
-        Write_Enable_out => OPEN,
-        Result_Mem => OPEN,
-        Protected_To_Exception => OPEN,
-        Read_port2_data_out => OPEN,
-        Alu_result_out => OPEN,
-        Write_Add_1_out => OPEN,
-        Immediate_data_out => OPEN,
-        Write_Data2_out => OPEN,
-        Write_Add_2_out => OPEN,
-        MEM_read_out => OPEN
+        Ret_Enable_Out => Ret_Enable_MEMORY,
+        OutPort_Enable_out => OutPort_Enable_MEMORY,
+        Swap_Enable_out => Swap_Enable_MEMORY,
+        WB_Selector_out => WB_Selector_MEMORY,
+        Write_Enable_out => Write_Enable_MEMORY,
+        Result_Mem => Result_Mem_MEMORY,
+        Protected_To_Exception => Protected_To_Exception_MEMORY,
+        Read_port2_data_out => Read_port2_data_MEMORY,
+        Alu_result_out => Alu_result_MEMORY,
+        Write_Add_1_out => Write_Add_1_MEMORY,
+        Immediate_data_out => Immediate_data_MEMORY,
+        Write_Data2_out => Write_Data2_MEMORY,
+        Write_Add_2_out => Write_Add_2_MEMORY,
+        MEM_read_out => Mem_READ_MEMORY
     );
 
     U_Memory_WriteBack : Memory_WriteBack

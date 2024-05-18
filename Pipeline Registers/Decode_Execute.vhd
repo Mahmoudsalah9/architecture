@@ -13,6 +13,7 @@ ENTITY Decode_Execute IS
         LoadUse_RST : IN STD_LOGIC;
 
         -- IN:
+        FLUSH_IN : IN STD_LOGIC;
         PROTECT_IN : IN STD_LOGIC;
         OUTPORT_Enable_IN : IN STD_LOGIC;
         SWAP_Enable_IN : IN STD_LOGIC;
@@ -40,6 +41,7 @@ ENTITY Decode_Execute IS
         PCVALUE_IN : IN STD_LOGIC_VECTOR(11 DOWNTO 0);
 
         -- OUT:
+        FLUSH_OUT : OUT STD_LOGIC;
         PROTECT_OUT : OUT STD_LOGIC;
         OUTPORT_Enable_OUT : OUT STD_LOGIC;
         SWAP_Enable_OUT : OUT STD_LOGIC;
@@ -90,6 +92,7 @@ ARCHITECTURE Decode_Execute_Design OF Decode_Execute IS
     END COMPONENT;
 
     -- Internal signals for storing output values
+    SIGNAL FLUSH_ff : STD_LOGIC;
     SIGNAL PROTECT_ff : STD_LOGIC;
     SIGNAL OUTPORT_Enable_ff : STD_LOGIC;
     SIGNAL SWAP_Enable_ff : STD_LOGIC;
@@ -120,6 +123,8 @@ ARCHITECTURE Decode_Execute_Design OF Decode_Execute IS
 
 BEGIN
 
+    FLUSH_ff <= '0' WHEN FLUSH = '1' OR LoadUse_RST = '1' ELSE
+        PROTECT_IN;
     PROTECT_ff <= '0' WHEN FLUSH = '1' OR LoadUse_RST = '1' ELSE
         PROTECT_IN;
     OUTPORT_Enable_ff <= '0' WHEN FLUSH = '1' OR LoadUse_RST = '1' ELSE
@@ -174,6 +179,16 @@ BEGIN
         '1';
 
     -- Instantiating flip-flops for output storage
+    -- FLUSH_Out
+    Inst_FLUSH_OUT_FF : FLIPFLOP1BIT
+    PORT MAP(
+        d => FLUSH_ff,
+        clk => Clk,
+        rst => Rst,
+        EN => ENABLE_Final,
+        q => FLUSH_OUT
+    );
+
     -- PROTECT_OUT
     Inst_PROTECT_OUT_FF : FLIPFLOP1BIT
     PORT MAP(
