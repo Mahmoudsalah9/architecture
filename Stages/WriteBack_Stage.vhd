@@ -35,7 +35,7 @@ ENTITY WriteBack_Stage IS
         -- Control:
         WRITE_Enable_OUT : OUT STD_LOGIC;
         SWAP_Enable_OUT : OUT STD_LOGIC;
-        Memory_Read_OUT : OUT STD_LOGIC;
+        Memory_Read_OUT : OUT STD_LOGIC
 
     );
 

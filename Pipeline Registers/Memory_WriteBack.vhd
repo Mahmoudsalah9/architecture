@@ -33,7 +33,7 @@ ENTITY Memory_WriteBack IS
         write_enable_memory_Out : OUT STD_LOGIC;
         out_enable_memory_Out : OUT STD_LOGIC;
         swap_enable_memory_Out : OUT STD_LOGIC;
-        MEM_read_out : : OUT STD_LOGIC
+        MEM_read_out : OUT STD_LOGIC
 
     );
 END ENTITY;

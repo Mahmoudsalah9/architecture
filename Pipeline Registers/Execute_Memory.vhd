@@ -49,7 +49,7 @@ ENTITY Execute_Memory IS
         Imm_Data_OUT : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
         WriteData2_OUT : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
         PC_Value_OUT : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
-        SP_OUT_Buffered : OUT STD_LOGIC_VECTOR(11 DOWNTO 0);
+        SP_OUT_Buffered : OUT STD_LOGIC_VECTOR(11 DOWNTO 0)
 
     );
 END ENTITY;
@@ -82,7 +82,6 @@ BEGIN
 
         ELSIF rising_edge(clk) THEN
             -- Assign outputs with input values
-            Branch_ZERO_OUT <= Branch_ZERO_IN;
             Protect_OUT <= Protect_IN;
             Out_Enable_OUT <= Out_Enable_IN;
             Swap_Enable_OUT <= Swap_Enable_IN;

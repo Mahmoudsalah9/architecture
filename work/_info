@@ -1,0 +1,1603 @@
+m255
+K4
+z2
+!s11e vcom 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/Users/Y.A/Desktop/Project model sim testing
+Ealu
+Z0 w1714752993
+Z1 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z2 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 7
+Z3 dC:/Users/Y.A/Desktop/Arch Project/architecture
+Z4 8C:/Users/Y.A/Desktop/Arch Project/architecture/Circuits/ALU.vhd
+Z5 FC:/Users/Y.A/Desktop/Arch Project/architecture/Circuits/ALU.vhd
+l0
+L4 1
+VK3fo5;mjFBIKCBQCnf?j_1
+!s100 lTH^>^V6F>O[00dzbd4V:1
+Z6 OV;C;2020.1;71
+32
+Z7 !s110 1716007083
+!i10b 1
+Z8 !s108 1716007083.000000
+Z9 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Y.A/Desktop/Arch Project/architecture/Circuits/ALU.vhd|
+Z10 !s107 C:/Users/Y.A/Desktop/Arch Project/architecture/Circuits/ALU.vhd|
+!i113 1
+Z11 o-work work -2002 -explicit
+Z12 tExplicit 1 CvgOpt 0
+Amymodel
+R1
+R2
+DEx4 work 3 alu 0 22 K3fo5;mjFBIKCBQCnf?j_1
+!i122 7
+l38
+L18 107
+VFG@D:J2XY6iUfzPGiW]RM1
+!s100 P5EZj`GAZn6lDCmBP9DWf1
+R6
+32
+R7
+!i10b 1
+R8
+R9
+R10
+!i113 1
+R11
+R12
+Eccr_reg
+Z13 w1715986576
+R1
+R2
+!i122 8
+R3
+Z14 8C:/Users/Y.A/Desktop/Arch Project/architecture/Circuits/CCR_Reg.vhd
+Z15 FC:/Users/Y.A/Desktop/Arch Project/architecture/Circuits/CCR_Reg.vhd
+l0
+L4 1
+VnWggI:Ho8Mn99?hBT[D:90
+!s100 @OVBOWm]<=iM5:HcITAHB1
+R6
+32
+R7
+!i10b 1
+R8
+Z16 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Y.A/Desktop/Arch Project/architecture/Circuits/CCR_Reg.vhd|
+Z17 !s107 C:/Users/Y.A/Desktop/Arch Project/architecture/Circuits/CCR_Reg.vhd|
+!i113 1
+R11
+R12
+Accr_reg_design
+R1
+R2
+DEx4 work 7 ccr_reg 0 22 nWggI:Ho8Mn99?hBT[D:90
+!i122 8
+l32
+L12 39
+VWPN4F9V`z8?D4]cSSgRJo3
+!s100 <`>cc^:mFjZYZnJFUcmGQ1
+R6
+32
+R7
+!i10b 1
+R8
+R16
+R17
+!i113 1
+R11
+R12
+Econtrol_unit
+Z18 w1715890885
+R1
+R2
+!i122 0
+R3
+Z19 8C:/Users/Y.A/Desktop/Arch Project/architecture/Circuits/Decode Circuits/Contol_Unit.vhd
+Z20 FC:/Users/Y.A/Desktop/Arch Project/architecture/Circuits/Decode Circuits/Contol_Unit.vhd
+l0
+L4 1
+VVToN2nb:m@zc67zaT0JD_1
+!s100 BdKzdbNZN8OnPiHP53PFe2
+R6
+32
+Z21 !s110 1716007082
+!i10b 1
+Z22 !s108 1716007082.000000
+Z23 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Y.A/Desktop/Arch Project/architecture/Circuits/Decode Circuits/Contol_Unit.vhd|
+Z24 !s107 C:/Users/Y.A/Desktop/Arch Project/architecture/Circuits/Decode Circuits/Contol_Unit.vhd|
+!i113 1
+R11
+R12
+Acontrol_unit_design
+R1
+R2
+DEx4 work 12 control_unit 0 22 VToN2nb:m@zc67zaT0JD_1
+!i122 0
+l38
+L36 1294
+VR>[h_9YJ0`;]37D:5bdh[2
+!s100 iZMo^?;OX1FkbS<7_zUek3
+R6
+32
+R21
+!i10b 1
+R22
+R23
+R24
+!i113 1
+R11
+R12
+Edata_control
+Z25 w1715901046
+R1
+R2
+!i122 3
+R3
+Z26 8C:/Users/Y.A/Desktop/Arch Project/architecture/Circuits/Fetch Circuits/Data_Control.vhd
+Z27 FC:/Users/Y.A/Desktop/Arch Project/architecture/Circuits/Fetch Circuits/Data_Control.vhd
+l0
+L4 1
+V>4k30fjVz:F2@G3P`f?<21
+!s100 =R=;J1B[e8Df9WBgkHd][3
+R6
+32
+R21
+!i10b 1
+R22
+Z28 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Y.A/Desktop/Arch Project/architecture/Circuits/Fetch Circuits/Data_Control.vhd|
+Z29 !s107 C:/Users/Y.A/Desktop/Arch Project/architecture/Circuits/Fetch Circuits/Data_Control.vhd|
+!i113 1
+R11
+R12
+Adata_control_design
+R1
+R2
+DEx4 work 12 data_control 0 22 >4k30fjVz:F2@G3P`f?<21
+!i122 3
+l12
+L11 9
+V83aE@lGQ_RF2j9I:d__dn2
+!s100 J<G9JHQ6T0F@:G94fTlRh2
+R6
+32
+R21
+!i10b 1
+R22
+R28
+R29
+!i113 1
+R11
+R12
+Edecode_execute
+Z30 w1716001598
+Z31 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+R1
+R2
+!i122 20
+R3
+Z32 8C:/Users/Y.A/Desktop/Arch Project/architecture/Pipeline Registers/Decode_Execute.vhd
+Z33 FC:/Users/Y.A/Desktop/Arch Project/architecture/Pipeline Registers/Decode_Execute.vhd
+l0
+L5 1
+Vz2@`cdW?ChHcPCWIf<N`L3
+!s100 1UmAGPQ[:Y4U2kQ8WY@hj0
+R6
+32
+Z34 !s110 1716007084
+!i10b 1
+Z35 !s108 1716007084.000000
+Z36 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Y.A/Desktop/Arch Project/architecture/Pipeline Registers/Decode_Execute.vhd|
+Z37 !s107 C:/Users/Y.A/Desktop/Arch Project/architecture/Pipeline Registers/Decode_Execute.vhd|
+!i113 1
+R11
+R12
+Adecode_execute_design
+R31
+R1
+R2
+DEx4 work 14 decode_execute 0 22 z2@`cdW?ChHcPCWIf<N`L3
+!i122 20
+l124
+L75 371
+VKWmJXJzhfRXRfcEzC^mPf3
+!s100 emgTCI0jdkVhnj0^EYm0a1
+R6
+32
+R34
+!i10b 1
+R35
+R36
+R37
+!i113 1
+R11
+R12
+Edecode_stage
+Z38 w1715242742
+R1
+R2
+!i122 22
+R3
+Z39 8C:/Users/Y.A/Desktop/Arch Project/architecture/Stages/Decode_Stage.vhd
+Z40 FC:/Users/Y.A/Desktop/Arch Project/architecture/Stages/Decode_Stage.vhd
+l0
+L4 1
+V0Sz51c>Zg9LT;ikn83HH>2
+!s100 @i:d[2C:PjY4K]C5k3`2[3
+R6
+32
+Z41 !s110 1716007085
+!i10b 1
+Z42 !s108 1716007085.000000
+Z43 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Y.A/Desktop/Arch Project/architecture/Stages/Decode_Stage.vhd|
+Z44 !s107 C:/Users/Y.A/Desktop/Arch Project/architecture/Stages/Decode_Stage.vhd|
+!i113 1
+R11
+R12
+Adecode_stage_design
+R1
+R2
+DEx4 work 12 decode_stage 0 22 0Sz51c>Zg9LT;ikn83HH>2
+!i122 22
+l134
+L65 141
+V>@`N8PI1`cMeGRZR;6K`42
+!s100 DNjb7Ejf93G:C_CSL4JX12
+R6
+32
+R41
+!i10b 1
+R42
+R43
+R44
+!i113 1
+R11
+R12
+Eexecute_memory
+Z45 w1716007126
+R31
+R1
+R2
+!i122 34
+R3
+Z46 8C:/Users/Y.A/Desktop/Arch Project/architecture/Pipeline Registers/Execute_Memory.vhd
+Z47 FC:/Users/Y.A/Desktop/Arch Project/architecture/Pipeline Registers/Execute_Memory.vhd
+l0
+L5 1
+VhL1SJN?VDMc8:7nZ7L36K1
+!s100 I8li>cY;=Pl3ZIii`S[g90
+R6
+32
+Z48 !s110 1716007130
+!i10b 1
+Z49 !s108 1716007130.000000
+Z50 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Y.A/Desktop/Arch Project/architecture/Pipeline Registers/Execute_Memory.vhd|
+Z51 !s107 C:/Users/Y.A/Desktop/Arch Project/architecture/Pipeline Registers/Execute_Memory.vhd|
+!i113 1
+R11
+R12
+Aexecute_memory_design
+R31
+R1
+R2
+DEx4 work 14 execute_memory 0 22 hL1SJN?VDMc8:7nZ7L36K1
+!i122 34
+l58
+L57 51
+V4YFFYfHWB=[=:P_k5<]XS2
+!s100 8k^AXczMzBDZF>7m3;g[L0
+R6
+32
+R48
+!i10b 1
+R49
+R50
+R51
+!i113 1
+R11
+R12
+Eexecute_stage
+Z52 w1716006122
+R31
+R1
+R2
+!i122 23
+R3
+Z53 8C:/Users/Y.A/Desktop/Arch Project/architecture/Stages/Execute_Stage.vhd
+Z54 FC:/Users/Y.A/Desktop/Arch Project/architecture/Stages/Execute_Stage.vhd
+l0
+L5 1
+V@Sk5a?XAL`CDZ8[Bh@G>V3
+!s100 k=nEZiWjnkO`<_;3>fn:P0
+R6
+32
+R41
+!i10b 1
+R42
+Z55 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Y.A/Desktop/Arch Project/architecture/Stages/Execute_Stage.vhd|
+Z56 !s107 C:/Users/Y.A/Desktop/Arch Project/architecture/Stages/Execute_Stage.vhd|
+!i113 1
+R11
+R12
+Aexecute_stage_design
+R31
+R1
+R2
+DEx4 work 13 execute_stage 0 22 @Sk5a?XAL`CDZ8[Bh@G>V3
+!i122 23
+l153
+L90 187
+VWKz3;d8A8iKez6FW4?`1J0
+!s100 F>j[2cUQgBN_c9cEKKd2j1
+R6
+32
+R41
+!i10b 1
+R42
+R55
+R56
+!i113 1
+R11
+R12
+Efetch_decode
+Z57 w1715980009
+R31
+R1
+R2
+!i122 21
+R3
+Z58 8C:/Users/Y.A/Desktop/Arch Project/architecture/Pipeline Registers/Fetch_Decode.vhd
+Z59 FC:/Users/Y.A/Desktop/Arch Project/architecture/Pipeline Registers/Fetch_Decode.vhd
+l0
+L5 1
+ViDzjMNe;:XFP<XK>TGQHH3
+!s100 BU2eT?O4Pfg>;MDR:SiEj2
+R6
+32
+R41
+!i10b 1
+R42
+Z60 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Y.A/Desktop/Arch Project/architecture/Pipeline Registers/Fetch_Decode.vhd|
+Z61 !s107 C:/Users/Y.A/Desktop/Arch Project/architecture/Pipeline Registers/Fetch_Decode.vhd|
+!i113 1
+R11
+R12
+Afetch_decode_design
+R31
+R1
+R2
+DEx4 work 12 fetch_decode 0 22 iDzjMNe;:XFP<XK>TGQHH3
+!i122 21
+l41
+L22 60
+Vn10akXjh7X5WS_3kfWii<0
+!s100 3fYYm21dMGmXXHd:K[^hQ3
+R6
+32
+R41
+!i10b 1
+R42
+R60
+R61
+!i113 1
+R11
+R12
+Efetch_stage
+Z62 w1715941563
+R1
+R2
+!i122 24
+R3
+Z63 8C:/Users/Y.A/Desktop/Arch Project/architecture/Stages/Fetch_Stage.vhd
+Z64 FC:/Users/Y.A/Desktop/Arch Project/architecture/Stages/Fetch_Stage.vhd
+l0
+L4 1
+V[kiT5m@X^N^4YdhlnIldC0
+!s100 Q]W[]:;^7KENAKDI^Hk9A3
+R6
+32
+Z65 !s110 1716007086
+!i10b 1
+R42
+Z66 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Y.A/Desktop/Arch Project/architecture/Stages/Fetch_Stage.vhd|
+Z67 !s107 C:/Users/Y.A/Desktop/Arch Project/architecture/Stages/Fetch_Stage.vhd|
+!i113 1
+R11
+R12
+Afetch_stage_design
+R1
+R2
+DEx4 work 11 fetch_stage 0 22 [kiT5m@X^N^4YdhlnIldC0
+!i122 24
+l106
+L36 157
+VL5FF:>EJog_So3o<HJ0d]2
+!s100 VUbN^j[<fTPDQM?WmmFo93
+R6
+32
+R65
+!i10b 1
+R42
+R66
+R67
+!i113 1
+R11
+R12
+Eflipflop
+Z68 w1715978106
+R1
+R2
+!i122 25
+R3
+Z69 8C:/Users/Y.A/Desktop/Arch Project/architecture/Sub Circuits/FLIPFLOP.vhd
+Z70 FC:/Users/Y.A/Desktop/Arch Project/architecture/Sub Circuits/FLIPFLOP.vhd
+l0
+L4 1
+VN^2JfDPM]K9il:f72ZQ1b1
+!s100 aYMS12O1<H]@k6RMCma2^1
+R6
+32
+R65
+!i10b 1
+Z71 !s108 1716007086.000000
+Z72 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Y.A/Desktop/Arch Project/architecture/Sub Circuits/FLIPFLOP.vhd|
+Z73 !s107 C:/Users/Y.A/Desktop/Arch Project/architecture/Sub Circuits/FLIPFLOP.vhd|
+!i113 1
+R11
+R12
+Aflipflop_design
+R1
+R2
+DEx4 work 8 flipflop 0 22 N^2JfDPM]K9il:f72ZQ1b1
+!i122 25
+l17
+L15 17
+Vm44d`2^Q1L0Z?^0:n^YDZ0
+!s100 `4_TLkm^2]^_i8TQmW9<f0
+R6
+32
+R65
+!i10b 1
+R71
+R72
+R73
+!i113 1
+R11
+R12
+Eflipflop1bit
+Z74 w1715980806
+R1
+R2
+!i122 26
+R3
+Z75 8C:/Users/Y.A/Desktop/Arch Project/architecture/Sub Circuits/FLIPFLOP1BIT.vhd
+Z76 FC:/Users/Y.A/Desktop/Arch Project/architecture/Sub Circuits/FLIPFLOP1BIT.vhd
+l0
+L4 1
+VJedNa2]6U1bz?b_cBeM=R3
+!s100 1eOeW87Io]I;U>]ngE73a0
+R6
+32
+R65
+!i10b 1
+R71
+Z77 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Y.A/Desktop/Arch Project/architecture/Sub Circuits/FLIPFLOP1BIT.vhd|
+Z78 !s107 C:/Users/Y.A/Desktop/Arch Project/architecture/Sub Circuits/FLIPFLOP1BIT.vhd|
+!i113 1
+R11
+R12
+Aflipflop1bit_design
+R1
+R2
+DEx4 work 12 flipflop1bit 0 22 JedNa2]6U1bz?b_cBeM=R3
+!i122 26
+l12
+L10 17
+VQF<ieea6RF^N3f^;zzZTf2
+!s100 S1?HOGUMLX1OO<o`50_eK3
+R6
+32
+R65
+!i10b 1
+R71
+R77
+R78
+!i113 1
+R11
+R12
+Eforwarding_unit
+Z79 w1715991931
+R1
+R2
+!i122 9
+R3
+Z80 8C:/Users/Y.A/Desktop/Arch Project/architecture/Circuits/Forwarding_Unit.vhd
+Z81 FC:/Users/Y.A/Desktop/Arch Project/architecture/Circuits/Forwarding_Unit.vhd
+l0
+L4 1
+VWXoBf?:L6M]nCSQmEV7Ge0
+!s100 n5AET1?B0Cz;XgQ3TVQ?m1
+R6
+32
+R7
+!i10b 1
+R8
+Z82 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Y.A/Desktop/Arch Project/architecture/Circuits/Forwarding_Unit.vhd|
+Z83 !s107 C:/Users/Y.A/Desktop/Arch Project/architecture/Circuits/Forwarding_Unit.vhd|
+!i113 1
+R11
+R12
+Aforwarding_unit_design
+R1
+R2
+DEx4 work 15 forwarding_unit 0 22 WXoBf?:L6M]nCSQmEV7Ge0
+!i122 9
+l32
+L30 17
+V`o63jzYj02Lb4ZKl<cAYh1
+!s100 REVfllA;0;461V=@630072
+R6
+32
+R7
+!i10b 1
+R8
+R82
+R83
+!i113 1
+R11
+R12
+Ehazard_du
+Z84 w1715983430
+Z85 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
+Z86 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
+R1
+R2
+!i122 10
+R3
+Z87 8C:/Users/Y.A/Desktop/Arch Project/architecture/Circuits/Hazard_DU.vhd
+Z88 FC:/Users/Y.A/Desktop/Arch Project/architecture/Circuits/Hazard_DU.vhd
+l0
+L6 1
+Vo26@J4XaiaL3_MXK>`DH20
+!s100 ]PYSeIX]7:S=QDLNbbzHK0
+R6
+32
+R7
+!i10b 1
+R8
+Z89 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Y.A/Desktop/Arch Project/architecture/Circuits/Hazard_DU.vhd|
+Z90 !s107 C:/Users/Y.A/Desktop/Arch Project/architecture/Circuits/Hazard_DU.vhd|
+!i113 1
+R11
+R12
+Ahazard_du_design
+R85
+R86
+R1
+R2
+DEx4 work 9 hazard_du 0 22 o26@J4XaiaL3_MXK>`DH20
+!i122 10
+l24
+L23 11
+VoA9PCc@_ljZHhcQU419^c1
+!s100 FeDcF=;@H^Nc9KmY[FC5E1
+R6
+32
+R7
+!i10b 1
+R8
+R89
+R90
+!i113 1
+R11
+R12
+Einstruction_memory
+Z91 w1715636101
+R31
+R1
+R2
+!i122 4
+R3
+Z92 8C:/Users/Y.A/Desktop/Arch Project/architecture/Circuits/Fetch Circuits/Instruction_Memory.vhd
+Z93 FC:/Users/Y.A/Desktop/Arch Project/architecture/Circuits/Fetch Circuits/Instruction_Memory.vhd
+l0
+L5 1
+V24AIZR:bQ25ng2_T@fUz43
+!s100 ?9BZ?SYoe[4;eOI>ZhQ0F2
+R6
+32
+R21
+!i10b 1
+R22
+Z94 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Y.A/Desktop/Arch Project/architecture/Circuits/Fetch Circuits/Instruction_Memory.vhd|
+Z95 !s107 C:/Users/Y.A/Desktop/Arch Project/architecture/Circuits/Fetch Circuits/Instruction_Memory.vhd|
+!i113 1
+R11
+R12
+Ainstruction_memory_design
+R31
+R1
+R2
+DEx4 work 18 instruction_memory 0 22 24AIZR:bQ25ng2_T@fUz43
+!i122 4
+l19
+L16 14
+Vj=J8>2fOeAoA^]GePKP1G3
+!s100 flfzfNYLVL^mH;zRAXEC]3
+R6
+32
+R21
+!i10b 1
+R22
+R94
+R95
+!i113 1
+R11
+R12
+Einstructionfetch
+R0
+R31
+R1
+R2
+!i122 11
+R3
+Z96 8C:/Users/Y.A/Desktop/Arch Project/architecture/Circuits/InstructionFetch.vhd
+Z97 FC:/Users/Y.A/Desktop/Arch Project/architecture/Circuits/InstructionFetch.vhd
+l0
+L4 1
+VGhaZTUdH`>_4m=jON>V6H2
+!s100 dd[?H>;9eY112eQ6DmT3]3
+R6
+32
+R7
+!i10b 1
+R8
+Z98 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Y.A/Desktop/Arch Project/architecture/Circuits/InstructionFetch.vhd|
+Z99 !s107 C:/Users/Y.A/Desktop/Arch Project/architecture/Circuits/InstructionFetch.vhd|
+!i113 1
+R11
+R12
+Abehavioral
+R31
+R1
+R2
+DEx4 work 16 instructionfetch 0 22 GhaZTUdH`>_4m=jON>V6H2
+!i122 11
+l15
+L13 15
+VGV[Y<_1Uj8gQZI=k_Ob=31
+!s100 LejAT5D3RHK>iCc3ALjYk3
+R6
+32
+R7
+!i10b 1
+R8
+R98
+R99
+!i113 1
+R11
+R12
+Eint_operator
+Z100 w1715894671
+R31
+R1
+R2
+!i122 14
+R3
+Z101 8C:/Users/Y.A/Desktop/Arch Project/architecture/INT and RTI Operators/INT_Operator.vhd
+Z102 FC:/Users/Y.A/Desktop/Arch Project/architecture/INT and RTI Operators/INT_Operator.vhd
+l0
+L5 1
+V_S@dm@E@b8VCEabjm9D;X1
+!s100 >9Z8X<X4Z^Y?l4hFMHdGi1
+R6
+32
+R34
+!i10b 1
+R35
+Z103 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Y.A/Desktop/Arch Project/architecture/INT and RTI Operators/INT_Operator.vhd|
+Z104 !s107 C:/Users/Y.A/Desktop/Arch Project/architecture/INT and RTI Operators/INT_Operator.vhd|
+!i113 1
+R11
+R12
+Aint_operator_design
+R31
+R1
+R2
+DEx4 work 12 int_operator 0 22 _S@dm@E@b8VCEabjm9D;X1
+!i122 14
+l36
+L32 145
+VPg[LK@G2?ViA8d9328Y>h2
+!s100 =USR^YakN[_ZM[l57<oT<0
+R6
+32
+R34
+!i10b 1
+R35
+R103
+R104
+!i113 1
+R11
+R12
+Ememory
+Z105 w1715905422
+R31
+R1
+R2
+!i122 12
+R3
+Z106 8C:/Users/Y.A/Desktop/Arch Project/architecture/Circuits/Memory.vhd
+Z107 FC:/Users/Y.A/Desktop/Arch Project/architecture/Circuits/Memory.vhd
+l0
+L5 1
+V1;Jbe[F2G0[J`TXA^Me^j2
+!s100 [cADNMdfT@2F4gla51^;e3
+R6
+32
+R7
+!i10b 1
+R8
+Z108 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Y.A/Desktop/Arch Project/architecture/Circuits/Memory.vhd|
+Z109 !s107 C:/Users/Y.A/Desktop/Arch Project/architecture/Circuits/Memory.vhd|
+!i113 1
+R11
+R12
+Async_memory
+R31
+R1
+R2
+DEx4 work 6 memory 0 22 1;Jbe[F2G0[J`TXA^Me^j2
+!i122 12
+l20
+L15 39
+VSfkF?2^WPc_ELFC0QdR]B1
+!s100 RiUJGSX^9n`A572:Fz?Pm2
+R6
+32
+R7
+!i10b 1
+R8
+R108
+R109
+!i113 1
+R11
+R12
+Ememory_stage
+Z110 w1716007329
+R31
+R1
+R2
+!i122 41
+R3
+Z111 8C:/Users/Y.A/Desktop/Arch Project/architecture/Stages/Memory_stage.vhd
+Z112 FC:/Users/Y.A/Desktop/Arch Project/architecture/Stages/Memory_stage.vhd
+l0
+L5 1
+V?21P6@PYGR6W[>zD:azA30
+!s100 6RF`]=mY^PKoA6V@<d7nd2
+R6
+32
+Z113 !s110 1716007332
+!i10b 1
+Z114 !s108 1716007332.000000
+Z115 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Y.A/Desktop/Arch Project/architecture/Stages/Memory_stage.vhd|
+Z116 !s107 C:/Users/Y.A/Desktop/Arch Project/architecture/Stages/Memory_stage.vhd|
+!i113 1
+R11
+R12
+Amemory_stage_deisgn
+R31
+R1
+R2
+DEx4 work 12 memory_stage 0 22 ?21P6@PYGR6W[>zD:azA30
+!i122 41
+l74
+L37 61
+VclIQFMVAJZX5>inm7h[ZK1
+!s100 md6<`N1IdzzL`F1j54ORN1
+R6
+32
+R113
+!i10b 1
+R114
+R115
+R116
+!i113 1
+R11
+R12
+Ememory_writeback
+Z117 w1716007156
+R31
+R1
+R2
+!i122 35
+R3
+Z118 8C:/Users/Y.A/Desktop/Arch Project/architecture/Pipeline Registers/Memory_WriteBack.vhd
+Z119 FC:/Users/Y.A/Desktop/Arch Project/architecture/Pipeline Registers/Memory_WriteBack.vhd
+l0
+L6 1
+Vo]SBX5?b^@=nUn4hl3OH`0
+!s100 E6WB41R@e2Tno:0l8SD4M2
+R6
+32
+Z120 !s110 1716007157
+!i10b 1
+Z121 !s108 1716007157.000000
+Z122 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Y.A/Desktop/Arch Project/architecture/Pipeline Registers/Memory_WriteBack.vhd|
+Z123 !s107 C:/Users/Y.A/Desktop/Arch Project/architecture/Pipeline Registers/Memory_WriteBack.vhd|
+!i113 1
+R11
+R12
+Amemory_writeback_design
+R31
+R1
+R2
+DEx4 work 16 memory_writeback 0 22 o]SBX5?b^@=nUn4hl3OH`0
+!i122 35
+l42
+L41 34
+VN7hi[Zmg6<amfCQB<2=PL1
+!s100 EEBdA>S?QLTYL^4bZk_jN3
+R6
+32
+R120
+!i10b 1
+R121
+R122
+R123
+!i113 1
+R11
+R12
+Emux2x1
+R0
+R1
+R2
+!i122 16
+R3
+Z124 8C:/Users/Y.A/Desktop/Arch Project/architecture/Muxes/Mux2x1.vhd
+Z125 FC:/Users/Y.A/Desktop/Arch Project/architecture/Muxes/Mux2x1.vhd
+l0
+L4 1
+Voo[f;W^BhOzR587F1mfSb2
+!s100 a`iV5SjgFc0fT5J`jQgJ82
+R6
+32
+R34
+!i10b 1
+R35
+Z126 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Y.A/Desktop/Arch Project/architecture/Muxes/Mux2x1.vhd|
+Z127 !s107 C:/Users/Y.A/Desktop/Arch Project/architecture/Muxes/Mux2x1.vhd|
+!i113 1
+R11
+R12
+Amux2x1_design
+R1
+R2
+DEx4 work 6 mux2x1 0 22 oo[f;W^BhOzR587F1mfSb2
+!i122 16
+l14
+Z128 L13 8
+VHNnI3hCDlRe5ejGl?f9]H3
+!s100 iE]PiThYG]IL4[`7a_U=70
+R6
+32
+R34
+!i10b 1
+R35
+R126
+R127
+!i113 1
+R11
+R12
+Emux2x1_standard
+R13
+R1
+R2
+!i122 17
+R3
+Z129 8C:/Users/Y.A/Desktop/Arch Project/architecture/Muxes/Mux2x1_standard.vhdl
+Z130 FC:/Users/Y.A/Desktop/Arch Project/architecture/Muxes/Mux2x1_standard.vhdl
+l0
+L3 1
+V5>mG<Oc=aV<2>PFkXce:80
+!s100 dZB`oGaVIlX<NP7n3J7KX1
+R6
+32
+R34
+!i10b 1
+R35
+Z131 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Y.A/Desktop/Arch Project/architecture/Muxes/Mux2x1_standard.vhdl|
+Z132 !s107 C:/Users/Y.A/Desktop/Arch Project/architecture/Muxes/Mux2x1_standard.vhdl|
+!i113 1
+R11
+R12
+Amux2x1_design
+R1
+R2
+DEx4 work 15 mux2x1_standard 0 22 5>mG<Oc=aV<2>PFkXce:80
+!i122 17
+l11
+L10 8
+V^ljEdV78HAl2=JeYPQ5HK3
+!s100 F39Doakz9R75e0bWj3ZI93
+R6
+32
+R34
+!i10b 1
+R35
+R131
+R132
+!i113 1
+R11
+R12
+Emux4x1
+R0
+R1
+R2
+!i122 18
+R3
+Z133 8C:/Users/Y.A/Desktop/Arch Project/architecture/Muxes/Mux4x1.vhd
+Z134 FC:/Users/Y.A/Desktop/Arch Project/architecture/Muxes/Mux4x1.vhd
+l0
+L4 1
+VB]O@QU<Q_CM`Y6oW32XLS3
+!s100 l7Ij33V=iVhK<ZhV_hOgR3
+R6
+32
+R34
+!i10b 1
+R35
+Z135 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Y.A/Desktop/Arch Project/architecture/Muxes/Mux4x1.vhd|
+Z136 !s107 C:/Users/Y.A/Desktop/Arch Project/architecture/Muxes/Mux4x1.vhd|
+!i113 1
+R11
+R12
+Amux4x1_design
+R1
+R2
+DEx4 work 6 mux4x1 0 22 B]O@QU<Q_CM`Y6oW32XLS3
+!i122 18
+l14
+L13 12
+VDKdhlEOze@hlh@7HODlc[2
+!s100 LiU20V:nkY88T7nYLBPdU0
+R6
+32
+R34
+!i10b 1
+R35
+R135
+R136
+!i113 1
+R11
+R12
+Emux5x1
+Z137 w1715995037
+R1
+R2
+!i122 19
+R3
+Z138 8C:/Users/Y.A/Desktop/Arch Project/architecture/Muxes/Mux5x1.vhd
+Z139 FC:/Users/Y.A/Desktop/Arch Project/architecture/Muxes/Mux5x1.vhd
+l0
+L4 1
+Vm`DHo?U`^f5TR:fI[nUe`2
+!s100 0REf<O=DcgAaA7ba:aHR51
+R6
+32
+R34
+!i10b 1
+R35
+Z140 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Y.A/Desktop/Arch Project/architecture/Muxes/Mux5x1.vhd|
+Z141 !s107 C:/Users/Y.A/Desktop/Arch Project/architecture/Muxes/Mux5x1.vhd|
+!i113 1
+R11
+R12
+Amux5x1_design
+R1
+R2
+DEx4 work 6 mux5x1 0 22 m`DHo?U`^f5TR:fI[nUe`2
+!i122 19
+l14
+L13 20
+V=W=Oi354el?gEz?:E1C0n0
+!s100 ;H5QEalSMlzDYJK:Ed?K=0
+R6
+32
+R34
+!i10b 1
+R35
+R140
+R141
+!i113 1
+R11
+R12
+Emux_generic
+R0
+R1
+R2
+!i122 27
+R3
+Z142 8C:/Users/Y.A/Desktop/Arch Project/architecture/Sub Circuits/MUX.vhd
+Z143 FC:/Users/Y.A/Desktop/Arch Project/architecture/Sub Circuits/MUX.vhd
+l0
+L5 1
+VLmcodRc1G_Z@;<dEgNfY=0
+!s100 k;@CCHGGlk7=lU87Vd=fg3
+R6
+32
+R65
+!i10b 1
+R71
+Z144 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Y.A/Desktop/Arch Project/architecture/Sub Circuits/MUX.vhd|
+Z145 !s107 C:/Users/Y.A/Desktop/Arch Project/architecture/Sub Circuits/MUX.vhd|
+!i113 1
+R11
+R12
+Awith_select_mux
+R1
+R2
+Z146 DEx4 work 11 mux_generic 0 22 LmcodRc1G_Z@;<dEgNfY=0
+!i122 27
+l24
+L23 9
+VG>MhzTmn`BO9WFkI?[>0Z0
+!s100 lcThz1<f4Dcga]8f_b@RZ0
+R6
+32
+R65
+!i10b 1
+R71
+R144
+R145
+!i113 1
+R11
+R12
+Awhen_else_mux
+R1
+R2
+R146
+!i122 27
+l14
+R128
+VgXDfm4RZiN9fHb@a@Bh`R2
+!s100 HdL0;GXHfJddX;OIjf2Bc2
+R6
+32
+R65
+!i10b 1
+R71
+R144
+R145
+!i113 1
+R11
+R12
+Emy_adder
+R0
+R1
+R2
+!i122 28
+R3
+Z147 8C:/Users/Y.A/Desktop/Arch Project/architecture/Sub Circuits/my_adder.vhd
+Z148 FC:/Users/Y.A/Desktop/Arch Project/architecture/Sub Circuits/my_adder.vhd
+l0
+L5 1
+VD_zAZ>HDHY9l0F=SGW4VD1
+!s100 8zjHUkD;?cBUU>`ld:TQ^3
+R6
+32
+Z149 !s110 1716007087
+!i10b 1
+Z150 !s108 1716007087.000000
+Z151 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Y.A/Desktop/Arch Project/architecture/Sub Circuits/my_adder.vhd|
+Z152 !s107 C:/Users/Y.A/Desktop/Arch Project/architecture/Sub Circuits/my_adder.vhd|
+!i113 1
+R11
+R12
+Aa_my_adder
+R1
+R2
+DEx4 work 8 my_adder 0 22 D_zAZ>HDHY9l0F=SGW4VD1
+!i122 28
+l11
+L10 7
+Vz[n@zXdBAd[HRDThaOEYP1
+!s100 9RSh>8;SbJfNDaReeNCP13
+R6
+32
+R149
+!i10b 1
+R150
+R151
+R152
+!i113 1
+R11
+R12
+Emy_dff
+R0
+R1
+R2
+!i122 29
+R3
+Z153 8C:/Users/Y.A/Desktop/Arch Project/architecture/Sub Circuits/my_Dff.vhd
+Z154 FC:/Users/Y.A/Desktop/Arch Project/architecture/Sub Circuits/my_Dff.vhd
+l0
+L6 1
+VfaAS02_SFZX?j2ZOc=5XL2
+!s100 =fz;BKM_k7KfMB;NC[Oaz1
+R6
+32
+R149
+!i10b 1
+R150
+Z155 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Y.A/Desktop/Arch Project/architecture/Sub Circuits/my_Dff.vhd|
+Z156 !s107 C:/Users/Y.A/Desktop/Arch Project/architecture/Sub Circuits/my_Dff.vhd|
+!i113 1
+R11
+R12
+Aa_my_dff
+R1
+R2
+DEx4 work 6 my_dff 0 22 faAS02_SFZX?j2ZOc=5XL2
+!i122 29
+l12
+L11 11
+V7=8amSfZ^1UjOdO]LR_g80
+!s100 2U3MneJaX`YnD@?CoCANd1
+R6
+32
+R149
+!i10b 1
+R150
+R155
+R156
+!i113 1
+R11
+R12
+Emy_nadder
+R0
+R1
+R2
+!i122 30
+R3
+Z157 8C:/Users/Y.A/Desktop/Arch Project/architecture/Sub Circuits/my_nadder.vhd
+Z158 FC:/Users/Y.A/Desktop/Arch Project/architecture/Sub Circuits/my_nadder.vhd
+l0
+L6 1
+VHONcB5o9dSIXBUbnXBHJi1
+!s100 ^4;hSW9l>KY2O?kB4A]jU2
+R6
+32
+R149
+!i10b 1
+R150
+Z159 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Y.A/Desktop/Arch Project/architecture/Sub Circuits/my_nadder.vhd|
+Z160 !s107 C:/Users/Y.A/Desktop/Arch Project/architecture/Sub Circuits/my_nadder.vhd|
+!i113 1
+R11
+R12
+Aa_my_adder
+R1
+R2
+DEx4 work 9 my_nadder 0 22 HONcB5o9dSIXBUbnXBHJi1
+!i122 30
+l21
+L14 15
+V3bPP1bNRT^3PPiA7AKG;h2
+!s100 ;2PQUcd?EA4`lCSMAXQh12
+R6
+32
+R149
+!i10b 1
+R150
+R159
+R160
+!i113 1
+R11
+R12
+Emy_ndff
+R0
+R1
+R2
+!i122 31
+R3
+Z161 8C:/Users/Y.A/Desktop/Arch Project/architecture/Sub Circuits/my_nDff.vhd
+Z162 FC:/Users/Y.A/Desktop/Arch Project/architecture/Sub Circuits/my_nDff.vhd
+l0
+L5 1
+V`Q8dP?clFjPS^:nIPC38_0
+!s100 ?nZ9oMbSQDGQ1d@PP4dJg1
+R6
+32
+R149
+!i10b 1
+R150
+Z163 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Y.A/Desktop/Arch Project/architecture/Sub Circuits/my_nDff.vhd|
+Z164 !s107 C:/Users/Y.A/Desktop/Arch Project/architecture/Sub Circuits/my_nDff.vhd|
+!i113 1
+R11
+R12
+Ab_my_ndff
+R1
+R2
+DEx4 work 7 my_ndff 0 22 `Q8dP?clFjPS^:nIPC38_0
+!i122 31
+l17
+L12 11
+VKX7[oK>2KJN4RCbU`LG]Z3
+!s100 1bmU<Y[a86gNPlBI27b6a0
+R6
+32
+R149
+!i10b 1
+R150
+R163
+R164
+!i113 1
+R11
+R12
+Epc_value_decoder
+Z165 w1715900422
+R1
+R2
+!i122 5
+R3
+Z166 8C:/Users/Y.A/Desktop/Arch Project/architecture/Circuits/Fetch Circuits/pc_value_decoder.vhd
+Z167 FC:/Users/Y.A/Desktop/Arch Project/architecture/Circuits/Fetch Circuits/pc_value_decoder.vhd
+l0
+L4 1
+VL:0BVRMj[Q6zT`;FQgOLF2
+!s100 C0`V_`GDJRnB4]WZfb;iO0
+R6
+32
+R21
+!i10b 1
+R22
+Z168 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Y.A/Desktop/Arch Project/architecture/Circuits/Fetch Circuits/pc_value_decoder.vhd|
+Z169 !s107 C:/Users/Y.A/Desktop/Arch Project/architecture/Circuits/Fetch Circuits/pc_value_decoder.vhd|
+!i113 1
+R11
+R12
+Artl
+R1
+R2
+DEx4 work 16 pc_value_decoder 0 22 L:0BVRMj[Q6zT`;FQgOLF2
+!i122 5
+l15
+L14 12
+VC?zKSE38X4zz[:3bk<KI^0
+!s100 USISb`aUF]DEj@G;Rjg;P1
+R6
+32
+R21
+!i10b 1
+R22
+R168
+R169
+!i113 1
+R11
+R12
+Eprocessor_integration
+w1716008226
+R1
+R2
+!i122 58
+R3
+8C:/Users/Y.A/Desktop/Arch Project/architecture/Processor_Integration/Processor_Integration.vhd
+FC:/Users/Y.A/Desktop/Arch Project/architecture/Processor_Integration/Processor_Integration.vhd
+l0
+L4 1
+VI=bc2;71A>[gj@hG9C^LV2
+!s100 nG>98[k>77oaYK2HNVF@G0
+R6
+32
+!s110 1716008227
+!i10b 1
+!s108 1716008227.000000
+!s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Y.A/Desktop/Arch Project/architecture/Processor_Integration/Processor_Integration.vhd|
+!s107 C:/Users/Y.A/Desktop/Arch Project/architecture/Processor_Integration/Processor_Integration.vhd|
+!i113 1
+R11
+R12
+Eprogram_counter
+Z170 w1715900884
+R31
+R1
+R2
+!i122 6
+R3
+Z171 8C:/Users/Y.A/Desktop/Arch Project/architecture/Circuits/Fetch Circuits/Program_Counter.vhd
+Z172 FC:/Users/Y.A/Desktop/Arch Project/architecture/Circuits/Fetch Circuits/Program_Counter.vhd
+l0
+L5 1
+Vm78c<R3N`cRD0gU95g3i=1
+!s100 A5?gD:a16B<Im7zozXNUC3
+R6
+32
+R7
+!i10b 1
+R22
+Z173 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Y.A/Desktop/Arch Project/architecture/Circuits/Fetch Circuits/Program_Counter.vhd|
+Z174 !s107 C:/Users/Y.A/Desktop/Arch Project/architecture/Circuits/Fetch Circuits/Program_Counter.vhd|
+!i113 1
+R11
+R12
+Apc_arch
+R31
+R1
+R2
+DEx4 work 15 program_counter 0 22 m78c<R3N`cRD0gU95g3i=1
+!i122 6
+l15
+L13 14
+V<YME8?@Q=Mn?<1oobV]Hj0
+!s100 da]gHzSFhhcemWWVHM?Je3
+R6
+32
+R7
+!i10b 1
+R22
+R173
+R174
+!i113 1
+R11
+R12
+Eregister_file
+R0
+R31
+R1
+R2
+!i122 1
+R3
+Z175 8C:/Users/Y.A/Desktop/Arch Project/architecture/Circuits/Decode Circuits/RegisterFile.vhd
+Z176 FC:/Users/Y.A/Desktop/Arch Project/architecture/Circuits/Decode Circuits/RegisterFile.vhd
+l0
+L5 1
+VU5<5IG1bhY][MzeN7]GKO0
+!s100 6Ebb6J[=@glK=3WWnbnLU3
+R6
+32
+R21
+!i10b 1
+R22
+Z177 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Y.A/Desktop/Arch Project/architecture/Circuits/Decode Circuits/RegisterFile.vhd|
+Z178 !s107 C:/Users/Y.A/Desktop/Arch Project/architecture/Circuits/Decode Circuits/RegisterFile.vhd|
+!i113 1
+R11
+R12
+Abehavioral
+R31
+R1
+R2
+DEx4 work 13 register_file 0 22 U5<5IG1bhY][MzeN7]GKO0
+!i122 1
+l25
+L22 24
+V_`jl3KKG]B1KbhbS:G6`Q2
+!s100 `dG>ha^WNB0D]5SSh`=lG3
+R6
+32
+R21
+!i10b 1
+R22
+R177
+R178
+!i113 1
+R11
+R12
+Erti_operator
+Z179 w1715852423
+R31
+R1
+R2
+!i122 15
+R3
+Z180 8C:/Users/Y.A/Desktop/Arch Project/architecture/INT and RTI Operators/RTI_Operator.vhd
+Z181 FC:/Users/Y.A/Desktop/Arch Project/architecture/INT and RTI Operators/RTI_Operator.vhd
+l0
+L5 1
+Va::VGhBlQ:?ZLgh@?inG;2
+!s100 o_66FdmZSEVFgBAL30[_Z3
+R6
+32
+R34
+!i10b 1
+R35
+Z182 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Y.A/Desktop/Arch Project/architecture/INT and RTI Operators/RTI_Operator.vhd|
+Z183 !s107 C:/Users/Y.A/Desktop/Arch Project/architecture/INT and RTI Operators/RTI_Operator.vhd|
+!i113 1
+R11
+R12
+Arti_operator_design
+R31
+R1
+R2
+DEx4 work 12 rti_operator 0 22 a::VGhBlQ:?ZLgh@?inG;2
+!i122 15
+l24
+L22 56
+VYRK8Wa6=E6iWkR<POkdcY2
+!s100 Od_a;WQ8FT8Qnja>Ko5zH3
+R6
+32
+R34
+!i10b 1
+R35
+R182
+R183
+!i113 1
+R11
+R12
+Eselect_adder
+R0
+R1
+R2
+!i122 32
+R3
+Z184 8C:/Users/Y.A/Desktop/Arch Project/architecture/Sub Circuits/select_adder.vhd
+Z185 FC:/Users/Y.A/Desktop/Arch Project/architecture/Sub Circuits/select_adder.vhd
+l0
+L6 1
+V8`J^ZJlGW26gz2?XGcFU`1
+!s100 mPRlc[2>NBdYX9DjM_Y042
+R6
+32
+R149
+!i10b 1
+R150
+Z186 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Y.A/Desktop/Arch Project/architecture/Sub Circuits/select_adder.vhd|
+Z187 !s107 C:/Users/Y.A/Desktop/Arch Project/architecture/Sub Circuits/select_adder.vhd|
+!i113 1
+R11
+R12
+Aa_my_adder
+R1
+R2
+DEx4 work 12 select_adder 0 22 8`J^ZJlGW26gz2?XGcFU`1
+!i122 32
+l25
+L14 21
+VYVU]D84_nW=;b<I?Bd0bL1
+!s100 mffTld9eJLjSV_f]TTVYF0
+R6
+32
+R149
+!i10b 1
+R150
+R186
+R187
+!i113 1
+R11
+R12
+Esign_extend
+R0
+R1
+R2
+!i122 2
+R3
+Z188 8C:/Users/Y.A/Desktop/Arch Project/architecture/Circuits/Decode Circuits/Sign_Extend.vhd
+Z189 FC:/Users/Y.A/Desktop/Arch Project/architecture/Circuits/Decode Circuits/Sign_Extend.vhd
+l0
+L4 1
+V_5RX_e5V;`X6hcSf4B1VC2
+!s100 HLHeJ==PDL93425]^V@?91
+R6
+32
+R21
+!i10b 1
+R22
+Z190 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Y.A/Desktop/Arch Project/architecture/Circuits/Decode Circuits/Sign_Extend.vhd|
+Z191 !s107 C:/Users/Y.A/Desktop/Arch Project/architecture/Circuits/Decode Circuits/Sign_Extend.vhd|
+!i113 1
+R11
+R12
+Asign_extend_design
+R1
+R2
+DEx4 work 11 sign_extend 0 22 _5RX_e5V;`X6hcSf4B1VC2
+!i122 2
+l16
+L12 13
+VzG5VU>e6Ig^Ba`>4MmhXK3
+!s100 ]f;fI_DAje[4DVZlO^gh80
+R6
+32
+R21
+!i10b 1
+R22
+R190
+R191
+!i113 1
+R11
+R12
+Estack_pointer_circuit
+Z192 w1715292858
+R31
+R1
+R2
+!i122 13
+R3
+Z193 8C:/Users/Y.A/Desktop/Arch Project/architecture/Circuits/Stack_Pointer_Circuit.vhd
+Z194 FC:/Users/Y.A/Desktop/Arch Project/architecture/Circuits/Stack_Pointer_Circuit.vhd
+l0
+L5 1
+VganH>[:Kkjd3`AdiINi^>3
+!s100 1KW5z3[fgYAQIaPFd3K[a2
+R6
+32
+R7
+!i10b 1
+R8
+Z195 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Y.A/Desktop/Arch Project/architecture/Circuits/Stack_Pointer_Circuit.vhd|
+Z196 !s107 C:/Users/Y.A/Desktop/Arch Project/architecture/Circuits/Stack_Pointer_Circuit.vhd|
+!i113 1
+R11
+R12
+Astack_pointer_circuit_design
+R31
+R1
+R2
+DEx4 work 21 stack_pointer_circuit 0 22 ganH>[:Kkjd3`AdiINi^>3
+!i122 13
+l19
+L17 30
+VJL1oGiXZNmmH6jNM9LfUn0
+!s100 lIHk5oU7^_amBke^]1AX41
+R6
+32
+R7
+!i10b 1
+R8
+R195
+R196
+!i113 1
+R11
+R12
+Ewriteback_stage
+Z197 w1716007174
+R31
+R1
+R2
+!i122 36
+R3
+Z198 8C:/Users/Y.A/Desktop/Arch Project/architecture/Stages/WriteBack_Stage.vhd
+Z199 FC:/Users/Y.A/Desktop/Arch Project/architecture/Stages/WriteBack_Stage.vhd
+l0
+L5 1
+VCB5He9QeWGHg2Oo]:eBi80
+!s100 NU:Sg2UnGCFZfnffV6L]:3
+R6
+32
+Z200 !s110 1716007176
+!i10b 1
+Z201 !s108 1716007176.000000
+Z202 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Y.A/Desktop/Arch Project/architecture/Stages/WriteBack_Stage.vhd|
+Z203 !s107 C:/Users/Y.A/Desktop/Arch Project/architecture/Stages/WriteBack_Stage.vhd|
+!i113 1
+R11
+R12
+Awriteback_stage_design
+R31
+R1
+R2
+DEx4 work 15 writeback_stage 0 22 CB5He9QeWGHg2Oo]:eBi80
+!i122 36
+l64
+L44 50
+V2CORTcezLj]Ej>HfaUL8W0
+!s100 oYQzFenJS=FAE97Je0bmM1
+R6
+32
+R200
+!i10b 1
+R201
+R202
+R203
+!i113 1
+R11
+R12
