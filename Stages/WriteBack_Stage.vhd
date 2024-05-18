@@ -21,6 +21,7 @@ ENTITY WriteBack_Stage IS
         SWAP_Enable_IN : IN STD_LOGIC;
         WB_Selector_IN : IN STD_LOGIC_VECTOR(1 DOWNTO 0); -- 00 ALU Result,  01 Mem Result,   10 Imm Data, 11 Readport2 Data
         WRITE_Enable_IN : IN STD_LOGIC;
+        Memory_Read_IN : IN STD_LOGIC;
 
         ------ OUT:
 
@@ -33,7 +34,8 @@ ENTITY WriteBack_Stage IS
         Write_Add2_OUT : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
         -- Control:
         WRITE_Enable_OUT : OUT STD_LOGIC;
-        SWAP_Enable_OUT : OUT STD_LOGIC
+        SWAP_Enable_OUT : OUT STD_LOGIC;
+        Memory_Read_OUT : OUT STD_LOGIC;
 
     );
 
@@ -86,5 +88,6 @@ BEGIN
     Write_Add2_OUT <= Write_Add2_IN;
     WRITE_Enable_OUT <= WRITE_Enable_IN;
     SWAP_Enable_OUT <= SWAP_Enable_IN;
+    Memory_Read_OUT <= Memory_Read_IN;
 
 END ARCHITECTURE;

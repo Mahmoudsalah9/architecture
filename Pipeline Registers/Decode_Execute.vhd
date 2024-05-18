@@ -10,6 +10,7 @@ ENTITY Decode_Execute IS
         Rst : IN STD_LOGIC;
         STALL : IN STD_LOGIC;
         FLUSH : IN STD_LOGIC;
+        LoadUse_RST : IN STD_LOGIC;
 
         -- IN:
         PROTECT_IN : IN STD_LOGIC;
@@ -119,57 +120,56 @@ ARCHITECTURE Decode_Execute_Design OF Decode_Execute IS
 
 BEGIN
 
-    PROTECT_ff <= PROTECT_IN WHEN FLUSH = '0' ELSE
-        '0';
-    OUTPORT_Enable_ff <= OUTPORT_Enable_IN WHEN FLUSH = '0' ELSE
-        '0';
-    SWAP_Enable_ff <= SWAP_Enable_IN WHEN FLUSH = '0' ELSE
-        '0';
-    MEM_Add_Selec_ff <= MEM_Add_Selec_IN WHEN FLUSH = '0' ELSE
-        (OTHERS => '0');
-    WB_Selector_ff <= WB_Selector_IN WHEN FLUSH = '0' ELSE
-        (OTHERS => '0');
-    FREE_ff <= FREE_IN WHEN FLUSH = '0' ELSE
-        '0';
-    JUMP_ff <= JUMP_IN WHEN FLUSH = '0' ELSE
-        '0';
-    BRANCH_ZERO_ff <= BRANCH_ZERO_IN WHEN FLUSH = '0' ELSE
-        '0';
-    WRITE_Enable_ff <= WRITE_Enable_IN WHEN FLUSH = '0' ELSE
-        '0';
-    MEM_Write_ff <= MEM_Write_IN WHEN FLUSH = '0' ELSE
-        '0';
-    MEM_Read_ff <= MEM_Read_IN WHEN FLUSH = '0' ELSE
-        '0';
-    ALU_OP_ff <= ALU_OP_IN WHEN FLUSH = '0' ELSE
-        (OTHERS => '0');
-    CALL_Enable_ff <= CALL_Enable_IN WHEN FLUSH = '0' ELSE
-        '0';
-    INPORT_Enable_ff <= INPORT_Enable_IN WHEN FLUSH = '0' ELSE
-        '0';
-    ALU_SRC_ff <= ALU_SRC_IN WHEN FLUSH = '0' ELSE
-        '0';
-    CCR_Arithmetic_ff <= CCR_Arithmetic_IN WHEN FLUSH = '0' ELSE
-        (OTHERS => '0');
-    RET_Enable_ff <= RET_Enable_IN WHEN FLUSH = '0' ELSE
-        '0';
-    STACK_Operation_ff <= STACK_Operation_IN WHEN FLUSH = '0' ELSE
-        (OTHERS => '0');
-    Write_Add1_ff <= Write_Add1_IN WHEN FLUSH = '0' ELSE
-        (OTHERS => '0');
-    Write_Add2_R_Source2_ff <= Write_Add2_R_Source2_IN WHEN FLUSH = '0' ELSE
-        (OTHERS => '0');
-    Read_Port1_ff <= Read_Port1_IN WHEN FLUSH = '0' ELSE
-        (OTHERS => '0');
-    Read_Port2_ff <= Read_Port2_IN WHEN FLUSH = '0' ELSE
-        (OTHERS => '0');
-    Immediate_Data_Extended_ff <= Immediate_Data_Extended_IN WHEN FLUSH = '0' ELSE
-        (OTHERS => '0');
-    R_Source1_ff <= R_Source1_IN WHEN FLUSH = '0' ELSE
-        (OTHERS => '0');
-    PCVALUE_ff <= PCVALUE_IN WHEN FLUSH = '0' ELSE
-        (OTHERS => '0');
-
+    PROTECT_ff <= '0' WHEN FLUSH = '1' OR LoadUse_RST = '1' ELSE
+        PROTECT_IN;
+    OUTPORT_Enable_ff <= '0' WHEN FLUSH = '1' OR LoadUse_RST = '1' ELSE
+        OUTPORT_Enable_IN;
+    SWAP_Enable_ff <= '0' WHEN FLUSH = '1' OR LoadUse_RST = '1' ELSE
+        SWAP_Enable_IN;
+    MEM_Add_Selec_ff <= (OTHERS => '0') WHEN FLUSH = '1' OR LoadUse_RST = '1' ELSE
+        MEM_Add_Selec_IN;
+    WB_Selector_ff <= (OTHERS => '0') WHEN FLUSH = '1' OR LoadUse_RST = '1' ELSE
+        WB_Selector_IN;
+    FREE_ff <= '0' WHEN FLUSH = '1' OR LoadUse_RST = '1' ELSE
+        FREE_IN;
+    JUMP_ff <= '0' WHEN FLUSH = '1' OR LoadUse_RST = '1' ELSE
+        JUMP_IN;
+    BRANCH_ZERO_ff <= '0' WHEN FLUSH = '1' OR LoadUse_RST = '1' ELSE
+        BRANCH_ZERO_IN;
+    WRITE_Enable_ff <= '0' WHEN FLUSH = '1' OR LoadUse_RST = '1' ELSE
+        WRITE_Enable_IN;
+    MEM_Write_ff <= '0' WHEN FLUSH = '1' OR LoadUse_RST = '1' ELSE
+        MEM_Write_IN;
+    MEM_Read_ff <= '0' WHEN FLUSH = '1' OR LoadUse_RST = '1' ELSE
+        MEM_Read_IN;
+    ALU_OP_ff <= (OTHERS => '0') WHEN FLUSH = '1' OR LoadUse_RST = '1' ELSE
+        ALU_OP_IN;
+    CALL_Enable_ff <= '0' WHEN FLUSH = '1' OR LoadUse_RST = '1' ELSE
+        CALL_Enable_IN;
+    INPORT_Enable_ff <= '0' WHEN FLUSH = '1' OR LoadUse_RST = '1' ELSE
+        INPORT_Enable_IN;
+    ALU_SRC_ff <= '0' WHEN FLUSH = '1' OR LoadUse_RST = '1' ELSE
+        ALU_SRC_IN;
+    CCR_Arithmetic_ff <= (OTHERS => '0') WHEN FLUSH = '1' OR LoadUse_RST = '1' ELSE
+        CCR_Arithmetic_IN;
+    RET_Enable_ff <= '0' WHEN FLUSH = '1' OR LoadUse_RST = '1' ELSE
+        RET_Enable_IN;
+    STACK_Operation_ff <= (OTHERS => '0') WHEN FLUSH = '1' OR LoadUse_RST = '1' ELSE
+        STACK_Operation_IN;
+    Write_Add1_ff <= (OTHERS => '0') WHEN FLUSH = '1' OR LoadUse_RST = '1' ELSE
+        Write_Add1_IN;
+    Write_Add2_R_Source2_ff <= (OTHERS => '0') WHEN FLUSH = '1' OR LoadUse_RST = '1' ELSE
+        Write_Add2_R_Source2_IN;
+    Read_Port1_ff <= (OTHERS => '0') WHEN FLUSH = '1' OR LoadUse_RST = '1' ELSE
+        Read_Port1_IN;
+    Read_Port2_ff <= (OTHERS => '0') WHEN FLUSH = '1' OR LoadUse_RST = '1' ELSE
+        Read_Port2_IN;
+    Immediate_Data_Extended_ff <= (OTHERS => '0') WHEN FLUSH = '1' OR LoadUse_RST = '1' ELSE
+        Immediate_Data_Extended_IN;
+    R_Source1_ff <= (OTHERS => '0') WHEN FLUSH = '1' OR LoadUse_RST = '1' ELSE
+        R_Source1_IN;
+    PCVALUE_ff <= (OTHERS => '0') WHEN FLUSH = '1' OR LoadUse_RST = '1' ELSE
+        PCVALUE_IN;
     ENABLE_Final <= '0' WHEN STALL = '1' ELSE
         '1';
 
