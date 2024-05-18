@@ -20,6 +20,7 @@ ENTITY Memory_WriteBack IS
         out_enable_memory : IN STD_LOGIC;
         swap_enable_memory : IN STD_LOGIC;
         Write_Data2_in : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+        MEM_read_in : : IN STD_LOGIC;
 
         result_mem_out : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
         read_port2_memory_out : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
@@ -31,7 +32,8 @@ ENTITY Memory_WriteBack IS
         wb_selector_memory_out : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
         write_enable_memory_Out : OUT STD_LOGIC;
         out_enable_memory_Out : OUT STD_LOGIC;
-        swap_enable_memory_Out : OUT STD_LOGIC
+        swap_enable_memory_Out : OUT STD_LOGIC;
+        MEM_read_out : : OUT STD_LOGIC
 
     );
 END ENTITY;
@@ -65,6 +67,7 @@ BEGIN
             out_enable_memory_Out <= out_enable_memory;
             swap_enable_memory_Out <= swap_enable_memory;
             Write_Data2_Out <= Write_Data2_In;
+            MEM_read_out<=MEM_read_in;
 
         END IF;
     END PROCESS;
