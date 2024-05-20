@@ -5,9 +5,8 @@ ENTITY Processor_Integration IS
     PORT (
 
         Clk : IN STD_LOGIC;
-        Rst : IN STD_LOGIC;
-
         RESET : IN STD_LOGIC;
+
         INTERUPT : IN STD_LOGIC;
         In_Port : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
         Out_Port : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
@@ -23,12 +22,11 @@ ARCHITECTURE Processor_Integration_Design OF Processor_Integration IS
         PORT (
 
             Clk : IN STD_LOGIC;
-            Rst : IN STD_LOGIC;
+            RESET : IN STD_LOGIC;
 
             --in:
             UPDATE_PC_RTI : IN STD_LOGIC;
             UPDATE_PC_INT : IN STD_LOGIC;
-            RESET : IN STD_LOGIC;
             JMP_EN : IN STD_LOGIC;
             RET_EN : IN STD_LOGIC;
             Zero_Flag : IN STD_LOGIC;
@@ -729,10 +727,9 @@ BEGIN
     Fetch_Stage_Instance : Fetch_Stage
     PORT MAP(
         Clk => Clk,
-        Rst => Rst,
+        RESET => RESET,
         UPDATE_PC_RTI => RTI_PC_UPDATE_RTI,
         UPDATE_PC_INT => UPDATE_PC_INT_INTERUPT,
-        RESET => RESET,
         JMP_EN => JMP_Enable_MEMORY,
         RET_EN => Ret_Enable_MEMORY,
         Zero_Flag => Zero_Flag_EXECUTE,
@@ -753,7 +750,7 @@ BEGIN
     Decode_Stage_Instance : Decode_Stage
     PORT MAP(
         Clk => Clk,
-        Rst => Rst,
+        Rst => RESET,
         Instruction => Instruction_FD,
         Immediate_Data_IN => Data_FD,
         Write_Add1_WB => Write_Add1_WB,
@@ -796,7 +793,7 @@ BEGIN
     Execute_Stage_Instance : Execute_Stage
     PORT MAP(
         Clk => Clk,
-        Rst => Rst,
+        Rst => RESET,
 
         JMP_Enable_IN => JUMP_DE,
         Branch_ZERO_IN => BRANCH_ZERO_DE,
@@ -869,7 +866,7 @@ BEGIN
     Execute_Memory_Instance : Execute_Memory
     PORT MAP(
         clk => Clk,
-        Rst => Rst,
+        Rst => RESET,
         -- Inputs:
         Protect_IN => Protect_EXECUTE,
         Out_Enable_IN => Out_Enable_EXECUTE,
@@ -941,7 +938,7 @@ BEGIN
     Fetch_Decode_Instance : Fetch_Decode
     PORT MAP(
         clk => Clk,
-        Rst => Rst,
+        Rst => RESET,
         flush => FLUSH_DE,
         stall => STALL_Hazard,
         Instruction_IN => Instruction_Fetch,
@@ -956,7 +953,7 @@ BEGIN
     Decode_Execute_Instance : Decode_Execute
     PORT MAP(
         Clk => Clk,
-        Rst => Rst,
+        Rst => RESET,
         STALL => STALL_Hazard,
         FLUSH => FLUSH_DE,
         FLUSH_IN => FLUSH_DECODE,
@@ -1018,7 +1015,7 @@ BEGIN
     Memory_Stage_Instance : Memory_Stage
     PORT MAP(
         CLK => CLK,
-        RST => RST,
+        RST => RESET,
         Protect => Protect_EM,
         OutPort_Enable_in => Out_Enable_EM,
         Swap_Enable_in => Swap_Enable_EM,
@@ -1066,7 +1063,7 @@ BEGIN
     PORT MAP(
 
         clk => Clk,
-        reset => Rst,
+        reset => RESET,
         result_mem => Result_Mem_MEMORY,
         read_port2_memory => Read_port2_data_MEMORY,
         result_alu_memory => Alu_result_MEMORY,
@@ -1098,7 +1095,7 @@ BEGIN
     INT_Operator_Instance : INT_Operator
     PORT MAP(
         Clk => Clk,
-        Rst => Rst,
+        Rst => RESET,
         INT => INTERUPT,
         JUMP_EN => JMP_Enable_EXECUTE,
         CALL_EN => Call_Enable_EXECUTE,
@@ -1119,7 +1116,7 @@ BEGIN
     RTI_Operator_Instance : RTI_Operator
     PORT MAP(
         Clk => Clk,
-        Rst => Rst,
+        Rst => RESET,
         RTI_BEGIN => RTI_Begin_DECODE,
         Stack_Operation_RTI => Stack_Operation_RTI_RTI,
         RTI_PC_UPDATE => RTI_PC_UPDATE_RTI,

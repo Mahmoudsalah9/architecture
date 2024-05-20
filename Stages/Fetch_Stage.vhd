@@ -5,12 +5,11 @@ ENTITY Fetch_Stage IS
     PORT (
 
         Clk : IN STD_LOGIC;
-        Rst : IN STD_LOGIC;
+        RESET : IN STD_LOGIC;
 
         --in:
         UPDATE_PC_RTI : IN STD_LOGIC;
         UPDATE_PC_INT : IN STD_LOGIC;
-        RESET : IN STD_LOGIC;
         JMP_EN : IN STD_LOGIC;
         RET_EN : IN STD_LOGIC;
         Zero_Flag : IN STD_LOGIC;
@@ -48,7 +47,7 @@ ARCHITECTURE Fetch_Stage_Design OF Fetch_Stage IS
 
     COMPONENT Instruction_Memory IS
         PORT (
-            CLK : IN STD_LOGIC;
+            CLK, Rst : IN STD_LOGIC;
             address : IN STD_LOGIC_VECTOR(11 DOWNTO 0);
             data : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
             M10 : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
@@ -67,7 +66,7 @@ ARCHITECTURE Fetch_Stage_Design OF Fetch_Stage IS
 
     COMPONENT Program_Counter IS
         PORT (
-            clk, rst : IN STD_LOGIC;
+            clk : IN STD_LOGIC;
             pc_adress_in : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
             pc_address : OUT STD_LOGIC_VECTOR(11 DOWNTO 0)
         );
@@ -128,6 +127,7 @@ BEGIN
     PORT MAP(
 
         CLK => Clk,
+        Rst => RESET,
         address => PC_Address,
         data => Data_OUT,
         M10 => M10_WIRE,
@@ -168,7 +168,6 @@ BEGIN
     Program_Counter_Instance : Program_Counter
     PORT MAP(
         clk => Clk,
-        rst => Rst,
         pc_adress_in => PC_INPUT,
         pc_address => PC_Address
     );

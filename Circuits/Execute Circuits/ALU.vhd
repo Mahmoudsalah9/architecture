@@ -41,7 +41,7 @@ BEGIN
 
     inc_comp : my_nadder GENERIC MAP(N) PORT MAP(reg1_in, (OTHERS => '0'), '1', inc_out, cinc_out);
     dec_comp : my_nadder GENERIC MAP(N) PORT MAP(reg1_in, (OTHERS => '1'), '0', dec_out, cdec_out);
-    add_comp : my_nadder GENERIC MAP(N) PORT MAP(reg1_in, reg2_in, '0', add_out, cadd_out);
+    w : my_nadder GENERIC MAP(N) PORT MAP(reg1_in, reg2_in, '0', add_out, cadd_out);
     sub_comp : my_nadder GENERIC MAP(N) PORT MAP(reg1_in, notreg2_in, '1', sub_out, csub_out);
     neg_comp : my_nadder GENERIC MAP(N) PORT MAP(notreg1_in, (OTHERS => '0'), '1', neg_out, cneg_out);
 

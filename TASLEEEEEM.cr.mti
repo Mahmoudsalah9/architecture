@@ -1,12 +1,4 @@
-{C:/Users/Y.A/Desktop/Arch Project/architecture/Processor_Integration/Processor_Integration.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Y.A/Desktop/Arch Project/architecture/Processor_Integration/Processor_Integration.vhd}
-Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Compiling entity Processor_Integration
--- Compiling architecture Processor_Integration_Design of Processor_Integration
-
-} {} {}} {C:/Users/Y.A/Desktop/Arch Project/architecture/Circuits/Stack_Pointer_Circuit.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Y.A/Desktop/Arch Project/architecture/Circuits/Stack_Pointer_Circuit.vhd}
+{C:/Users/Y.A/Desktop/Arch Project/architecture/Circuits/Execute Circuits/Stack_Pointer_Circuit.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Y.A/Desktop/Arch Project/architecture/Circuits/Execute Circuits/Stack_Pointer_Circuit.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -14,15 +6,6 @@ Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 
 -- Loading package NUMERIC_STD
 -- Compiling entity Stack_Pointer_Circuit
 -- Compiling architecture Stack_Pointer_Circuit_Design of Stack_Pointer_Circuit
-
-} {} {}} {C:/Users/Y.A/Desktop/Arch Project/architecture/Circuits/Memory.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Y.A/Desktop/Arch Project/architecture/Circuits/Memory.vhd}
-Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package NUMERIC_STD
--- Compiling entity Memory
--- Compiling architecture sync_Memory of Memory
 
 } {} {}} {C:/Users/Y.A/Desktop/Arch Project/architecture/Circuits/Fetch Circuits/Instruction_Memory.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Y.A/Desktop/Arch Project/architecture/Circuits/Fetch Circuits/Instruction_Memory.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
@@ -59,14 +42,13 @@ Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 
 -- Compiling entity INT_Operator
 -- Compiling architecture INT_Operator_Design of INT_Operator
 
-} {} {}} {C:/Users/Y.A/Desktop/Arch Project/architecture/Circuits/InstructionFetch.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Y.A/Desktop/Arch Project/architecture/Circuits/InstructionFetch.vhd}
+} {} {}} {C:/Users/Y.A/Desktop/Arch Project/architecture/Sub Circuits/my_nDff.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Y.A/Desktop/Arch Project/architecture/Sub Circuits/my_nDff.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
--- Loading package NUMERIC_STD
--- Compiling entity InstructionFetch
--- Compiling architecture Behavioral of InstructionFetch
+-- Compiling entity my_nDFF
+-- Compiling architecture b_my_nDFF of my_nDFF
 
 } {} {}} {C:/Users/Y.A/Desktop/Arch Project/architecture/Stages/Memory_stage.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Y.A/Desktop/Arch Project/architecture/Stages/Memory_stage.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
@@ -76,14 +58,6 @@ Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 
 -- Loading package NUMERIC_STD
 -- Compiling entity Memory_Stage
 -- Compiling architecture Memory_Stage_Deisgn of Memory_Stage
-
-} {} {}} {C:/Users/Y.A/Desktop/Arch Project/architecture/Sub Circuits/my_nDff.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Y.A/Desktop/Arch Project/architecture/Sub Circuits/my_nDff.vhd}
-Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Compiling entity my_nDFF
--- Compiling architecture b_my_nDFF of my_nDFF
 
 } {} {}} {C:/Users/Y.A/Desktop/Arch Project/architecture/Pipeline Registers/Fetch_Decode.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Y.A/Desktop/Arch Project/architecture/Pipeline Registers/Fetch_Decode.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
@@ -102,13 +76,29 @@ Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 
 -- Compiling entity Mux2x1_standard
 -- Compiling architecture Mux2x1_Design of Mux2x1_standard
 
-} {} {}} {C:/Users/Y.A/Desktop/Arch Project/architecture/Circuits/CCR_Reg.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Y.A/Desktop/Arch Project/architecture/Circuits/CCR_Reg.vhd}
+} {} {}} {C:/Users/Y.A/Desktop/Arch Project/architecture/Circuits/Execute Circuits/CCR_Reg.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Y.A/Desktop/Arch Project/architecture/Circuits/Execute Circuits/CCR_Reg.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
 -- Compiling entity CCR_Reg
 -- Compiling architecture CCR_Reg_Design of CCR_Reg
+
+} {} {}} {C:/Users/Y.A/Desktop/Arch Project/architecture/Sub Circuits/FLIPFLOP1BIT.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Y.A/Desktop/Arch Project/architecture/Sub Circuits/FLIPFLOP1BIT.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity FLIPFLOP1BIT
+-- Compiling architecture FLIPFLOP1BIT_Design of FLIPFLOP1BIT
+
+} {} {}} {C:/Users/Y.A/Desktop/Arch Project/architecture/Sub Circuits/FLIPFLOP.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Y.A/Desktop/Arch Project/architecture/Sub Circuits/FLIPFLOP.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity FLIPFLOP
+-- Compiling architecture FLIPFLOP_Design of FLIPFLOP
 
 } {} {}} {C:/Users/Y.A/Desktop/Arch Project/architecture/Circuits/Decode Circuits/RegisterFile.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Y.A/Desktop/Arch Project/architecture/Circuits/Decode Circuits/RegisterFile.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
@@ -119,21 +109,13 @@ Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 
 -- Compiling entity Register_File
 -- Compiling architecture Behavioral of Register_File
 
-} {} {}} {C:/Users/Y.A/Desktop/Arch Project/architecture/Sub Circuits/FLIPFLOP.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Y.A/Desktop/Arch Project/architecture/Sub Circuits/FLIPFLOP.vhd}
+} {} {}} {C:/Users/Y.A/Desktop/Arch Project/architecture/Sub Circuits/my_adder.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Y.A/Desktop/Arch Project/architecture/Sub Circuits/my_adder.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
--- Compiling entity FLIPFLOP
--- Compiling architecture FLIPFLOP_Design of FLIPFLOP
-
-} {} {}} {C:/Users/Y.A/Desktop/Arch Project/architecture/Sub Circuits/FLIPFLOP1BIT.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Y.A/Desktop/Arch Project/architecture/Sub Circuits/FLIPFLOP1BIT.vhd}
-Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Compiling entity FLIPFLOP1BIT
--- Compiling architecture FLIPFLOP1BIT_Design of FLIPFLOP1BIT
+-- Compiling entity my_adder
+-- Compiling architecture a_my_adder of my_adder
 
 } {} {}} {C:/Users/Y.A/Desktop/Arch Project/architecture/Circuits/Decode Circuits/Contol_Unit.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Y.A/Desktop/Arch Project/architecture/Circuits/Decode Circuits/Contol_Unit.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
@@ -142,14 +124,6 @@ Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 
 -- Loading package std_logic_1164
 -- Compiling entity Control_Unit
 -- Compiling architecture Control_Unit_Design of Control_Unit
-
-} {} {}} {C:/Users/Y.A/Desktop/Arch Project/architecture/Sub Circuits/my_adder.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Y.A/Desktop/Arch Project/architecture/Sub Circuits/my_adder.vhd}
-Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Compiling entity my_adder
--- Compiling architecture a_my_adder of my_adder
 
 } {} {}} {C:/Users/Y.A/Desktop/Arch Project/architecture/Stages/WriteBack_Stage.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Y.A/Desktop/Arch Project/architecture/Stages/WriteBack_Stage.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
@@ -160,6 +134,14 @@ Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 
 -- Compiling entity WriteBack_Stage
 -- Compiling architecture WriteBack_Stage_Design of WriteBack_Stage
 
+} {} {}} {C:/Users/Y.A/Desktop/Arch Project/architecture/Stages/Decode_Stage.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Y.A/Desktop/Arch Project/architecture/Stages/Decode_Stage.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity Decode_Stage
+-- Compiling architecture Decode_Stage_Design of Decode_Stage
+
 } {} {}} {C:/Users/Y.A/Desktop/Arch Project/architecture/INT and RTI Operators/RTI_Operator.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Y.A/Desktop/Arch Project/architecture/INT and RTI Operators/RTI_Operator.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
 -- Loading package STANDARD
@@ -169,13 +151,21 @@ Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 
 -- Compiling entity RTI_Operator
 -- Compiling architecture RTI_Operator_Design of RTI_Operator
 
-} {} {}} {C:/Users/Y.A/Desktop/Arch Project/architecture/Stages/Decode_Stage.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Y.A/Desktop/Arch Project/architecture/Stages/Decode_Stage.vhd}
+} {} {}} {C:/Users/Y.A/Desktop/Arch Project/architecture/Sub Circuits/select_adder.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Y.A/Desktop/Arch Project/architecture/Sub Circuits/select_adder.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
--- Compiling entity Decode_Stage
--- Compiling architecture Decode_Stage_Design of Decode_Stage
+-- Compiling entity select_adder
+-- Compiling architecture a_my_adder of select_adder
+
+} {} {}} {C:/Users/Y.A/Desktop/Arch Project/architecture/Muxes/Mux2x1.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Y.A/Desktop/Arch Project/architecture/Muxes/Mux2x1.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity Mux2x1
+-- Compiling architecture Mux2x1_Design of Mux2x1
 
 } {} {}} {C:/Users/Y.A/Desktop/Arch Project/architecture/Circuits/Fetch Circuits/Data_Control.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Y.A/Desktop/Arch Project/architecture/Circuits/Fetch Circuits/Data_Control.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
@@ -192,22 +182,6 @@ Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 
 -- Loading package std_logic_1164
 -- Compiling entity Sign_Extend
 -- Compiling architecture Sign_Extend_Design of Sign_Extend
-
-} {} {}} {C:/Users/Y.A/Desktop/Arch Project/architecture/Muxes/Mux2x1.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Y.A/Desktop/Arch Project/architecture/Muxes/Mux2x1.vhd}
-Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Compiling entity Mux2x1
--- Compiling architecture Mux2x1_Design of Mux2x1
-
-} {} {}} {C:/Users/Y.A/Desktop/Arch Project/architecture/Sub Circuits/select_adder.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Y.A/Desktop/Arch Project/architecture/Sub Circuits/select_adder.vhd}
-Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Compiling entity select_adder
--- Compiling architecture a_my_adder of select_adder
 
 } {} {}} {C:/Users/Y.A/Desktop/Arch Project/architecture/Circuits/Hazard_DU.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Y.A/Desktop/Arch Project/architecture/Circuits/Hazard_DU.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
@@ -227,7 +201,7 @@ Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 
 -- Compiling entity Forwarding_Unit
 -- Compiling architecture Forwarding_Unit_Design of Forwarding_Unit
 
-} {} {}} {C:/Users/Y.A/Desktop/Arch Project/architecture/Circuits/ALU.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Y.A/Desktop/Arch Project/architecture/Circuits/ALU.vhd}
+} {} {}} {C:/Users/Y.A/Desktop/Arch Project/architecture/Circuits/Execute Circuits/ALU.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Y.A/Desktop/Arch Project/architecture/Circuits/Execute Circuits/ALU.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -235,15 +209,7 @@ Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 
 -- Compiling entity ALU
 -- Compiling architecture myModel of ALU
 
-} {} {}} {C:/Users/Y.A/Desktop/Arch Project/architecture/Muxes/Mux4x1.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Y.A/Desktop/Arch Project/architecture/Muxes/Mux4x1.vhd}
-Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Compiling entity Mux4x1
--- Compiling architecture Mux4x1_Design of Mux4x1
-
-} {} {}} {C:/Users/Y.A/Desktop/Arch Project/architecture/Pipeline Registers/Execute_Memory.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Y.A/Desktop/Arch Project/architecture/Pipeline Registers/Execute_Memory.vhd}
+} {} {}} {C:/Users/Y.A/Desktop/Arch Project/architecture/Pipeline Registers/Execute_Memory.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:\Users\Y.A\Desktop\Arch Project\architecture\Pipeline Registers\Execute_Memory.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
 -- Loading package STANDARD
 -- Loading package TEXTIO
@@ -252,13 +218,13 @@ Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 
 -- Compiling entity Execute_Memory
 -- Compiling architecture Execute_Memory_Design of Execute_Memory
 
-} {} {}} {C:/Users/Y.A/Desktop/Arch Project/architecture/Muxes/Mux5x1.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Y.A/Desktop/Arch Project/architecture/Muxes/Mux5x1.vhd}
+} {} {}} {C:/Users/Y.A/Desktop/Arch Project/architecture/Muxes/Mux4x1.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Y.A/Desktop/Arch Project/architecture/Muxes/Mux4x1.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
--- Compiling entity Mux5x1
--- Compiling architecture Mux5x1_Design of Mux5x1
+-- Compiling entity Mux4x1
+-- Compiling architecture Mux4x1_Design of Mux4x1
 
 } {} {}} {C:/Users/Y.A/Desktop/Arch Project/architecture/Sub Circuits/MUX.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Y.A/Desktop/Arch Project/architecture/Sub Circuits/MUX.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
@@ -270,6 +236,14 @@ Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 
 -- Compiling architecture with_select_mux of mux_generic
 -- Loading entity mux_generic
 
+} {} {}} {C:/Users/Y.A/Desktop/Arch Project/architecture/Muxes/Mux5x1.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Y.A/Desktop/Arch Project/architecture/Muxes/Mux5x1.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity Mux5x1
+-- Compiling architecture Mux5x1_Design of Mux5x1
+
 } {} {}} {C:/Users/Y.A/Desktop/Arch Project/architecture/Sub Circuits/my_nadder.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Y.A/Desktop/Arch Project/architecture/Sub Circuits/my_nadder.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
 -- Loading package STANDARD
@@ -277,15 +251,6 @@ Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 
 -- Loading package std_logic_1164
 -- Compiling entity my_nadder
 -- Compiling architecture a_my_adder of my_nadder
-
-} {} {}} {C:/Users/Y.A/Desktop/Arch Project/architecture/Circuits/Fetch Circuits/Program_Counter.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Y.A/Desktop/Arch Project/architecture/Circuits/Fetch Circuits/Program_Counter.vhd}
-Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package NUMERIC_STD
--- Compiling entity Program_Counter
--- Compiling architecture PC_arch of Program_Counter
 
 } {} {}} {C:/Users/Y.A/Desktop/Arch Project/architecture/Stages/Fetch_Stage.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Y.A/Desktop/Arch Project/architecture/Stages/Fetch_Stage.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
@@ -304,6 +269,14 @@ Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 
 -- Compiling entity Decode_Execute
 -- Compiling architecture Decode_Execute_Design of Decode_Execute
 
+} {} {}} {C:/Users/Y.A/Desktop/Arch Project/architecture/Circuits/Fetch Circuits/Program_Counter.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Y.A/Desktop/Arch Project/architecture/Stages/Fetch_Stage.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity Fetch_Stage
+-- Compiling architecture Fetch_Stage_Design of Fetch_Stage
+
 } {} {}} {C:/Users/Y.A/Desktop/Arch Project/architecture/Stages/Execute_Stage.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Y.A/Desktop/Arch Project/architecture/Stages/Execute_Stage.vhd}
 Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
 -- Loading package STANDARD
@@ -320,5 +293,14 @@ Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 
 -- Loading package std_logic_1164
 -- Compiling entity my_DFF
 -- Compiling architecture a_my_DFF of my_DFF
+
+} {} {}} {C:/Users/Y.A/Desktop/Arch Project/architecture/Circuits/Memory Circuits/Memory.vhd} {1 {vcom -work work -2002 -explicit -stats=none {C:/Users/Y.A/Desktop/Arch Project/architecture/Circuits/Memory Circuits/Memory.vhd}
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity Memory
+-- Compiling architecture sync_Memory of Memory
 
 } {} {}}

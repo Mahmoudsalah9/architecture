@@ -148,7 +148,9 @@ ARCHITECTURE Execute_Stage_Design OF Execute_Stage IS
     SIGNAL SP_Wire : STD_LOGIC_VECTOR(11 DOWNTO 0);
     SIGNAL Flags_Wire_FromALU : STD_LOGIC_VECTOR(3 DOWNTO 0);
     SIGNAL Flags_Wire_IntoCCR : STD_LOGIC_VECTOR(3 DOWNTO 0);
-    Signal CCR_O_WIRE : STD_LOGIC_VECTOR(3 DOWNTO 0);
+    SIGNAL CCR_O_WIRE : STD_LOGIC_VECTOR(3 DOWNTO 0);
+
+    SIGNAL test_RP1 : STD_LOGIC_VECTOR(31 DOWNTO 0);
 
 BEGIN
 
@@ -247,6 +249,7 @@ BEGIN
     SP_OUT_Normal <= SP_Wire;
 
     Branch_ZERO_OUT <= Branch_ZERO_In;
+    JMP_Enable_OUT <= JMP_Enable_IN;
     Protect_OUT <= Protect_In;
     Out_Enable_OUT <= Out_Enable_IN;
     Swap_Enable_OUT <= Swap_Enable_IN;
@@ -263,6 +266,8 @@ BEGIN
     WriteAdd2_OUT <= WriteAdd2_IN;
     PC_Value_OUT <= PC_Value_In;
 
+    Read_Port2_Data_OUT <= ReadPort2_Data;
+
     Forwarded_ReadADD1 <= R_Source1_IN;
     Forwarded_ReadADD2 <= WriteAdd2_IN;
 
@@ -270,7 +275,9 @@ BEGIN
     JMPZ_DEST <= Forward_MUX_OUTPUT1;
 
     CCR_Out <= CCR_O_WIRE;
-    Zero_Flag_OUT <= CCR_O_WIRE(0); 
-    OP1_to_INT<=Forward_MUX_OUTPUT1;
+    Zero_Flag_OUT <= CCR_O_WIRE(0);
+    OP1_to_INT <= Forward_MUX_OUTPUT1;
+
+    test_RP1 <= ReadPort1_Data;
 
 END ARCHITECTURE;
