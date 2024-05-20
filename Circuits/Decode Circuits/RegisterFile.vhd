@@ -27,7 +27,7 @@ BEGIN
     BEGIN
         IF rst = '1' THEN
             registers <= (OTHERS => (OTHERS => '0'));
-        ELSIF rising_edge(clk) THEN
+        ELSIF falling_edge(clk) THEN
 
             IF write_enable1 = '1' THEN
                 registers(to_integer(unsigned(write_address1))) <= write_data1;

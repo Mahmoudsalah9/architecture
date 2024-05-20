@@ -61,6 +61,7 @@ BEGIN
         add_out WHEN opcode_in = "01111" ELSE
         sub_out WHEN opcode_in = "10000" ELSE
         reg2_in WHEN opcode_in = "10001" ELSE
+        reg1_in WHEN opcode_in = "00000" ELSE
         x"00000000";
 
     Write_Data_2 <= Temp WHEN opcode_in = "10001" ELSE
@@ -120,5 +121,5 @@ BEGIN
     flag_reg_out(2) <= carry_flag_out;--i want to check for the condition for the subtract for the carry 
     flag_reg_out(1) <= neg_flag_out;
     flag_reg_out(0) <= zero_flag_out;
-    
+
 END ARCHITECTURE;
